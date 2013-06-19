@@ -1,5 +1,6 @@
 package blfngl.skyrim.inventory;
 
+import blfngl.skyrim.handler.RecipesSmelter;
 import blfngl.skyrim.tileentity.TileEntitySmelter;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;

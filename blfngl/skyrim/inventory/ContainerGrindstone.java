@@ -6,6 +6,7 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import blfngl.skyrim.handler.RecipesSmelter;
 import blfngl.skyrim.tileentity.TileEntityGrindstone;
 import blfngl.skyrim.tileentity.TileEntitySmelter;
 import cpw.mods.fml.relauncher.Side;

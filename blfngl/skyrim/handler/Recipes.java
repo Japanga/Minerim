@@ -1,9 +1,16 @@
 package blfngl.skyrim.handler;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockOre;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import blfngl.skyrim.Skyrim;
+import blfngl.skyrim.block.BlockBase;
+import blfngl.skyrim.item.BaseArmor;
+import blfngl.skyrim.item.BaseItem;
+import blfngl.skyrim.item.BasePick;
+import blfngl.skyrim.item.BaseSword;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class Recipes extends Skyrim
@@ -105,5 +112,34 @@ public class Recipes extends Skyrim
 		GameRegistry.addShapelessRecipe(new ItemStack(warAxeNordic), new Object [] {ingotSteel, ingotSteel, leatherStrips, leatherStrips, ingotQuicksilver});
 		GameRegistry.addShapelessRecipe(new ItemStack(battleAxeNordic), new Object [] {ingotSteel, ingotSteel, ingotSteel, ingotSteel, ingotSteel, leatherStrips, leatherStrips, ingotQuicksilver});
 		GameRegistry.addShapelessRecipe(new ItemStack(greatSwordNordic), new Object [] {ingotSteel, ingotSteel, ingotSteel, ingotSteel, ingotSteel, leatherStrips, leatherStrips, leatherStrips, ingotQuicksilver});
+
+		GameRegistry.addShapelessRecipe(new ItemStack(helmSteel), new Object [] {ingotSteel, ingotSteel, leatherStrips, leatherStrips, Item.ingotIron});
+		GameRegistry.addShapelessRecipe(new ItemStack(chestSteel), new Object [] {ingotSteel, ingotSteel, ingotSteel, ingotSteel, leatherStrips, leatherStrips, leatherStrips, Item.ingotIron});
+		GameRegistry.addShapelessRecipe(new ItemStack(gauntletsSteel), new Object [] {ingotSteel, ingotSteel, leatherStrips, Item.ingotIron, Item.ingotIron});
+		GameRegistry.addShapelessRecipe(new ItemStack(bootsSteel), new Object [] {ingotSteel, ingotSteel, ingotSteel, leatherStrips, leatherStrips, Item.ingotIron});
+
+		GameRegistry.addShapelessRecipe(new ItemStack(daggerSteel), new Object [] {ingotSteel, leatherStrips, Item.ingotIron});
+		GameRegistry.addShapelessRecipe(new ItemStack(warhammerSteel), new Object [] {ingotSteel, ingotSteel, ingotSteel, ingotSteel, leatherStrips, leatherStrips, leatherStrips, leatherStrips, Item.ingotIron});
+		GameRegistry.addShapelessRecipe(new ItemStack(swordSteel), new Object [] {ingotSteel, ingotSteel, leatherStrips, Item.ingotIron});
+		GameRegistry.addShapelessRecipe(new ItemStack(maceSteel), new Object [] {ingotSteel, ingotSteel, ingotSteel, leatherStrips, Item.ingotIron});
+		GameRegistry.addShapelessRecipe(new ItemStack(warAxeSteel), new Object [] {ingotSteel, ingotSteel, leatherStrips, leatherStrips, Item.ingotIron, Item.ingotIron});
+		GameRegistry.addShapelessRecipe(new ItemStack(battleAxeSteel), new Object [] {ingotSteel, ingotSteel, ingotSteel, ingotSteel, leatherStrips, Item.ingotIron, Item.ingotIron});
+		GameRegistry.addShapelessRecipe(new ItemStack(greatSwordSteel), new Object [] {ingotSteel, ingotSteel, ingotSteel, ingotSteel, leatherStrips, leatherStrips, leatherStrips, Item.ingotIron, Item.ingotIron});
+
+		GameRegistry.addShapelessRecipe(new ItemStack(helmNordic), new Object [] {ingotSteel, ingotSteel, ingotSteel, ingotSteel, ingotEbony, ingotQuicksilver, leatherStrips});
+		GameRegistry.addShapelessRecipe(new ItemStack(chestNordic), new Object [] {ingotSteel, ingotSteel, ingotSteel, ingotSteel, ingotSteel, ingotSteel, ingotEbony, ingotQuicksilver, leatherStrips});
+		GameRegistry.addShapelessRecipe(new ItemStack(gauntletsNordic), new Object [] {ingotSteel, ingotSteel, ingotSteel, ingotEbony, ingotQuicksilver, leatherStrips, leatherStrips});
+		GameRegistry.addShapelessRecipe(new ItemStack(bootsNordic), new Object [] {ingotSteel, ingotSteel, ingotSteel, ingotSteel, ingotEbony, ingotQuicksilver, leatherStrips, leatherStrips});
+
+		GameRegistry.addShapelessRecipe(new ItemStack(helmElven), new Object [] {ingotMoonstone, ingotMoonstone, Item.ingotIron, Item.leather, leatherStrips});
+		GameRegistry.addShapelessRecipe(new ItemStack(chestElven), new Object [] {ingotMoonstone, ingotMoonstone, ingotMoonstone, ingotMoonstone, Item.ingotIron, Item.leather, leatherStrips, leatherStrips, leatherStrips});
+		GameRegistry.addShapelessRecipe(new ItemStack(gauntletsElven), new Object [] {ingotMoonstone, Item.ingotIron, Item.leather, leatherStrips});
+		GameRegistry.addShapelessRecipe(new ItemStack(bootsElven), new Object [] {ingotMoonstone, ingotMoonstone, Item.ingotIron, Item.leather, leatherStrips, leatherStrips});
+		GameRegistry.addShapelessRecipe(new ItemStack(chestElvenGilded), new Object [] {ingotMoonstone, ingotMoonstone, ingotMoonstone, ingotMoonstone, Item.ingotIron, ingotQuicksilver, leatherStrips, leatherStrips, leatherStrips});
+
+		//GameRegistry.addShapelessRecipe(new ItemStack(helmAncientNord), new Object [] {});
+		//GameRegistry.addShapelessRecipe(new ItemStack(chestAncientNord), new Object [] {});
+		//GameRegistry.addShapelessRecipe(new ItemStack(gauntletsAncientNord), new Object [] {});
+		//GameRegistry.addShapelessRecipe(new ItemStack(bootsAncientNord), new Object [] {});
 	}
 }

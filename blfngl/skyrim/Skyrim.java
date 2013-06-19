@@ -5,27 +5,20 @@ import java.util.Arrays;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockOre;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.entity.RenderArrow;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.WeightedRandomChestContent;
+import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
 import blfngl.skyrim.block.BlockBase;
 import blfngl.skyrim.block.BlockGrindstone;
 import blfngl.skyrim.block.BlockSkyrimChest;
 import blfngl.skyrim.block.BlockSmelter;
-import blfngl.skyrim.entity.EntityDaedricArrow;
-import blfngl.skyrim.entity.EntityDremora;
-import blfngl.skyrim.entity.EntityShout;
-import blfngl.skyrim.entity.dragon.EntityAlduin;
-import blfngl.skyrim.entity.dragon.EntityFireDragon;
-import blfngl.skyrim.entity.dragon.EntityFrostDragon;
-import blfngl.skyrim.entity.dragon.EntityOdahviing;
 import blfngl.skyrim.handler.Blocks;
 import blfngl.skyrim.handler.EntityHandler;
 import blfngl.skyrim.handler.Languages;
@@ -46,7 +39,6 @@ import blfngl.skyrim.tab.TabSkyrimFood;
 import blfngl.skyrim.tab.TabSkyrimItems;
 import blfngl.skyrim.tileentity.TileEntityGrindstone;
 import blfngl.skyrim.tileentity.TileEntitySmelter;
-import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -59,9 +51,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 /**
  * The Skyrim Mod
@@ -279,10 +269,14 @@ public class Skyrim
 	public static final Item gauntletsAncientNord = new BaseArmor(11128, ANCIENTNORD, 1, 2, "Heavy", "/blfngl/skyrim/textures/AncientNordArmor.png").setUnlocalizedName("AncientNordGauntlets");
 	public static final Item bootsAncientNord = new BaseArmor(11129, ANCIENTNORD, 1, 3, "Heavy", "/blfngl/skyrim/textures/AncientNordArmor.png").setUnlocalizedName("AncientNordBoots");
 
-	public static final Item helmStalhrimLight = new BaseArmor(11097, STALHRIM, 1, 0, "Heavy", "/blfngl/skyrim/textures/StalhrimArmor.png").setUnlocalizedName("StalhrimHelm");
-	public static final Item chestStalhrimLight = new BaseArmor(11098, STALHRIM, 1, 1, "Heavy", "/blfngl/skyrim/textures/StalhrimArmor.png").setUnlocalizedName("StalhrimChest");
-	public static final Item gauntletsStalhrimLight = new BaseArmor(11099, STALHRIM, 1, 2, "Heavy", "/blfngl/skyrim/textures/StalhrimArmor.png").setUnlocalizedName("StalhrimGauntlets");
-	public static final Item bootsStalhrimLight = new BaseArmor(11100, STALHRIM, 1, 3, "Heavy", "/blfngl/skyrim/textures/StalhrimArmor.png").setUnlocalizedName("StalhrimBoots");
+	public static final Item helmStalhrimLight = new BaseArmor(11130, STALHRIM, 1, 0, "Heavy", "/blfngl/skyrim/textures/StalhrimArmor.png").setUnlocalizedName("StalhrimHelm");
+	public static final Item chestStalhrimLight = new BaseArmor(11131, STALHRIM, 1, 1, "Heavy", "/blfngl/skyrim/textures/StalhrimArmor.png").setUnlocalizedName("StalhrimChest");
+	public static final Item gauntletsStalhrimLight = new BaseArmor(11132, STALHRIM, 1, 2, "Heavy", "/blfngl/skyrim/textures/StalhrimArmor.png").setUnlocalizedName("StalhrimGauntlets");
+	public static final Item bootsStalhrimLight = new BaseArmor(11133, STALHRIM, 1, 3, "Heavy", "/blfngl/skyrim/textures/StalhrimArmor.png").setUnlocalizedName("StalhrimBoots");
+
+	public static final Item helmSteelI = new BaseArmor(11134, STEEL, 1, 0, "Heavy", "/blfngl/skyrim/textures/SteelArmor.png").setUnlocalizedName("SteelImperialHelm");
+	public static final Item gauntletsSteelI = new BaseArmor(11135, STEEL, 1, 2, "Heavy", "/blfngl/skyrim/textures/SteelArmor.png").setUnlocalizedName("SteelImperialGauntlets");
+	public static final Item bootsSteelI = new BaseArmor(11136, STEEL, 1, 3, "Heavy", "/blfngl/skyrim/textures/SteelArmor.png").setUnlocalizedName("SteelImperialBoots");
 
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event)
@@ -316,6 +310,8 @@ public class Skyrim
 		Blocks.init();
 		WorldHandler.init();
 		EntityHandler.init();
+
+		ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ancientPick), 1, 1, 10));
 
 		proxy.registerTileEntities();
 		proxy.registerServerTickHandler();

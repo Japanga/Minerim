@@ -132,7 +132,7 @@ public class Languages extends Skyrim
 
 		LanguageRegistry.addName(helmSteel, "Steel Horned Helmet");
 		LanguageRegistry.addName(chestSteel, "Steel Chestplate");
-		LanguageRegistry.addName(gauntletsSteel, "Steel Gauntlets");
+		LanguageRegistry.addName(gauntletsSteel, "Steel Nordic Gauntlets");
 		LanguageRegistry.addName(bootsSteel, "Steel Cuffed Boots");
 
 		LanguageRegistry.addName(helmStalhrim, "Stalhrim Helmet");
@@ -165,6 +165,10 @@ public class Languages extends Skyrim
 		LanguageRegistry.addName(chestElven, "Elven Cuirass");
 		LanguageRegistry.addName(gauntletsElven, "Elven Gauntlets");
 		LanguageRegistry.addName(bootsElven, "Elven Boots");
+
+		LanguageRegistry.addName(helmSteelI, "Steel Helmet");
+		LanguageRegistry.addName(gauntletsSteelI, "Steel Imperial Gauntlets");
+		LanguageRegistry.addName(bootsSteelI, "Steel Shin Boots");
 		//LanguageRegistry.addName(wabbajack, "Wabbajack");
 	}
 }

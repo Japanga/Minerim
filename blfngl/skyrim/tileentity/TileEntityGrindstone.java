@@ -2,7 +2,7 @@ package blfngl.skyrim.tileentity;
 
 import blfngl.skyrim.Skyrim;
 import blfngl.skyrim.block.BlockSmelter;
-import blfngl.skyrim.inventory.RecipesGrindstone;
+import blfngl.skyrim.handler.RecipesGrindstone;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
