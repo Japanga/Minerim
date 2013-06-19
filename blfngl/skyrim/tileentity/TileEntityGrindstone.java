@@ -1,8 +1,5 @@
 package blfngl.skyrim.tileentity;
 
-import blfngl.skyrim.Skyrim;
-import blfngl.skyrim.block.BlockSmelter;
-import blfngl.skyrim.handler.RecipesGrindstone;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,6 +12,8 @@ import net.minecraft.item.ItemTool;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
+import blfngl.skyrim.block.BlockGrindstone;
+import blfngl.skyrim.handler.RecipesGrindstone;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -217,7 +216,7 @@ public class TileEntityGrindstone extends TileEntity implements IInventory
 			if (flag1)
 			{
 				this.onInventoryChanged();
-				BlockSmelter.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
+				BlockGrindstone.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
 			}
 		}
 	}
@@ -316,18 +315,13 @@ public class TileEntityGrindstone extends TileEntity implements IInventory
 			{
 				Block block = Block.blocksList[i];
 
-				if (block == Block.woodSingleSlab)
+				if (block == Block.blockRedstone)
 				{
-					return 150;
-				}
-
-				if (block.blockMaterial == Material.wood)
-				{
-					return 300;
+					return 400;
 				}
 			}
 
-			if (i == Item.bucketLava.itemID) return 200;
+			if (i == Item.redstone.itemID) return 50;
 			return GameRegistry.getFuelValue(itemStack);
 		}
 	}

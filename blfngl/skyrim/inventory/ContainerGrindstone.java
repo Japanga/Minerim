@@ -6,9 +6,8 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import blfngl.skyrim.handler.RecipesSmelter;
+import blfngl.skyrim.handler.RecipesGrindstone;
 import blfngl.skyrim.tileentity.TileEntityGrindstone;
-import blfngl.skyrim.tileentity.TileEntitySmelter;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -22,10 +21,10 @@ public class ContainerGrindstone extends Container
 	public ContainerGrindstone(InventoryPlayer inventoryPlayer, TileEntityGrindstone tileEntity)
 	{
 		this.furnace = tileEntity;
-		this.addSlotToContainer(new Slot(tileEntity, TileEntitySmelter.INGOT_SLOT_1_INDEX, 26, 17));
-		this.addSlotToContainer(new Slot(tileEntity, TileEntitySmelter.INGOT_SLOT_2_INDEX, 64, 17));
-		this.addSlotToContainer(new Slot(tileEntity, TileEntitySmelter.FUEL_INVENTORY_INDEX, 45, 53));
-		this.addSlotToContainer(new Slot(tileEntity, TileEntitySmelter.OUTPUT_INVENTORY_INDEX, 126, 35));
+		this.addSlotToContainer(new Slot(tileEntity, TileEntityGrindstone.INGOT_SLOT_1_INDEX, 26, 17));
+		this.addSlotToContainer(new Slot(tileEntity, TileEntityGrindstone.INGOT_SLOT_2_INDEX, 64, 17));
+		this.addSlotToContainer(new Slot(tileEntity, TileEntityGrindstone.FUEL_INVENTORY_INDEX, 45, 53));
+		this.addSlotToContainer(new Slot(tileEntity, TileEntityGrindstone.OUTPUT_INVENTORY_INDEX, 126, 35));
 
 		for (int invRow = 0; invRow < 3; ++invRow)
 		{
@@ -128,7 +127,7 @@ public class ContainerGrindstone extends Container
 
 			else if (par2 != 1 && par2 != 0)
 			{
-				if (RecipesSmelter.smelting().getDoubleSmeltingResult(itemstack1, itemstack1) != null)
+				if (RecipesGrindstone.smelting().getDoubleSmeltingResult(itemstack1, itemstack1) != null)
 				{
 					if (!this.mergeItemStack(itemstack1, 0, 1, false))
 					{

@@ -79,8 +79,8 @@ public class BlockGrindstone extends BlockContainer
 		TileEntity tileentity = par1World.getBlockTileEntity(par2, par3, par4);
 		keepFurnaceInventory = true;
 
-		if (par0){par1World.setBlock(par2, par3, par4, Skyrim.smelterActive.blockID);}
-		else{par1World.setBlock(par2, par3, par4, Skyrim.smelterIdle.blockID);}
+		if (par0){par1World.setBlock(par2, par3, par4, Skyrim.grindstoneActive.blockID);}
+		else{par1World.setBlock(par2, par3, par4, Skyrim.grindstoneIdle.blockID);}
 
 		keepFurnaceInventory = false;
 		par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);

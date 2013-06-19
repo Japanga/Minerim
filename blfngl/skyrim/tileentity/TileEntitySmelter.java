@@ -317,22 +317,22 @@ public class TileEntitySmelter extends TileEntity implements IInventory
 
 				if (block == Block.woodSingleSlab)
 				{
-					return 150;
+					return 15;
 				}
 
 				if (block.blockMaterial == Material.wood)
 				{
-					return 300;
+					return 30;
 				}
 			}
 
-			if (item instanceof ItemTool && ((ItemTool) item).getToolMaterialName().equals("WOOD")) return 100;
-			if (item instanceof ItemSword && ((ItemSword) item).getToolMaterialName().equals("WOOD")) return 100;
-			if (i == Item.stick.itemID) return 50;
-			if (i == Item.coal.itemID) return 800;
-			if (i == Item.bucketLava.itemID) return 10000;
-			if (i == Block.sapling.blockID) return 50;
-			if (i == Item.blazeRod.itemID) return 1200;
+			if (item instanceof ItemTool && ((ItemTool) item).getToolMaterialName().equals("WOOD")) return 10;
+			if (item instanceof ItemSword && ((ItemSword) item).getToolMaterialName().equals("WOOD")) return 10;
+			if (i == Item.stick.itemID) return 5;
+			if (i == Item.coal.itemID) return 80;
+			if (i == Block.sapling.blockID) return 5;
+			if (i == Item.blazeRod.itemID) return 120;
+			if (i == Item.bucketLava.itemID) return 400;
 			return GameRegistry.getFuelValue(itemStack);
 		}
 	}

@@ -29,6 +29,7 @@ public class CommonProxy implements IGuiHandler
 	public void registerTileEntities()
 	{
 		GameRegistry.registerTileEntity(TileEntitySmelter.class, "furnaceDoubleGui");
+		GameRegistry.registerTileEntity(TileEntityGrindstone.class, "GrindstoneTile");
 	}
 
 	@Override
