@@ -11,7 +11,7 @@ public class EntityFireDragon extends EntityDragon
 	public EntityFireDragon(World par1World)
 	{
 		super(par1World);
-		texture = "/blfngl/skyrim/textures/Dragon.png";
+		//texture = "/blfngl/skyrim/textures/Dragon.png";
 	}
 
 	public int getMaxHealth()

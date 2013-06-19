@@ -58,6 +58,7 @@ public class BaseSword extends Item
 
 	public void addInformation(ItemStack var1, EntityPlayer var2, List var3, boolean var4)
 	{
+		//var3.add(var1.stackTagCompound.getString(("Reforged")));
 		var3.add("Damage: " + (double)damage/2 + " Heart(s)");
 		if(name !=null)
 		{var3.add("Crafted By: " + name);}

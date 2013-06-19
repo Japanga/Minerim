@@ -41,10 +41,41 @@ public class RecipesGrindstone
 	{
 		if (item1 == null){return null;}
 		if (item2 == null){return null;}
-		
+
 		ItemStack item3;
-		
+
 		item3 = item1;
+
+		if(item3.stackTagCompound.getString("Reforged") == "fine")
+		{
+			item3.stackTagCompound.setString("Reforged", "superior");
+			return item3;
+		}
+
+		if(item3.stackTagCompound.getString("Reforged") == "superior")
+		{
+			item3.stackTagCompound.setString("Reforged", "exquisite");
+			return item3;
+		}
+
+		if(item3.stackTagCompound.getString("Reforged") == "exquisite")
+		{
+			item3.stackTagCompound.setString("Reforged", "flawless");
+			return item3;
+		}
+
+		if(item3.stackTagCompound.getString("Reforged") == "flawless")
+		{
+			item3.stackTagCompound.setString("Reforged", "epic");
+			return item3;
+		}
+
+		if(item3.stackTagCompound.getString("Reforged") == "epic")
+		{
+			item3.stackTagCompound.setString("Reforged", "legendary");
+			return item3;
+		}
+
 		item3.stackTagCompound.setString("Reforged", "fine");
 		return item3;
 

@@ -119,8 +119,8 @@ public class Languages extends Skyrim
 
 		//LanguageRegistry.addName(shoutFus, "Fus");
 
-		LanguageRegistry.addName(grindstoneIdle, "Grindstone (WIP)");
-		LanguageRegistry.addName(grindstoneActive, "Grindstone (WIP)");
+		LanguageRegistry.addName(grindstoneIdle, "Grindstone");
+		LanguageRegistry.addName(grindstoneActive, "Grindstone");
 
 		LanguageRegistry.addName(daggerSteel, "Steel Dagger");
 		LanguageRegistry.addName(warhammerSteel, "Steel Warhammer");

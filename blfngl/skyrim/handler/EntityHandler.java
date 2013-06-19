@@ -32,18 +32,18 @@ public class EntityHandler extends Skyrim
 
 		EntityRegistry.registerGlobalEntityID(EntityFireDragon.class, "FireDragon", EntityRegistry.findGlobalUniqueEntityId(), 230, 78);
 		LanguageRegistry.instance().addStringLocalization("entity.FireDragon.name", "en_US", "Fire Dragon");
-		EntityRegistry.addSpawn(EntityFireDragon.class, 5, 1, 1, EnumCreatureType.ambient, BiomeGenBase.plains);
-		EntityRegistry.addSpawn(EntityFireDragon.class, 5, 1, 1, EnumCreatureType.ambient, BiomeGenBase.desert);
-		EntityRegistry.addSpawn(EntityFireDragon.class, 5, 1, 1, EnumCreatureType.ambient, BiomeGenBase.desertHills);
-		EntityRegistry.addSpawn(EntityFireDragon.class, 5, 1, 1, EnumCreatureType.ambient, BiomeGenBase.forest);
+		EntityRegistry.addSpawn(EntityFireDragon.class, 1, 1, 1, EnumCreatureType.ambient, BiomeGenBase.plains);
+		EntityRegistry.addSpawn(EntityFireDragon.class, 1, 1, 1, EnumCreatureType.ambient, BiomeGenBase.desert);
+		EntityRegistry.addSpawn(EntityFireDragon.class, 1, 1, 1, EnumCreatureType.ambient, BiomeGenBase.desertHills);
+		EntityRegistry.addSpawn(EntityFireDragon.class, 1, 1, 1, EnumCreatureType.ambient, BiomeGenBase.forest);
 
 		EntityRegistry.registerGlobalEntityID(EntityFrostDragon.class, "FrostDragon", EntityRegistry.findGlobalUniqueEntityId(), 230, 78);
 		LanguageRegistry.instance().addStringLocalization("entity.FrostDragon.name", "en_US", "Frost Dragon");
-		EntityRegistry.addSpawn(EntityFrostDragon.class, 5, 1, 1, EnumCreatureType.ambient, BiomeGenBase.frozenOcean);
-		EntityRegistry.addSpawn(EntityFrostDragon.class, 5, 1, 1, EnumCreatureType.ambient, BiomeGenBase.forest);
-		EntityRegistry.addSpawn(EntityFrostDragon.class, 5, 1, 1, EnumCreatureType.ambient, BiomeGenBase.taiga);
-		EntityRegistry.addSpawn(EntityFrostDragon.class, 5, 1, 1, EnumCreatureType.ambient, BiomeGenBase.taigaHills);
-		EntityRegistry.addSpawn(EntityFrostDragon.class, 5, 1, 1, EnumCreatureType.ambient, BiomeGenBase.frozenRiver);
+		EntityRegistry.addSpawn(EntityFrostDragon.class, 1, 1, 1, EnumCreatureType.ambient, BiomeGenBase.frozenOcean);
+		EntityRegistry.addSpawn(EntityFrostDragon.class, 1, 1, 1, EnumCreatureType.ambient, BiomeGenBase.forest);
+		EntityRegistry.addSpawn(EntityFrostDragon.class, 1, 1, 1, EnumCreatureType.ambient, BiomeGenBase.taiga);
+		EntityRegistry.addSpawn(EntityFrostDragon.class, 1, 1, 1, EnumCreatureType.ambient, BiomeGenBase.taigaHills);
+		EntityRegistry.addSpawn(EntityFrostDragon.class, 1, 1, 1, EnumCreatureType.ambient, BiomeGenBase.frozenRiver);
 
 		EntityRegistry.registerGlobalEntityID(EntityAlduin.class, "Alduin", EntityRegistry.findGlobalUniqueEntityId(), 230, 78);
 		LanguageRegistry.instance().addStringLocalization("entity.Alduin.name", "en_US", "Alduin");
