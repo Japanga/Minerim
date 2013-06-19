@@ -157,25 +157,25 @@ public class Skyrim
 	public static final Item firewood = new BaseItem(11033).setUnlocalizedName("Firewood");
 	public static final Item daedraHeart = new BaseItem(11034).setUnlocalizedName("DaedraHeart");
 
-	public static final Item helmDwarf = new BaseArmor(11035, DWARVEN, 1, 0, "Heavy").setUnlocalizedName("DwarfHelm");
-	public static final Item chestDwarf = new BaseArmor(11036, DWARVEN, 1, 1, "Heavy").setUnlocalizedName("DwarfChest");
-	public static final Item gauntletsDwarf = new BaseArmor(11037, DWARVEN, 1, 2, "Heavy").setUnlocalizedName("DwarfGauntlets");
-	public static final Item bootsDwarf = new BaseArmor(11038, DWARVEN, 1, 3, "Heavy").setUnlocalizedName("DwarfBoots");
+	public static final Item helmDwarf = new BaseArmor(11035, DWARVEN, 1, 0, "Heavy", "/blfngl/skyrim/textures/DwarvenArmor.png").setUnlocalizedName("DwarfHelm");
+	public static final Item chestDwarf = new BaseArmor(11036, DWARVEN, 1, 1, "Heavy", "/blfngl/skyrim/textures/DwarvenArmor.png").setUnlocalizedName("DwarfChest");
+	public static final Item gauntletsDwarf = new BaseArmor(11037, DWARVEN, 1, 2, "Heavy", "/blfngl/skyrim/textures/DwarvenArmor.png").setUnlocalizedName("DwarfGauntlets");
+	public static final Item bootsDwarf = new BaseArmor(11038, DWARVEN, 1, 3, "Heavy", "/blfngl/skyrim/textures/DwarvenArmor.png").setUnlocalizedName("DwarfBoots");
 
-	public static final Item helmDaedric = new BaseArmor(11039, DAEDRIC, 1, 0, "Heavy").setUnlocalizedName("DaedricHelm");
-	public static final Item chestDaedric = new BaseArmor(11040, DAEDRIC, 1, 1, "Heavy").setUnlocalizedName("DaedricChest");
-	public static final Item gauntletsDaedric = new BaseArmor(11041, DAEDRIC, 1, 2, "Heavy").setUnlocalizedName("DaedricGauntlets");
-	public static final Item bootsDaedric = new BaseArmor(11042, DAEDRIC, 1, 3, "Heavy").setUnlocalizedName("DaedricBoots");
+	public static final Item helmDaedric = new BaseArmor(11039, DAEDRIC, 1, 0, "Heavy", "/blfngl/skyrim/textures/DaedricArmor.png").setUnlocalizedName("DaedricHelm");
+	public static final Item chestDaedric = new BaseArmor(11040, DAEDRIC, 1, 1, "Heavy", "/blfngl/skyrim/textures/DaedricArmor.png").setUnlocalizedName("DaedricChest");
+	public static final Item gauntletsDaedric = new BaseArmor(11041, DAEDRIC, 1, 2, "Heavy", "/blfngl/skyrim/textures/DaedricArmor.png").setUnlocalizedName("DaedricGauntlets");
+	public static final Item bootsDaedric = new BaseArmor(11042, DAEDRIC, 1, 3, "Heavy", "/blfngl/skyrim/textures/DaedricArmor.png").setUnlocalizedName("DaedricBoots");
 
-	public static final Item helmGlass = new BaseArmor(11043, GLASS, 1, 0, "Light").setUnlocalizedName("GlassHelm");
-	public static final Item chestGlass = new BaseArmor(11044, GLASS, 1, 1, "Light").setUnlocalizedName("GlassChest");
-	public static final Item gauntletsGlass = new BaseArmor(11045, GLASS, 1, 2, "Light").setUnlocalizedName("GlassGauntlets");
-	public static final Item bootsGlass = new BaseArmor(11046, GLASS, 1, 3, "Light").setUnlocalizedName("GlassBoots");
+	public static final Item helmGlass = new BaseArmor(11043, GLASS, 1, 0, "Light", "/blfngl/skyrim/textures/GlassArmor.png").setUnlocalizedName("GlassHelm");
+	public static final Item chestGlass = new BaseArmor(11044, GLASS, 1, 1, "Light", "/blfngl/skyrim/textures/GlassArmor.png").setUnlocalizedName("GlassChest");
+	public static final Item gauntletsGlass = new BaseArmor(11045, GLASS, 1, 2, "Light", "/blfngl/skyrim/textures/GlassArmor.png").setUnlocalizedName("GlassGauntlets");
+	public static final Item bootsGlass = new BaseArmor(11046, GLASS, 1, 3, "Light", "/blfngl/skyrim/textures/GlassArmor.png").setUnlocalizedName("GlassBoots");
 
-	public static final Item helmEbony = new BaseArmor(11047, EBONY, 1, 0, "Heavy").setUnlocalizedName("EbonyHelm");
-	public static final Item chestEbony = new BaseArmor(11048, EBONY, 1, 1, "Heavy").setUnlocalizedName("EbonyChest");
-	public static final Item gauntletsEbony = new BaseArmor(11049, EBONY, 1, 2, "Heavy").setUnlocalizedName("EbonyGauntlets");
-	public static final Item bootsEbony = new BaseArmor(11050, EBONY, 1, 3, "Heavy").setUnlocalizedName("EbonyBoots");
+	public static final Item helmEbony = new BaseArmor(11047, EBONY, 1, 0, "Heavy", "/blfngl/skyrim/textures/EbonyArmor.png").setUnlocalizedName("EbonyHelm");
+	public static final Item chestEbony = new BaseArmor(11048, EBONY, 1, 1, "Heavy","/blfngl/skyrim/textures/EbonyArmor.png").setUnlocalizedName("EbonyChest");
+	public static final Item gauntletsEbony = new BaseArmor(11049, EBONY, 1, 2, "Heavy", "/blfngl/skyrim/textures/EbonyArmor.png").setUnlocalizedName("EbonyGauntlets");
+	public static final Item bootsEbony = new BaseArmor(11050, EBONY, 1, 3, "Heavy", "/blfngl/skyrim/textures/EbonyArmor.png").setUnlocalizedName("EbonyBoots");
 
 	public static final Item dwemmerBentScrap = new BaseItem(11051).setUnlocalizedName("DwemmerBentScrap");
 	public static final Item dwemmerLargePlate = new BaseItem(11052).setUnlocalizedName("DwemmerLargePlate");
@@ -211,18 +211,18 @@ public class Skyrim
 	public static final Item maceOrc = new BaseSword(11078, 12, -1).setUnlocalizedName("OrcishMace");
 	public static final Item battleAxeOrc = new BaseSword(11079, 19, -3).setUnlocalizedName("OrcishBattleaxe");
 
-	public static final Item helmOrc = new BaseArmor(11080, ORCISH, 1, 0, "Heavy").setUnlocalizedName("OrcishHelm");
-	public static final Item chestOrc = new BaseArmor(11081, ORCISH, 1, 1, "Heavy").setUnlocalizedName("OrcishChest");
-	public static final Item gauntletsOrc = new BaseArmor(11082, ORCISH, 1, 2, "Heavy").setUnlocalizedName("OrcishGauntlets");
-	public static final Item bootsOrc = new BaseArmor(11083, ORCISH, 1, 3, "Heavy").setUnlocalizedName("OrcishBoots");
+	public static final Item helmOrc = new BaseArmor(11080, ORCISH, 1, 0, "Heavy", "/blfngl/skyrim/textures/OrcishArmor.png").setUnlocalizedName("OrcishHelm");
+	public static final Item chestOrc = new BaseArmor(11081, ORCISH, 1, 1, "Heavy", "/blfngl/skyrim/textures/OrcishArmor.png").setUnlocalizedName("OrcishChest");
+	public static final Item gauntletsOrc = new BaseArmor(11082, ORCISH, 1, 2, "Heavy", "/blfngl/skyrim/textures/OrcishArmor.png").setUnlocalizedName("OrcishGauntlets");
+	public static final Item bootsOrc = new BaseArmor(11083, ORCISH, 1, 3, "Heavy", "/blfngl/skyrim/textures/OrcishArmor.png").setUnlocalizedName("OrcishBoots");
 
 	//public static final Item wabbajack = new ItemWabbajack(11084).setUnlocalizedName("Wabbajack");
 	//public static final Item shoutFus = new ItemShout(11085).setUnlocalizedName("Shout");
 
-	public static final Item helmSteel = new BaseArmor(11086, STEEL, 1, 0, "Heavy").setUnlocalizedName("SteelHelm");
-	public static final Item chestSteel = new BaseArmor(11087, STEEL, 1, 1, "Heavy").setUnlocalizedName("SteelChest");
-	public static final Item gauntletsSteel = new BaseArmor(11088, STEEL, 1, 2, "Heavy").setUnlocalizedName("SteelGauntlets");
-	public static final Item bootsSteel = new BaseArmor(11089, STEEL, 1, 3, "Heavy").setUnlocalizedName("SteelBoots");
+	public static final Item helmSteel = new BaseArmor(11086, STEEL, 1, 0, "Heavy", "/blfngl/skyrim/textures/SteelArmor.png").setUnlocalizedName("SteelHelm");
+	public static final Item chestSteel = new BaseArmor(11087, STEEL, 1, 1, "Heavy", "/blfngl/skyrim/textures/SteelArmor.png").setUnlocalizedName("SteelChest");
+	public static final Item gauntletsSteel = new BaseArmor(11088, STEEL, 1, 2, "Heavy", "/blfngl/skyrim/textures/SteelArmor.png").setUnlocalizedName("SteelGauntlets");
+	public static final Item bootsSteel = new BaseArmor(11089, STEEL, 1, 3, "Heavy", "/blfngl/skyrim/textures/SteelArmor.png").setUnlocalizedName("SteelBoots");
 
 	public static final Item daggerSteel = new BaseSword(11090, 5, 1).setUnlocalizedName("SteelDagger");
 	public static final Item warhammerSteel = new BaseSword(11091, 22, -3).setUnlocalizedName("SteelWarhammer");
@@ -234,10 +234,10 @@ public class Skyrim
 
 	//TODO Stalhrim armor creds
 	//http://www.planetminecraft.com/skin/stalhrim-2204798/
-	public static final Item helmStalhrim = new BaseArmor(11097, STALHRIM, 1, 0, "Heavy").setUnlocalizedName("StalhrimHelm");
-	public static final Item chestStalhrim = new BaseArmor(11098, STALHRIM, 1, 1, "Heavy").setUnlocalizedName("StalhrimChest");
-	public static final Item gauntletsStalhrim = new BaseArmor(11099, STALHRIM, 1, 2, "Heavy").setUnlocalizedName("StalhrimGauntlets");
-	public static final Item bootsStalhrim = new BaseArmor(11100, STALHRIM, 1, 3, "Heavy").setUnlocalizedName("StalhrimBoots");
+	public static final Item helmStalhrim = new BaseArmor(11097, STALHRIM, 1, 0, "Heavy", "/blfngl/skyrim/textures/StalhrimArmor.png").setUnlocalizedName("StalhrimHelm");
+	public static final Item chestStalhrim = new BaseArmor(11098, STALHRIM, 1, 1, "Heavy", "/blfngl/skyrim/textures/StalhrimArmor.png").setUnlocalizedName("StalhrimChest");
+	public static final Item gauntletsStalhrim = new BaseArmor(11099, STALHRIM, 1, 2, "Heavy", "/blfngl/skyrim/textures/StalhrimArmor.png").setUnlocalizedName("StalhrimGauntlets");
+	public static final Item bootsStalhrim = new BaseArmor(11100, STALHRIM, 1, 3, "Heavy", "/blfngl/skyrim/textures/StalhrimArmor.png").setUnlocalizedName("StalhrimBoots");
 
 	public static final Item daggerStalhrim = new BaseSword(11101, 10, 1).setUnlocalizedName("StalhrimDagger");
 	public static final Item warhammerStalhrim = new BaseSword(11102, 22, -3).setUnlocalizedName("StalhrimWarhammer");
@@ -261,28 +261,28 @@ public class Skyrim
 	public static final Item maceNordic = new BaseSword(11115, 13, -1).setUnlocalizedName("NordicMace");
 	public static final Item battleAxeNordic = new BaseSword(11116, 21, -3).setUnlocalizedName("NordicBattleaxe");
 
-	public static final Item helmNordic = new BaseArmor(11117, NORDIC, 1, 0, "Heavy").setUnlocalizedName("NordicHelm");
-	public static final Item chestNordic = new BaseArmor(11118, NORDIC, 1, 1, "Heavy").setUnlocalizedName("NordicChest");
-	public static final Item gauntletsNordic = new BaseArmor(11119, NORDIC, 1, 2, "Heavy").setUnlocalizedName("NordicGauntlets");
-	public static final Item bootsNordic = new BaseArmor(11120, NORDIC, 1, 3, "Heavy").setUnlocalizedName("NordicBoots");
+	public static final Item helmNordic = new BaseArmor(11117, NORDIC, 1, 0, "Heavy", "/blfngl/skyrim/textures/NordicArmor.png").setUnlocalizedName("NordicHelm");
+	public static final Item chestNordic = new BaseArmor(11118, NORDIC, 1, 1, "Heavy", "/blfngl/skyrim/textures/NordicArmor.png").setUnlocalizedName("NordicChest");
+	public static final Item gauntletsNordic = new BaseArmor(11119, NORDIC, 1, 2, "Heavy", "/blfngl/skyrim/textures/NordicArmor.png").setUnlocalizedName("NordicGauntlets");
+	public static final Item bootsNordic = new BaseArmor(11120, NORDIC, 1, 3, "Heavy", "/blfngl/skyrim/textures/NordicArmor.png").setUnlocalizedName("NordicBoots");
 
-	public static final Item helmElven = new BaseArmor(11121, ELVEN, 1, 0, "Light").setUnlocalizedName("ElvenHelm");
-	public static final Item chestElven = new BaseArmor(11122, ELVEN, 1, 1, "Light").setUnlocalizedName("ElvenChest");
-	public static final Item gauntletsElven = new BaseArmor(11123, ELVEN, 1, 2, "Light").setUnlocalizedName("ElvenGauntlets");
-	public static final Item bootsElven = new BaseArmor(11124, ELVEN, 1, 3, "Light").setUnlocalizedName("ElvenBoots");
-	public static final Item chestElvenGilded = new BaseArmor(11125, ELVENGILDED, 1, 1, "Light").setUnlocalizedName("ElvenChestGilded");
+	public static final Item helmElven = new BaseArmor(11121, ELVEN, 1, 0, "Light", "/blfngl/skyrim/textures/ElvenArmor.png").setUnlocalizedName("ElvenHelm");
+	public static final Item chestElven = new BaseArmor(11122, ELVEN, 1, 1, "Light", "/blfngl/skyrim/textures/ElvenArmor.png").setUnlocalizedName("ElvenChest");
+	public static final Item gauntletsElven = new BaseArmor(11123, ELVEN, 1, 2, "Light", "/blfngl/skyrim/textures/ElvenArmor.png").setUnlocalizedName("ElvenGauntlets");
+	public static final Item bootsElven = new BaseArmor(11124, ELVEN, 1, 3, "Light", "/blfngl/skyrim/textures/ElvenArmor.png").setUnlocalizedName("ElvenBoots");
+	public static final Item chestElvenGilded = new BaseArmor(11125, ELVENGILDED, 1, 1, "Light", "/blfngl/skyrim/textures/ElvenArmor.png").setUnlocalizedName("ElvenChestGilded");
 
 	//TODO Ancient Nord armor creds
 	//http://www.planetminecraft.com/skin/ancient-nordic-armor-from-skyrim3d-horns/
-	public static final Item helmAncientNord = new BaseArmor(11126, ANCIENTNORD, 1, 0, "Heavy").setUnlocalizedName("AncientNordHelm");
-	public static final Item chestAncientNord = new BaseArmor(11127, ANCIENTNORD, 1, 1, "Heavy").setUnlocalizedName("AncientNordChest");
-	public static final Item gauntletsAncientNord = new BaseArmor(11128, ANCIENTNORD, 1, 2, "Heavy").setUnlocalizedName("AncientNordGauntlets");
-	public static final Item bootsAncientNord = new BaseArmor(11129, ANCIENTNORD, 1, 3, "Heavy").setUnlocalizedName("AncientNordBoots");
+	public static final Item helmAncientNord = new BaseArmor(11126, ANCIENTNORD, 1, 0, "Heavy", "/blfngl/skyrim/textures/AncientNordArmor.png").setUnlocalizedName("AncientNordHelm");
+	public static final Item chestAncientNord = new BaseArmor(11127, ANCIENTNORD, 1, 1, "Heavy", "/blfngl/skyrim/textures/AncientNordArmor.png").setUnlocalizedName("AncientNordChest");
+	public static final Item gauntletsAncientNord = new BaseArmor(11128, ANCIENTNORD, 1, 2, "Heavy", "/blfngl/skyrim/textures/AncientNordArmor.png").setUnlocalizedName("AncientNordGauntlets");
+	public static final Item bootsAncientNord = new BaseArmor(11129, ANCIENTNORD, 1, 3, "Heavy", "/blfngl/skyrim/textures/AncientNordArmor.png").setUnlocalizedName("AncientNordBoots");
 
-	public static final Item helmStalhrimLight = new BaseArmor(11097, STALHRIM, 1, 0, "Heavy").setUnlocalizedName("StalhrimHelm");
-	public static final Item chestStalhrimLight = new BaseArmor(11098, STALHRIM, 1, 1, "Heavy").setUnlocalizedName("StalhrimChest");
-	public static final Item gauntletsStalhrimLight = new BaseArmor(11099, STALHRIM, 1, 2, "Heavy").setUnlocalizedName("StalhrimGauntlets");
-	public static final Item bootsStalhrimLight = new BaseArmor(11100, STALHRIM, 1, 3, "Heavy").setUnlocalizedName("StalhrimBoots");
+	public static final Item helmStalhrimLight = new BaseArmor(11097, STALHRIM, 1, 0, "Heavy", "/blfngl/skyrim/textures/StalhrimArmor.png").setUnlocalizedName("StalhrimHelm");
+	public static final Item chestStalhrimLight = new BaseArmor(11098, STALHRIM, 1, 1, "Heavy", "/blfngl/skyrim/textures/StalhrimArmor.png").setUnlocalizedName("StalhrimChest");
+	public static final Item gauntletsStalhrimLight = new BaseArmor(11099, STALHRIM, 1, 2, "Heavy", "/blfngl/skyrim/textures/StalhrimArmor.png").setUnlocalizedName("StalhrimGauntlets");
+	public static final Item bootsStalhrimLight = new BaseArmor(11100, STALHRIM, 1, 3, "Heavy", "/blfngl/skyrim/textures/StalhrimArmor.png").setUnlocalizedName("StalhrimBoots");
 
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event)
