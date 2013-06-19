@@ -119,8 +119,8 @@ public class Languages extends Skyrim
 
 		//LanguageRegistry.addName(shoutFus, "Fus");
 
-		LanguageRegistry.addName(grindstoneIdle, "Grindstone");
-		LanguageRegistry.addName(grindstoneActive, "Grindstone");
+		LanguageRegistry.addName(grindstoneIdle, "Grindstone (WIP)");
+		LanguageRegistry.addName(grindstoneActive, "Grindstone (WIP)");
 
 		LanguageRegistry.addName(daggerSteel, "Steel Dagger");
 		LanguageRegistry.addName(warhammerSteel, "Steel Warhammer");
@@ -167,8 +167,13 @@ public class Languages extends Skyrim
 		LanguageRegistry.addName(bootsElven, "Elven Boots");
 
 		LanguageRegistry.addName(helmSteelI, "Steel Helmet");
-		LanguageRegistry.addName(gauntletsSteelI, "Steel Imperial Gauntlets");
-		LanguageRegistry.addName(bootsSteelI, "Steel Shin Boots");
+		LanguageRegistry.addName(gauntletsSteelI, "Imperial Bracers");
+		LanguageRegistry.addName(bootsSteelI, "Imperial Boots");
+		
+		LanguageRegistry.addName(ancientPick, "Ancient Nord Pickaxe");
+		LanguageRegistry.addName(oreStalhrim, "Stalhrim Ore");
+		LanguageRegistry.addName(stalhrim, "Stalhrim");
+		LanguageRegistry.addName(dragonKiller, "Dragon Killer (Creative/Cheats Only");
 		//LanguageRegistry.addName(wabbajack, "Wabbajack");
 	}
 }

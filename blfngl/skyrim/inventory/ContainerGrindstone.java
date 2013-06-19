@@ -101,85 +101,19 @@ public class ContainerGrindstone extends Container
 	@Override
 	public boolean canInteractWith(EntityPlayer entityplayer)
 	{
-		return true;
+		if( entityplayer == null )
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
 	}
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer entityPlayer, int par2)
 	{
-		ItemStack itemstack = null;
-		Slot slot = (Slot) this.inventorySlots.get(par2);
-
-		if (slot != null && slot.getHasStack())
-		{
-			ItemStack itemstack1 = slot.getStack();
-			itemstack = itemstack1.copy();
-
-			if (par2 == 2)
-			{
-				if (!this.mergeItemStack(itemstack1, 3, 39, true))
-				{
-					return null;
-				}
-
-				slot.onSlotChange(itemstack1, itemstack);
-			}
-
-			else if (par2 != 1 && par2 != 0)
-			{
-				if (RecipesGrindstone.smelting().getDoubleSmeltingResult(itemstack1, itemstack1) != null)
-				{
-					if (!this.mergeItemStack(itemstack1, 0, 1, false))
-					{
-						return null;
-					}
-				}
-
-				else if (TileEntityGrindstone.isItemFuel(itemstack1))
-				{
-					if (!this.mergeItemStack(itemstack1, 1, 2, false))
-					{
-						return null;
-					}
-				}
-
-				else if (par2 >= 3 && par2 < 30)
-				{
-					if (!this.mergeItemStack(itemstack1, 30, 39, false))
-					{
-						return null;
-					}
-				}
-
-				else if (par2 >= 30 && par2 < 39 && !this.mergeItemStack(itemstack1, 3, 30, false))
-				{
-					return null;
-				}
-			}
-
-			else if (!this.mergeItemStack(itemstack1, 3, 39, false))
-			{
-				return null;
-			}
-
-			if (itemstack1.stackSize == 0)
-			{
-				slot.putStack((ItemStack)null);
-			}
-
-			else
-			{
-				slot.onSlotChanged();
-			}
-
-			if (itemstack1.stackSize == itemstack.stackSize)
-			{
-				return null;
-			}
-
-			slot.onPickupFromSlot(entityPlayer, itemstack1);
-		}
-
-		return itemstack;
+		return null;
 	}
 }

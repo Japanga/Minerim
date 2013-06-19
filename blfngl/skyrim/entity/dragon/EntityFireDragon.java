@@ -11,9 +11,10 @@ public class EntityFireDragon extends EntityDragon
 	public EntityFireDragon(World par1World)
 	{
 		super(par1World);
-		//texture = "/blfngl/skyrim/textures/Dragon.png";
+		//texture = "/blfngl/skyrim/textures/BloodDragon.png";
 	}
 
+	@Override
 	public int getMaxHealth()
 	{
 		return 905;
@@ -24,6 +25,7 @@ public class EntityFireDragon extends EntityDragon
 		return false;
 	}
 
+	@Override
 	protected void onDeathUpdate()
 	{
 		float f = (this.rand.nextFloat() - 0.5F) * 8.0F;
@@ -76,21 +78,25 @@ public class EntityFireDragon extends EntityDragon
 		return;
 	}
 
+	@Override
 	public boolean canBeCollidedWith()
 	{
 		return true;
 	}
 
+	@Override
 	protected String getLivingSound()
 	{
 		return "blfngl.Dragon";
 	}
 
+	@Override
 	protected String getHurtSound()
 	{
 		return "mob.enderdragon.hit";
 	}
 
+	@Override
 	public void onCollideWithPlayer(EntityPlayer par1EntityPlayer)
 	{
 		par1EntityPlayer.setFire(10);

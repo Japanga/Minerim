@@ -87,7 +87,6 @@ public class Skyrim
 	public static EnumArmorMaterial STALHRIM = EnumHelper.addArmorMaterial("STALHRIM", 46, new int[]{4, 8, 6, 2}, 25);
 	public static EnumArmorMaterial ELVEN = EnumHelper.addArmorMaterial("ELVEN", 29, new int[]{3, 6, 5, 2}, 25);
 	public static EnumArmorMaterial ELVENGILDED = EnumHelper.addArmorMaterial("ELVENGILDED", 35, new int[]{3, 6, 5, 2}, 25);
-	public static EnumArmorMaterial NORDIC = EnumHelper.addArmorMaterial("NORDIC", 43, new int[]{4, 8, 6, 2}, 25);
 	public static EnumArmorMaterial ANCIENTNORD = EnumHelper.addArmorMaterial("ANCIENTNORD", 25, new int[]{4, 8, 6, 2}, 25);
 	public static EnumArmorMaterial STALHRIMLIGHT = EnumHelper.addArmorMaterial("STALHRIMLIGHT", 39, new int[]{3, 6, 5, 2}, 25);
 
@@ -251,10 +250,10 @@ public class Skyrim
 	public static final Item maceNordic = new BaseSword(11115, 13, -1).setUnlocalizedName("NordicMace");
 	public static final Item battleAxeNordic = new BaseSword(11116, 21, -3).setUnlocalizedName("NordicBattleaxe");
 
-	public static final Item helmNordic = new BaseArmor(11117, NORDIC, 1, 0, "Heavy", "/blfngl/skyrim/textures/NordicArmor.png").setUnlocalizedName("NordicHelm");
-	public static final Item chestNordic = new BaseArmor(11118, NORDIC, 1, 1, "Heavy", "/blfngl/skyrim/textures/NordicArmor.png").setUnlocalizedName("NordicChest");
-	public static final Item gauntletsNordic = new BaseArmor(11119, NORDIC, 1, 2, "Heavy", "/blfngl/skyrim/textures/NordicArmor.png").setUnlocalizedName("NordicGauntlets");
-	public static final Item bootsNordic = new BaseArmor(11120, NORDIC, 1, 3, "Heavy", "/blfngl/skyrim/textures/NordicArmor.png").setUnlocalizedName("NordicBoots");
+	public static final Item helmNordic = new BaseArmor(11117, EBONY, 1, 0, "Heavy", "/blfngl/skyrim/textures/NordicArmor.png").setUnlocalizedName("NordicHelm");
+	public static final Item chestNordic = new BaseArmor(11118, EBONY, 1, 1, "Heavy", "/blfngl/skyrim/textures/NordicArmor.png").setUnlocalizedName("NordicChest");
+	public static final Item gauntletsNordic = new BaseArmor(11119, EBONY, 1, 2, "Heavy", "/blfngl/skyrim/textures/NordicArmor.png").setUnlocalizedName("NordicGauntlets");
+	public static final Item bootsNordic = new BaseArmor(11120, EBONY, 1, 3, "Heavy", "/blfngl/skyrim/textures/NordicArmor.png").setUnlocalizedName("NordicBoots");
 
 	public static final Item helmElven = new BaseArmor(11121, ELVEN, 1, 0, "Light", "/blfngl/skyrim/textures/ElvenArmor.png").setUnlocalizedName("ElvenHelm");
 	public static final Item chestElven = new BaseArmor(11122, ELVEN, 1, 1, "Light", "/blfngl/skyrim/textures/ElvenArmor.png").setUnlocalizedName("ElvenChest");
@@ -274,9 +273,11 @@ public class Skyrim
 	public static final Item gauntletsStalhrimLight = new BaseArmor(11132, STALHRIM, 1, 2, "Heavy", "/blfngl/skyrim/textures/StalhrimArmor.png").setUnlocalizedName("StalhrimGauntlets");
 	public static final Item bootsStalhrimLight = new BaseArmor(11133, STALHRIM, 1, 3, "Heavy", "/blfngl/skyrim/textures/StalhrimArmor.png").setUnlocalizedName("StalhrimBoots");
 
-	public static final Item helmSteelI = new BaseArmor(11134, STEEL, 1, 0, "Heavy", "/blfngl/skyrim/textures/SteelArmor.png").setUnlocalizedName("SteelImperialHelm");
-	public static final Item gauntletsSteelI = new BaseArmor(11135, STEEL, 1, 2, "Heavy", "/blfngl/skyrim/textures/SteelArmor.png").setUnlocalizedName("SteelImperialGauntlets");
-	public static final Item bootsSteelI = new BaseArmor(11136, STEEL, 1, 3, "Heavy", "/blfngl/skyrim/textures/SteelArmor.png").setUnlocalizedName("SteelImperialBoots");
+	public static final Item helmSteelI = new BaseArmor(11134, ANCIENTNORD, 1, 0, "Heavy", "/blfngl/skyrim/textures/SteelArmor.png").setUnlocalizedName("SteelImperialHelm");
+	public static final Item gauntletsSteelI = new BaseArmor(11135, ANCIENTNORD, 1, 2, "Heavy", "/blfngl/skyrim/textures/SteelArmor.png").setUnlocalizedName("SteelImperialGauntlets");
+	public static final Item bootsSteelI = new BaseArmor(11136, ANCIENTNORD, 1, 3, "Heavy", "/blfngl/skyrim/textures/SteelArmor.png").setUnlocalizedName("SteelImperialBoots");
+
+	public static final Item dragonKiller = new BaseSword(11200, 9999, -3).setUnlocalizedName("DragonKiller");
 
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event)

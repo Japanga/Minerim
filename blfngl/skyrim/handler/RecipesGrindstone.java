@@ -4,8 +4,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-import net.minecraft.block.Block;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import blfngl.skyrim.Skyrim;
@@ -42,49 +40,55 @@ public class RecipesGrindstone
 		if (item1 == null){return null;}
 		if (item2 == null){return null;}
 
-		ItemStack item3;
+		/**Item item4 = Skyrim.swordSteel;
+		ItemStack item3 = new ItemStack(Skyrim.swordSteel);
 
-		item3 = item1;
-
-		if(item3.stackTagCompound.getString("Reforged") == "fine")
+		if(item1.stackTagCompound.getString("Reforged") == "fine")
 		{
 			item3.stackTagCompound.setString("Reforged", "superior");
 			return item3;
 		}
 
-		if(item3.stackTagCompound.getString("Reforged") == "superior")
+		if(item1.stackTagCompound.getString("Reforged") == "superior")
 		{
 			item3.stackTagCompound.setString("Reforged", "exquisite");
 			return item3;
 		}
 
-		if(item3.stackTagCompound.getString("Reforged") == "exquisite")
+		if(item1.stackTagCompound.getString("Reforged") == "exquisite")
 		{
 			item3.stackTagCompound.setString("Reforged", "flawless");
 			return item3;
 		}
 
-		if(item3.stackTagCompound.getString("Reforged") == "flawless")
+		if(item1.stackTagCompound.getString("Reforged") == "flawless")
 		{
 			item3.stackTagCompound.setString("Reforged", "epic");
 			return item3;
 		}
 
-		if(item3.stackTagCompound.getString("Reforged") == "epic")
+		if(item1.stackTagCompound.getString("Reforged") == "epic")
 		{
 			item3.stackTagCompound.setString("Reforged", "legendary");
 			return item3;
 		}
 
 		item3.stackTagCompound.setString("Reforged", "fine");
-		return item3;
+		return item3;**/
 
-		/**if (item1.itemID == Skyrim.swordSteel.itemID && item2.itemID == Skyrim.ingotSteel.itemID)
+		if (item1.itemID == Skyrim.swordSteel.itemID && item2.itemID == Skyrim.ingotSteel.itemID && item1.stackTagCompound.getString("Reforged") == "fine")
 		{
-			return new ItemStack(Skyrim.swordSteel);
+			item1.stackTagCompound.setString("Reforged", "superior");
+			return item1;
 		}
 
-		return null;**/
+		if (item1.itemID == Skyrim.swordSteel.itemID && item2.itemID == Skyrim.ingotSteel.itemID && item1.stackTagCompound.getString("Reforged") != "superior")
+		{
+			item1.stackTagCompound.setString("Reforged", "fine");
+			return item1;
+		}
+
+		return null;
 	}
 
 	public ItemStack getSlot1ReduceAmount(ItemStack input)

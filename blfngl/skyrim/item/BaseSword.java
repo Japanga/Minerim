@@ -37,6 +37,7 @@ public class BaseSword extends Item
 
 	public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
 	{
+		name = par3EntityPlayer.username;
 		if (par1ItemStack.stackTagCompound == null){par1ItemStack.setTagCompound(new NBTTagCompound());}
 		par1ItemStack.stackTagCompound.setString("Reforged", "common");
 	}
@@ -58,12 +59,15 @@ public class BaseSword extends Item
 
 	public void addInformation(ItemStack var1, EntityPlayer var2, List var3, boolean var4)
 	{
-		//var3.add(var1.stackTagCompound.getString(("Reforged")));
-		var3.add("Damage: " + (double)damage/2 + " Heart(s)");
-		if(name !=null)
-		{var3.add("Crafted By: " + name);}
-		else
-		{var3.add("No Owner");}
+		if (var1.stackTagCompound == null){var1.setTagCompound(new NBTTagCompound());}
+		if (var1.stackTagCompound.getString("Reforged") == "fine"){var3.add("Fine");}
+		if (var1.stackTagCompound.getString("Reforged") == "superior"){var3.add("Superior");}
+		if (var1.stackTagCompound.getString("Reforged") == "exquisite"){var3.add("Exquisite");}
+		if (var1.stackTagCompound.getString("Reforged") == "flawless"){var3.add("Flawless");}
+		if (var1.stackTagCompound.getString("Reforged") == "epic"){var3.add("Epic");}
+		if (var1.stackTagCompound.getString("Reforged") == "legendary"){var3.add("Legendary");}var3.add("Damage: " + (double)damage/2 + " Heart(s)");
+		if(name !=null){var3.add("Crafted By: " + name);}
+		else{var3.add("No Owner");}
 	}
 
 	public void onUpdate(ItemStack par1ItemStack, World var2, Entity par3Entity, int par4, boolean par5) 
