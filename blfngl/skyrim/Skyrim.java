@@ -234,7 +234,7 @@ public class Skyrim
 	public static final Item swordStalhrim = new BaseSword(11104, 13, 0).setUnlocalizedName("StalhrimSword");
 	public static final Item greatSwordStalhrim = new BaseSword(11105, 23, -2).setUnlocalizedName("StalhrimGreatsword");
 	public static final Item maceStalhrim = new BaseSword(11106, 16, -1).setUnlocalizedName("StalhrimMace");
-	public static final Item battleAxeStalhrim = new BaseSword(11107, 26, -3).setUnlocalizedName("StalhrimBattleAxe");
+	public static final Item battleAxeStalhrim = new BaseSword(11107, 26, -3).setUnlocalizedName("StalhrimBattleaxe");
 
 	public static final Item ancientPick = new BasePick(11108, STALHRIMTOOL).setUnlocalizedName("AncientPick").setCreativeTab(TabSkyrimItems);
 
