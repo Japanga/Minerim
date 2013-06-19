@@ -136,7 +136,7 @@ public class ContainerGrindstone extends Container
 					}
 				}
 
-				else if (TileEntitySmelter.isItemFuel(itemstack1))
+				else if (TileEntityGrindstone.isItemFuel(itemstack1))
 				{
 					if (!this.mergeItemStack(itemstack1, 1, 2, false))
 					{

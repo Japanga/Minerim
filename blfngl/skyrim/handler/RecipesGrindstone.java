@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import net.minecraft.block.Block;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import blfngl.skyrim.Skyrim;
@@ -40,13 +41,19 @@ public class RecipesGrindstone
 	{
 		if (item1 == null){return null;}
 		if (item2 == null){return null;}
+		
+		ItemStack item3;
+		
+		item3 = item1;
+		item3.stackTagCompound.setString("Reforged", "fine");
+		return item3;
 
-		if (item1.itemID == Skyrim.swordSteel.itemID && item2.itemID == Skyrim.ingotSteel.itemID)
+		/**if (item1.itemID == Skyrim.swordSteel.itemID && item2.itemID == Skyrim.ingotSteel.itemID)
 		{
 			return new ItemStack(Skyrim.swordSteel);
 		}
 
-		return null;
+		return null;**/
 	}
 
 	public ItemStack getSlot1ReduceAmount(ItemStack input)

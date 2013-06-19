@@ -327,7 +327,7 @@ public class TileEntityGrindstone extends TileEntity implements IInventory
 				}
 			}
 
-			if (i == Skyrim.leatherStrips.itemID) return 200;
+			if (i == Item.bucketLava.itemID) return 200;
 			return GameRegistry.getFuelValue(itemStack);
 		}
 	}

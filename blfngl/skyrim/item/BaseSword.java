@@ -3,8 +3,6 @@ package blfngl.skyrim.item;
 import java.util.List;
 import java.util.Random;
 
-import blfngl.skyrim.Skyrim;
-
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -12,14 +10,16 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
+import blfngl.skyrim.Skyrim;
 
 public class BaseSword extends Item
 {
 	public int damage;
+	public int baseDamage;
 	public String name;
 	public double speed;
 	Random rand = new Random();
@@ -29,9 +29,16 @@ public class BaseSword extends Item
 		super(var1);
 		this.setMaxDamage(-1);
 		damage = var2;
+		baseDamage = damage;
 		speed = var3;
 		setCreativeTab(Skyrim.TabSkyrimCombat);
 		setMaxStackSize(1);
+	}
+
+	public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	{
+		if (par1ItemStack.stackTagCompound == null){par1ItemStack.setTagCompound(new NBTTagCompound());}
+		par1ItemStack.stackTagCompound.setString("Reforged", "common");
 	}
 
 	public boolean hitEntity(ItemStack par1ItemStack, EntityLiving par2EntityLiving, EntityLiving par3EntityLiving)
@@ -60,8 +67,16 @@ public class BaseSword extends Item
 
 	public void onUpdate(ItemStack par1ItemStack, World var2, Entity par3Entity, int par4, boolean par5) 
 	{
+		if (par1ItemStack.stackTagCompound == null){par1ItemStack.setTagCompound(new NBTTagCompound());}
+		if (par1ItemStack.stackTagCompound.getString("Reforged") == "fine"){damage = baseDamage + 1;}
+		if (par1ItemStack.stackTagCompound.getString("Reforged") == "superior"){damage = baseDamage + 3;}
+		if (par1ItemStack.stackTagCompound.getString("Reforged") == "exquisite"){damage = baseDamage + 5;}
+		if (par1ItemStack.stackTagCompound.getString("Reforged") == "flawless"){damage = baseDamage + 7;}
+		if (par1ItemStack.stackTagCompound.getString("Reforged") == "epic"){damage = baseDamage + 8;}
+		if (par1ItemStack.stackTagCompound.getString("Reforged") == "legendary"){damage = baseDamage + 10;}
+
 		EntityPlayer player = (EntityPlayer)par3Entity;
-		if(player.getHeldItem()==par1ItemStack)
+		if(player.getHeldItem( )== par1ItemStack)
 		{
 			if(speed == -1){player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 20, 0));}
 			if(speed == -2){player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 20, 1));}
