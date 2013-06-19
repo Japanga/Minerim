@@ -173,7 +173,12 @@ public class Languages extends Skyrim
 		LanguageRegistry.addName(ancientPick, "Ancient Nord Pickaxe");
 		LanguageRegistry.addName(oreStalhrim, "Stalhrim Ore");
 		LanguageRegistry.addName(stalhrim, "Stalhrim");
-		LanguageRegistry.addName(dragonKiller, "Dragon Killer (Creative/Cheats Only");
+		LanguageRegistry.addName(dragonKiller, "Dragon Killer (Creative/Cheats Only)");
+
+		LanguageRegistry.addName(helmAncientNord, "Ancient Nord Helm");
+		LanguageRegistry.addName(chestAncientNord, "Ancient Nord Chestplate");
+		LanguageRegistry.addName(gauntletsAncientNord, "Ancient Nord Gauntlets");
+		LanguageRegistry.addName(bootsAncientNord, "Ancient Nord Boots");
 		//LanguageRegistry.addName(wabbajack, "Wabbajack");
 	}
 }
