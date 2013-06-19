@@ -21,6 +21,7 @@ public class BaseArmor extends ItemArmor implements IArmorTextureProvider
 		super(par1, par2EnumArmorMaterial, par3, par4);
 		setCreativeTab(Skyrim.TabSkyrimArmor);
 		type = par5;
+		textureFile = par6;
 	}
 
 	public void func_94581_a(IconRegister iconRegister)
