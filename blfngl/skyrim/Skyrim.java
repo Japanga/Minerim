@@ -16,11 +16,13 @@ import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
 import blfngl.skyrim.block.BlockBase;
+import blfngl.skyrim.block.BlockForge;
 import blfngl.skyrim.block.BlockGrindstone;
 import blfngl.skyrim.block.BlockSkyrimChest;
 import blfngl.skyrim.block.BlockSmelter;
 import blfngl.skyrim.handler.Blocks;
 import blfngl.skyrim.handler.EntityHandler;
+import blfngl.skyrim.handler.GuiHandler;
 import blfngl.skyrim.handler.Languages;
 import blfngl.skyrim.handler.Recipes;
 import blfngl.skyrim.handler.SkryrimVanillaDrops;
@@ -52,6 +54,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 /**
  * The Skyrim Mod
@@ -71,6 +74,8 @@ public class Skyrim
 
 	@SidedProxy(clientSide="blfngl.skyrim.proxy.ClientProxy", serverSide="blfngl.skyrim.proxy.CommonProxy")
 	public static CommonProxy proxy;
+
+	public GuiHandler guiHandler = new GuiHandler();
 
 	public static CreativeTabs TabSkyrimBlocks = new TabSkyrimBlocks(CreativeTabs.getNextID(), "TabSkyrimBlocks");
 	public static CreativeTabs TabSkyrimItems = new TabSkyrimItems(CreativeTabs.getNextID(), "TabSkyrimItems");
@@ -277,12 +282,14 @@ public class Skyrim
 	public static final Item gauntletsSteelI = new BaseArmor(11135, ANCIENTNORD, 1, 2, "Heavy", "/blfngl/skyrim/textures/SteelArmor.png").setUnlocalizedName("SteelImperialGauntlets");
 	public static final Item bootsSteelI = new BaseArmor(11136, ANCIENTNORD, 1, 3, "Heavy", "/blfngl/skyrim/textures/SteelArmor.png").setUnlocalizedName("SteelImperialBoots");
 
+	public static final Block forge = new BlockForge(203).setHardness(4.5F).setStepSound(Block.soundAnvilFootstep).setUnlocalizedName("Forge");
+
 	public static final Item dragonKiller = new BaseSword(11200, 9999, -3).setUnlocalizedName("DragonKiller");
 
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		NetworkRegistry.instance().registerGuiHandler(this, this.proxy);
+		NetworkRegistry.instance().registerGuiHandler(this, this.guiHandler);
 		instance = this;
 
 		proxy.registerSoundHandler();
@@ -312,11 +319,12 @@ public class Skyrim
 		WorldHandler.init();
 		EntityHandler.init();
 
+		LanguageRegistry.instance().addStringLocalization("entity.Alduin.name", "en_US", "Alduin");
 		ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ancientPick), 1, 1, 10));
 
 		proxy.registerTileEntities();
 		proxy.registerServerTickHandler();
-		NetworkRegistry.instance().registerGuiHandler(instance, proxy);
+		NetworkRegistry.instance().registerGuiHandler(instance, guiHandler);
 
 		GameRegistry.registerTileEntity(TileEntitySmelter.class, "Smelter");
 		GameRegistry.registerTileEntity(TileEntityGrindstone.class, "Grindstone");
