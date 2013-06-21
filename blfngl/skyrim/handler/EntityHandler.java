@@ -20,7 +20,6 @@ public class EntityHandler extends Skyrim
 	public static void init()
 	{
 		EntityRegistry.registerGlobalEntityID(EntityDaedricArrow.class, "DaedraArrow", EntityRegistry.findGlobalUniqueEntityId());
-		//RenderingRegistry.registerEntityRenderingHandler(EntityDaedricArrow.class, new RenderArrow());
 
 		EntityRegistry.registerGlobalEntityID(EntityShout.class, "EntityShout", EntityRegistry.findGlobalUniqueEntityId());
 
@@ -46,5 +45,9 @@ public class EntityHandler extends Skyrim
 		EntityRegistry.addSpawn(EntityFrostDragon.class, 1, 1, 1, EnumCreatureType.ambient, BiomeGenBase.frozenRiver);
 
 		EntityRegistry.registerGlobalEntityID(EntityAlduin.class, "Alduin", EntityRegistry.findGlobalUniqueEntityId(), 230, 78);
+		
+		EntityRegistry.registerGlobalEntityID(EntityDaedricArrow.class, "DaedricArrow", EntityRegistry.findGlobalUniqueEntityId());
+		EntityRegistry.registerModEntity(EntityDaedricArrow.class, "DaedricArrow", 0, Skyrim.instance, 128, 1, true);
+		LanguageRegistry.instance().addStringLocalization("entity.DaedricArrow.name", "Daedric Arrow");
 	}
 }

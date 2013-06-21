@@ -1,9 +1,9 @@
 package blfngl.skyrim.proxy;
 
-import net.minecraft.client.renderer.entity.RenderArrow;
 import net.minecraftforge.common.MinecraftForge;
 import blfngl.skyrim.entity.EntityDaedricArrow;
 import blfngl.skyrim.handler.SoundHandler;
+import blfngl.skyrim.render.RenderDaedricArrow;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -14,7 +14,7 @@ public class ClientProxy extends CommonProxy
 	@SideOnly(Side.CLIENT)
 	public void registerRenderers()
 	{
-		RenderingRegistry.registerEntityRenderingHandler(EntityDaedricArrow.class, new RenderArrow());
+		RenderingRegistry.registerEntityRenderingHandler(EntityDaedricArrow.class, new RenderDaedricArrow());
 		super.registerTileEntities();
 	}
 
