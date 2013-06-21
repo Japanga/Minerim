@@ -24,7 +24,7 @@ public class BlockBase extends BlockOre
 
 	public void func_94332_a(IconRegister iconRegister)
 	{
-		blockIcon = iconRegister.registerIcon("blfngl" + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
+		blockIcon = iconRegister.registerIcon("skyrim" + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
 	}
 
 	public int idDropped(int par1, Random random, int par2)

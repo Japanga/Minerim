@@ -215,9 +215,9 @@ public class BlockSmelter extends BlockContainer
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		blockIcon = iconRegister.registerIcon("blfngl:smelter");
-		doubleFurnaceFront = iconRegister.registerIcon(this.isActive ? "blfngl:smelterActive" : "blfngl:smelterFront");
-		doubleFurnaceTop = iconRegister.registerIcon("blfngl:smelterTop");
+		blockIcon = iconRegister.registerIcon("skyrim:smelter");
+		doubleFurnaceFront = iconRegister.registerIcon(this.isActive ? "skyrim:smelterActive" : "skyrim:smelterFront");
+		doubleFurnaceTop = iconRegister.registerIcon("skyrim:smelterTop");
 	}
 
 	@Override

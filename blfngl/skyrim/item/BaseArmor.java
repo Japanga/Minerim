@@ -26,12 +26,12 @@ public class BaseArmor extends ItemArmor implements IArmorTextureProvider
 
 	public void func_94581_a(IconRegister iconRegister)
 	{
-		itemIcon = iconRegister.registerIcon("blfngl" + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
+		itemIcon = iconRegister.registerIcon("skyrim" + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
 	}
 
 	public String getArmorTextureFile(ItemStack par1)
 	{
-		return textureFile;
+		return "/mods/skyrim/armor/" + textureFile;
 	}
 
 	public void addInformation(ItemStack var1, EntityPlayer var2, List var3, boolean var4)

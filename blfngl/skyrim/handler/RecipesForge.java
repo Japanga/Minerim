@@ -132,7 +132,7 @@ public class RecipesForge extends Skyrim
 		addShapelessRecipe(new ItemStack(bootsElven), new Object [] {ingotMoonstone, ingotMoonstone, Item.ingotIron, Item.leather, leatherStrips, leatherStrips});
 		addShapelessRecipe(new ItemStack(chestElvenGilded), new Object [] {ingotMoonstone, ingotMoonstone, ingotMoonstone, ingotMoonstone, Item.ingotIron, ingotQuicksilver, leatherStrips, leatherStrips, leatherStrips});
 
-		Collections.sort(this.recipes, new ForgeSorter(this));
+		Collections.sort(this.recipes, new RecipesForgeSorter(this));
 		System.out.println(this.recipes.size() + " recipes");
 	}
 

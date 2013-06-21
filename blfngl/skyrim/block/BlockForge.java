@@ -14,9 +14,11 @@ public class BlockForge extends Block
 {
 
 	@SideOnly(Side.CLIENT)
-	private Icon field_94385_a;
+	private Icon forgeTop;
 	@SideOnly(Side.CLIENT)
-	private Icon field_94384_b;
+	private Icon forgeSide;
+	@SideOnly(Side.CLIENT)
+	private Icon forgeFront;
 
 	public BlockForge(int par1)
 	{
@@ -24,20 +26,20 @@ public class BlockForge extends Block
 		this.setCreativeTab(Skyrim.TabSkyrimBlocks);
 	}
 
-	@SideOnly(Side.CLIENT)
-
-	public Icon getBlockTextureFromSideAndMetadata(int par1, int par2)
+	@Override
+	public Icon getIcon(int par1, int par2)
 	{
-		return par1 == 1 ? this.field_94385_a : (par1 == 0 ? Block.planks.getBlockTextureFromSide(par1) : (par1 != 2 && par1 != 4 ? this.blockIcon : this.field_94384_b));
+		return par1 == 1 ? this.forgeTop : (par1 == 0 ? this.forgeTop : (par1 != par2 ? this.blockIcon : this.forgeFront));
 	}
 
 	@SideOnly(Side.CLIENT)
 
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon("blfngl:smithsBenchSide2");
-		this.field_94385_a = par1IconRegister.registerIcon("blfngl:smithsBenchTop");
-		this.field_94384_b = par1IconRegister.registerIcon("blfngl:smithsBenchSide1");
+		blockIcon = par1IconRegister.registerIcon("skyrim:forgeSide");
+		forgeTop = par1IconRegister.registerIcon("skyrim:forgeTop");
+		forgeSide = par1IconRegister.registerIcon("skyrim:forgeSide");
+		forgeFront = par1IconRegister.registerIcon("skyrim:forgeSide");
 	}
 
 	public boolean onBlockActivated(World var1, int var2, int var3, int var4, EntityPlayer player, int var6, float var7, float var8, float var9)

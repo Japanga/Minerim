@@ -29,7 +29,7 @@ public class ContainerForge extends Container
 		this.posY = par4;
 		this.posZ = par5;
 
-		this.addSlotToContainer(new SlotForge(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, 0, 124, 35));
+		this.addSlotToContainer(new SlotForge(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, 0, (int)138.75, 35));
 		int var6;
 		int var7;
 
@@ -37,7 +37,7 @@ public class ContainerForge extends Container
 		{
 			for (var7 = 0; var7 < 3; ++var7)
 			{
-				this.addSlotToContainer(new Slot(this.craftMatrix, var7 + var6 * 3, 30 + var7 * 18, 17 + var6 * 18));
+				this.addSlotToContainer(new Slot(this.craftMatrix, var7 + var6 * 3, 45 + var7 * 18, 17 + var6 * 18));
 			}
 		}
 

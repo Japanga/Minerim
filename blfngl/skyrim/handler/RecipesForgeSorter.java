@@ -7,11 +7,11 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.item.crafting.ShapelessRecipes;
 
-class ForgeSorter implements Comparator
+class RecipesForgeSorter implements Comparator
 {
 	final RecipesForge recipes;
 
-	ForgeSorter(RecipesForge par1SmithsCraftingManager)
+	RecipesForgeSorter(RecipesForge par1SmithsCraftingManager)
 	{
 		this.recipes = par1SmithsCraftingManager;
 	}
