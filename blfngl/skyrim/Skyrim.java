@@ -10,14 +10,12 @@ import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.WeightedRandomChestContent;
-import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
 import blfngl.skyrim.block.BlockBase;
 import blfngl.skyrim.block.BlockForge;
 import blfngl.skyrim.block.BlockGrindstone;
+import blfngl.skyrim.block.BlockLevelUp;
 import blfngl.skyrim.block.BlockSkyrimChest;
 import blfngl.skyrim.block.BlockSmelter;
 import blfngl.skyrim.handler.Blocks;
@@ -54,7 +52,6 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 /**
  * The Skyrim Mod
@@ -64,7 +61,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
  * The code in this repository, in any form, is the copyright of blfngl
  **/
 
-@Mod(modid = "skyrim", name = "The Skyrim Mod", version = "MC v1.5.2 | SM v1.0.5")
+@Mod(modid = "skyrim", name = "The Skyrim Mod", version = "MC v1.5.2 | SM v1.0.8")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 
 public class Skyrim
@@ -83,17 +80,17 @@ public class Skyrim
 	public static CreativeTabs TabSkyrimArmor = new TabSkyrimArmor(CreativeTabs.getNextID(), "TabSkyrimArmor");
 	public static CreativeTabs TabSkyrimFood = new TabSkyrimFood(CreativeTabs.getNextID(), "TabSkyrimFood");
 
-	public static EnumArmorMaterial DWARVEN = EnumHelper.addArmorMaterial("DWARVEN", 34, new int[]{4, 8, 6, 2}, 25);
-	public static EnumArmorMaterial DAEDRIC = EnumHelper.addArmorMaterial("DAEDRIC", 49, new int[]{4, 8, 6, 2}, 25);
-	public static EnumArmorMaterial GLASS = EnumHelper.addArmorMaterial("GLASS", 38, new int[]{3, 6, 5, 2}, 25);
-	public static EnumArmorMaterial EBONY = EnumHelper.addArmorMaterial("EBONY", 43, new int[]{4, 8, 6, 2}, 25);
-	public static EnumArmorMaterial ORCISH = EnumHelper.addArmorMaterial("ORCISH", 40, new int[]{4, 8, 6, 2}, 25);
-	public static EnumArmorMaterial STEEL = EnumHelper.addArmorMaterial("STEEL", 31, new int[]{4, 8, 6, 2}, 25);
-	public static EnumArmorMaterial STALHRIM = EnumHelper.addArmorMaterial("STALHRIM", 46, new int[]{4, 8, 6, 2}, 25);
-	public static EnumArmorMaterial ELVEN = EnumHelper.addArmorMaterial("ELVEN", 29, new int[]{3, 6, 5, 2}, 25);
-	public static EnumArmorMaterial ELVENGILDED = EnumHelper.addArmorMaterial("ELVENGILDED", 35, new int[]{3, 6, 5, 2}, 25);
+	public static EnumArmorMaterial DWARVEN = EnumHelper.addArmorMaterial("DWARVEN", 34, new int[]{4, 8, 6, 2}, 34);
+	public static EnumArmorMaterial DAEDRIC = EnumHelper.addArmorMaterial("DAEDRIC", 49, new int[]{4, 8, 6, 2}, 49);
+	public static EnumArmorMaterial GLASS = EnumHelper.addArmorMaterial("GLASS", 38, new int[]{3, 6, 5, 2}, 38);
+	public static EnumArmorMaterial EBONY = EnumHelper.addArmorMaterial("EBONY", 43, new int[]{4, 8, 6, 2}, 43);
+	public static EnumArmorMaterial ORCISH = EnumHelper.addArmorMaterial("ORCISH", 40, new int[]{4, 8, 6, 2}, 40);
+	public static EnumArmorMaterial STEEL = EnumHelper.addArmorMaterial("STEEL", 31, new int[]{4, 8, 6, 2}, 31);
+	public static EnumArmorMaterial STALHRIM = EnumHelper.addArmorMaterial("STALHRIM", 46, new int[]{4, 8, 6, 2}, 46);
+	public static EnumArmorMaterial ELVEN = EnumHelper.addArmorMaterial("ELVEN", 29, new int[]{3, 6, 5, 2}, 29);
+	public static EnumArmorMaterial ELVENGILDED = EnumHelper.addArmorMaterial("ELVENGILDED", 35, new int[]{3, 6, 5, 2}, 35);
 	public static EnumArmorMaterial ANCIENTNORD = EnumHelper.addArmorMaterial("ANCIENTNORD", 25, new int[]{4, 8, 6, 2}, 25);
-	public static EnumArmorMaterial STALHRIMLIGHT = EnumHelper.addArmorMaterial("STALHRIMLIGHT", 39, new int[]{3, 6, 5, 2}, 25);
+	public static EnumArmorMaterial STALHRIMLIGHT = EnumHelper.addArmorMaterial("STALHRIMLIGHT", 39, new int[]{3, 6, 5, 2}, 39);
 
 	public static EnumToolMaterial STALHRIMTOOL = EnumHelper.addToolMaterial("STALHRIMTOOL", 4, -1, 6.0F, 3, 40);
 
@@ -124,52 +121,52 @@ public class Skyrim
 	public static final Block grindstoneIdle = new BlockGrindstone(200, false).setUnlocalizedName("GrindstoneIdle").setCreativeTab(TabSkyrimBlocks);
 	public static final Block grindstoneActive = new BlockGrindstone(201, true).setUnlocalizedName("GrindstoneActive");
 
-	public static final Item daggerEbony = new BaseSword(11012, 10, 1).setUnlocalizedName("EbonyDagger");
-	public static final Item warhammerEbony = new BaseSword(11013, 25, -3).setUnlocalizedName("EbonyWarhammer");
-	public static final Item warAxeEbony = new BaseSword(11014, 17, -1).setUnlocalizedName("EbonyWarAxe");
-	public static final Item swordEbony = new BaseSword(11015, 13, 0).setUnlocalizedName("EbonySword");
-	public static final Item greatSwordEbony = new BaseSword(11016, 22, -2).setUnlocalizedName("EbonyGreatsword");
-	public static final Item maceEbony = new BaseSword(11017, 16, -1).setUnlocalizedName("EbonyMace");
-	public static final Item battleAxeEbony = new BaseSword(11018, 26, -3).setUnlocalizedName("EbonyBattleaxe");
+	public static final Item daggerEbony = new BaseSword(11012, 10, 1, ingotEbony).setUnlocalizedName("EbonyDagger");
+	public static final Item warhammerEbony = new BaseSword(11013, 25, -3, ingotEbony).setUnlocalizedName("EbonyWarhammer");
+	public static final Item warAxeEbony = new BaseSword(11014, 17, -1, ingotEbony).setUnlocalizedName("EbonyWarAxe");
+	public static final Item swordEbony = new BaseSword(11015, 13, 0, ingotEbony).setUnlocalizedName("EbonySword");
+	public static final Item greatSwordEbony = new BaseSword(11016, 22, -2, ingotEbony).setUnlocalizedName("EbonyGreatsword");
+	public static final Item maceEbony = new BaseSword(11017, 16, -1, ingotEbony).setUnlocalizedName("EbonyMace");
+	public static final Item battleAxeEbony = new BaseSword(11018, 26, -3, ingotEbony).setUnlocalizedName("EbonyBattleaxe");
 
-	public static final Item daggerGlass = new BaseSword(11019, 9, 1).setUnlocalizedName("GlassDagger");
-	public static final Item warhammerGlass = new BaseSword(11020, 27, -3).setUnlocalizedName("GlassWarhammer");
-	public static final Item warAxeGlass = new BaseSword(11021, 17, -1).setUnlocalizedName("GlassWarAxe");
-	public static final Item swordGlass = new BaseSword(11022, 12, 0).setUnlocalizedName("GlassSword");
-	public static final Item greatSwordGlass = new BaseSword(11023, 24, -2).setUnlocalizedName("GlassGreatsword");
-	public static final Item maceGlass = new BaseSword(11024, 14, -1).setUnlocalizedName("GlassMace");
-	public static final Item battleAxeGlass = new BaseSword(11025, 25, -3).setUnlocalizedName("GlassBattleaxe");
+	public static final Item daggerGlass = new BaseSword(11019, 9, 1, ingotMalachite).setUnlocalizedName("GlassDagger");
+	public static final Item warhammerGlass = new BaseSword(11020, 27, -3, ingotMalachite).setUnlocalizedName("GlassWarhammer");
+	public static final Item warAxeGlass = new BaseSword(11021, 17, -1, ingotMalachite).setUnlocalizedName("GlassWarAxe");
+	public static final Item swordGlass = new BaseSword(11022, 12, 0, ingotMalachite).setUnlocalizedName("GlassSword");
+	public static final Item greatSwordGlass = new BaseSword(11023, 24, -2, ingotMalachite).setUnlocalizedName("GlassGreatsword");
+	public static final Item maceGlass = new BaseSword(11024, 14, -1, ingotMalachite).setUnlocalizedName("GlassMace");
+	public static final Item battleAxeGlass = new BaseSword(11025, 25, -3, ingotMalachite).setUnlocalizedName("GlassBattleaxe");
 
-	public static final Item daggerDaedric = new BaseSword(11026, 11, 1).setUnlocalizedName("DaedricDagger");
-	public static final Item warhammerDaedric = new BaseSword(11027, 27, -3).setUnlocalizedName("DaedricWarhammer");
-	public static final Item warAxeDaedric = new BaseSword(11028, 15, -1).setUnlocalizedName("DaedricWarAxe");
-	public static final Item swordDaedric = new BaseSword(11029, 14, 0).setUnlocalizedName("DaedricSword");
-	public static final Item greatSwordDaedric = new BaseSword(11030, 24, -2).setUnlocalizedName("DaedricGreatsword");
-	public static final Item maceDaedric = new BaseSword(11031, 16, -1).setUnlocalizedName("DaedricMace");
-	public static final Item battleAxeDaedric = new BaseSword(11032, 25, -3).setUnlocalizedName("DaedricBattleaxe");
+	public static final Item daggerDaedric = new BaseSword(11026, 11, 1, ingotEbony).setUnlocalizedName("DaedricDagger");
+	public static final Item warhammerDaedric = new BaseSword(11027, 27, -3, ingotEbony).setUnlocalizedName("DaedricWarhammer");
+	public static final Item warAxeDaedric = new BaseSword(11028, 15, -1, ingotEbony).setUnlocalizedName("DaedricWarAxe");
+	public static final Item swordDaedric = new BaseSword(11029, 14, 0, ingotEbony).setUnlocalizedName("DaedricSword");
+	public static final Item greatSwordDaedric = new BaseSword(11030, 24, -2, ingotEbony).setUnlocalizedName("DaedricGreatsword");
+	public static final Item maceDaedric = new BaseSword(11031, 16, -1, ingotEbony).setUnlocalizedName("DaedricMace");
+	public static final Item battleAxeDaedric = new BaseSword(11032, 25, -3, ingotEbony).setUnlocalizedName("DaedricBattleaxe");
 
 	public static final Item firewood = new BaseItem(11033).setUnlocalizedName("Firewood");
 	public static final Item daedraHeart = new BaseItem(11034).setUnlocalizedName("DaedraHeart");
 
-	public static final Item helmDwarf = new BaseArmor(11035, DWARVEN, 1, 0, "Heavy", "DwarvenArmor.png").setUnlocalizedName("DwarfHelm");
-	public static final Item chestDwarf = new BaseArmor(11036, DWARVEN, 1, 1, "Heavy", "DwarvenArmor.png").setUnlocalizedName("DwarfChest");
-	public static final Item gauntletsDwarf = new BaseArmor(11037, DWARVEN, 1, 2, "Heavy", "DwarvenArmor.png").setUnlocalizedName("DwarfGauntlets");
-	public static final Item bootsDwarf = new BaseArmor(11038, DWARVEN, 1, 3, "Heavy", "DwarvenArmor.png").setUnlocalizedName("DwarfBoots");
+	public static final Item helmDwarf = new BaseArmor(11035, DWARVEN, 1, 0, "Heavy", "DwarvenArmor.png", ingotDwarven).setUnlocalizedName("DwarfHelm");
+	public static final Item chestDwarf = new BaseArmor(11036, DWARVEN, 1, 1, "Heavy", "DwarvenArmor.png", ingotDwarven).setUnlocalizedName("DwarfChest");
+	public static final Item gauntletsDwarf = new BaseArmor(11037, DWARVEN, 1, 2, "Heavy", "DwarvenArmor.png", ingotDwarven).setUnlocalizedName("DwarfGauntlets");
+	public static final Item bootsDwarf = new BaseArmor(11038, DWARVEN, 1, 3, "Heavy", "DwarvenArmor.png", ingotDwarven).setUnlocalizedName("DwarfBoots");
 
-	public static final Item helmDaedric = new BaseArmor(11039, DAEDRIC, 1, 0, "Heavy", "DaedricArmor.png").setUnlocalizedName("DaedricHelm");
-	public static final Item chestDaedric = new BaseArmor(11040, DAEDRIC, 1, 1, "Heavy", "DaedricArmor.png").setUnlocalizedName("DaedricChest");
-	public static final Item gauntletsDaedric = new BaseArmor(11041, DAEDRIC, 1, 2, "Heavy", "DaedricArmor.png").setUnlocalizedName("DaedricGauntlets");
-	public static final Item bootsDaedric = new BaseArmor(11042, DAEDRIC, 1, 3, "Heavy", "DaedricArmor.png").setUnlocalizedName("DaedricBoots");
+	public static final Item helmDaedric = new BaseArmor(11039, DAEDRIC, 1, 0, "Heavy", "DaedricArmor.png", ingotEbony).setUnlocalizedName("DaedricHelm");
+	public static final Item chestDaedric = new BaseArmor(11040, DAEDRIC, 1, 1, "Heavy", "DaedricArmor.png", ingotEbony).setUnlocalizedName("DaedricChest");
+	public static final Item gauntletsDaedric = new BaseArmor(11041, DAEDRIC, 1, 2, "Heavy", "DaedricArmor.png", ingotEbony).setUnlocalizedName("DaedricGauntlets");
+	public static final Item bootsDaedric = new BaseArmor(11042, DAEDRIC, 1, 3, "Heavy", "DaedricArmor.png", ingotEbony).setUnlocalizedName("DaedricBoots");
 
-	public static final Item helmGlass = new BaseArmor(11043, GLASS, 1, 0, "Light", "GlassArmor.png").setUnlocalizedName("GlassHelm");
-	public static final Item chestGlass = new BaseArmor(11044, GLASS, 1, 1, "Light", "GlassArmor.png").setUnlocalizedName("GlassChest");
-	public static final Item gauntletsGlass = new BaseArmor(11045, GLASS, 1, 2, "Light", "GlassArmor.png").setUnlocalizedName("GlassGauntlets");
-	public static final Item bootsGlass = new BaseArmor(11046, GLASS, 1, 3, "Light", "GlassArmor.png").setUnlocalizedName("GlassBoots");
+	public static final Item helmGlass = new BaseArmor(11043, GLASS, 1, 0, "Light", "GlassArmor.png", ingotMalachite).setUnlocalizedName("GlassHelm");
+	public static final Item chestGlass = new BaseArmor(11044, GLASS, 1, 1, "Light", "GlassArmor.png", ingotMalachite).setUnlocalizedName("GlassChest");
+	public static final Item gauntletsGlass = new BaseArmor(11045, GLASS, 1, 2, "Light", "GlassArmor.png", ingotMalachite).setUnlocalizedName("GlassGauntlets");
+	public static final Item bootsGlass = new BaseArmor(11046, GLASS, 1, 3, "Light", "GlassArmor.png", ingotMalachite).setUnlocalizedName("GlassBoots");
 
-	public static final Item helmEbony = new BaseArmor(11047, EBONY, 1, 0, "Heavy", "EbonyArmor.png").setUnlocalizedName("EbonyHelm");
-	public static final Item chestEbony = new BaseArmor(11048, EBONY, 1, 1, "Heavy","EbonyArmor.png").setUnlocalizedName("EbonyChest");
-	public static final Item gauntletsEbony = new BaseArmor(11049, EBONY, 1, 2, "Heavy", "EbonyArmor.png").setUnlocalizedName("EbonyGauntlets");
-	public static final Item bootsEbony = new BaseArmor(11050, EBONY, 1, 3, "Heavy", "EbonyArmor.png").setUnlocalizedName("EbonyBoots");
+	public static final Item helmEbony = new BaseArmor(11047, EBONY, 1, 0, "Heavy", "EbonyArmor.png", ingotEbony).setUnlocalizedName("EbonyHelm");
+	public static final Item chestEbony = new BaseArmor(11048, EBONY, 1, 1, "Heavy","EbonyArmor.png", ingotEbony).setUnlocalizedName("EbonyChest");
+	public static final Item gauntletsEbony = new BaseArmor(11049, EBONY, 1, 2, "Heavy", "EbonyArmor.png", ingotEbony).setUnlocalizedName("EbonyGauntlets");
+	public static final Item bootsEbony = new BaseArmor(11050, EBONY, 1, 3, "Heavy", "EbonyArmor.png", ingotEbony).setUnlocalizedName("EbonyBoots");
 
 	public static final Item dwemmerBentScrap = new BaseItem(11051).setUnlocalizedName("DwemmerBentScrap");
 	public static final Item dwemmerLargePlate = new BaseItem(11052).setUnlocalizedName("DwemmerLargePlate");
@@ -197,94 +194,105 @@ public class Skyrim
 	public static final ItemFood foodBeefStew = (ItemFood) new BaseFood(11071, 10, 0.5F, false).setUnlocalizedName("BeefStew");
 	public static final ItemFood foodCabbagePotatoSoup = (ItemFood) new BaseFood(11072, 7, 0.5F, false).setUnlocalizedName("CabbagePotatoSoup");
 
-	public static final Item daggerOrc = new BaseSword(11073, 7, 1).setUnlocalizedName("OrcishDagger");
-	public static final Item warhammerOrc = new BaseSword(11074, 21, -3).setUnlocalizedName("OrcishWarhammer");
-	public static final Item warAxeOrc = new BaseSword(11075, 11, -1).setUnlocalizedName("OrcishWarAxe");
-	public static final Item swordOrc = new BaseSword(11076, 10, 0).setUnlocalizedName("OrcishSword");
-	public static final Item greatSwordOrc = new BaseSword(11077, 18, -2).setUnlocalizedName("OrcishGreatsword");
-	public static final Item maceOrc = new BaseSword(11078, 12, -1).setUnlocalizedName("OrcishMace");
-	public static final Item battleAxeOrc = new BaseSword(11079, 19, -3).setUnlocalizedName("OrcishBattleaxe");
+	public static final Item daggerOrc = new BaseSword(11073, 7, 1, ingotOrichalcum).setUnlocalizedName("OrcishDagger");
+	public static final Item warhammerOrc = new BaseSword(11074, 21, -3, ingotOrichalcum).setUnlocalizedName("OrcishWarhammer");
+	public static final Item warAxeOrc = new BaseSword(11075, 11, -1, ingotOrichalcum).setUnlocalizedName("OrcishWarAxe");
+	public static final Item swordOrc = new BaseSword(11076, 10, 0, ingotOrichalcum).setUnlocalizedName("OrcishSword");
+	public static final Item greatSwordOrc = new BaseSword(11077, 18, -2, ingotOrichalcum).setUnlocalizedName("OrcishGreatsword");
+	public static final Item maceOrc = new BaseSword(11078, 12, -1, ingotOrichalcum).setUnlocalizedName("OrcishMace");
+	public static final Item battleAxeOrc = new BaseSword(11079, 19, -3, ingotOrichalcum).setUnlocalizedName("OrcishBattleaxe");
 
-	public static final Item helmOrc = new BaseArmor(11080, ORCISH, 1, 0, "Heavy", "OrcishArmor.png").setUnlocalizedName("OrcishHelm");
-	public static final Item chestOrc = new BaseArmor(11081, ORCISH, 1, 1, "Heavy", "OrcishArmor.png").setUnlocalizedName("OrcishChest");
-	public static final Item gauntletsOrc = new BaseArmor(11082, ORCISH, 1, 2, "Heavy", "OrcishArmor.png").setUnlocalizedName("OrcishGauntlets");
-	public static final Item bootsOrc = new BaseArmor(11083, ORCISH, 1, 3, "Heavy", "OrcishArmor.png").setUnlocalizedName("OrcishBoots");
+	public static final Item helmOrc = new BaseArmor(11080, ORCISH, 1, 0, "Heavy", "OrcishArmor.png", ingotOrichalcum).setUnlocalizedName("OrcishHelm");
+	public static final Item chestOrc = new BaseArmor(11081, ORCISH, 1, 1, "Heavy", "OrcishArmor.png", ingotOrichalcum).setUnlocalizedName("OrcishChest");
+	public static final Item gauntletsOrc = new BaseArmor(11082, ORCISH, 1, 2, "Heavy", "OrcishArmor.png", ingotOrichalcum).setUnlocalizedName("OrcishGauntlets");
+	public static final Item bootsOrc = new BaseArmor(11083, ORCISH, 1, 3, "Heavy", "OrcishArmor.png", ingotOrichalcum).setUnlocalizedName("OrcishBoots");
 
 	//public static final Item wabbajack = new ItemWabbajack(11084).setUnlocalizedName("Wabbajack");
 	//public static final Item shoutFus = new ItemShout(11085).setUnlocalizedName("Shout");
 
-	public static final Item helmSteel = new BaseArmor(11086, STEEL, 1, 0, "Heavy", "SteelArmor.png").setUnlocalizedName("SteelHelm");
-	public static final Item chestSteel = new BaseArmor(11087, STEEL, 1, 1, "Heavy", "SteelArmor.png").setUnlocalizedName("SteelChest");
-	public static final Item gauntletsSteel = new BaseArmor(11088, STEEL, 1, 2, "Heavy", "SteelArmor.png").setUnlocalizedName("SteelGauntlets");
-	public static final Item bootsSteel = new BaseArmor(11089, STEEL, 1, 3, "Heavy", "SteelArmor.png").setUnlocalizedName("SteelBoots");
+	public static final Item helmSteel = new BaseArmor(11086, STEEL, 1, 0, "Heavy", "SteelArmor.png", ingotSteel).setUnlocalizedName("SteelHelm");
+	public static final Item chestSteel = new BaseArmor(11087, STEEL, 1, 1, "Heavy", "SteelArmor.png", ingotSteel).setUnlocalizedName("SteelChest");
+	public static final Item gauntletsSteel = new BaseArmor(11088, STEEL, 1, 2, "Heavy", "SteelArmor.png", ingotSteel).setUnlocalizedName("SteelGauntlets");
+	public static final Item bootsSteel = new BaseArmor(11089, STEEL, 1, 3, "Heavy", "SteelArmor.png", ingotSteel).setUnlocalizedName("SteelBoots");
 
-	public static final Item daggerSteel = new BaseSword(11090, 5, 1).setUnlocalizedName("SteelDagger");
-	public static final Item warhammerSteel = new BaseSword(11091, 22, -3).setUnlocalizedName("SteelWarhammer");
-	public static final Item warAxeSteel = new BaseSword(11092, 9, -1).setUnlocalizedName("SteelWarAxe");
-	public static final Item swordSteel = new BaseSword(11093, 9, 0).setUnlocalizedName("SteelSword");
-	public static final Item greatSwordSteel = new BaseSword(11094, 17, -2).setUnlocalizedName("SteelGreatsword");
-	public static final Item maceSteel = new BaseSword(11095, 11, -1).setUnlocalizedName("SteelMace");
-	public static final Item battleAxeSteel = new BaseSword(11096, 18, -3).setUnlocalizedName("SteelBattleaxe");
+	public static final Item daggerSteel = new BaseSword(11090, 5, 1, ingotSteel).setUnlocalizedName("SteelDagger");
+	public static final Item warhammerSteel = new BaseSword(11091, 22, -3, ingotSteel).setUnlocalizedName("SteelWarhammer");
+	public static final Item warAxeSteel = new BaseSword(11092, 9, -1, ingotSteel).setUnlocalizedName("SteelWarAxe");
+	public static final Item swordSteel = new BaseSword(11093, 9, 0, ingotSteel).setUnlocalizedName("SteelSword");
+	public static final Item greatSwordSteel = new BaseSword(11094, 17, -2, ingotSteel).setUnlocalizedName("SteelGreatsword");
+	public static final Item maceSteel = new BaseSword(11095, 11, -1, ingotSteel).setUnlocalizedName("SteelMace");
+	public static final Item battleAxeSteel = new BaseSword(11096, 18, -3, ingotSteel).setUnlocalizedName("SteelBattleaxe");
+
+	public static final Item stalhrim = new BaseItem(11109).setUnlocalizedName("Stalhrim").setCreativeTab(TabSkyrimItems);
 
 	//TODO Stalhrim armor creds
 	//http://www.planetminecraft.com/skin/stalhrim-2204798/
-	public static final Item helmStalhrim = new BaseArmor(11097, STALHRIM, 1, 0, "Heavy", "StalhrimArmor.png").setUnlocalizedName("StalhrimHelm");
-	public static final Item chestStalhrim = new BaseArmor(11098, STALHRIM, 1, 1, "Heavy", "StalhrimArmor.png").setUnlocalizedName("StalhrimChest");
-	public static final Item gauntletsStalhrim = new BaseArmor(11099, STALHRIM, 1, 2, "Heavy", "StalhrimArmor.png").setUnlocalizedName("StalhrimGauntlets");
-	public static final Item bootsStalhrim = new BaseArmor(11100, STALHRIM, 1, 3, "Heavy", "StalhrimArmor.png").setUnlocalizedName("StalhrimBoots");
+	public static final Item helmStalhrim = new BaseArmor(11097, STALHRIM, 1, 0, "Heavy", "StalhrimArmor.png", stalhrim).setUnlocalizedName("StalhrimHelm");
+	public static final Item chestStalhrim = new BaseArmor(11098, STALHRIM, 1, 1, "Heavy", "StalhrimArmor.png", stalhrim).setUnlocalizedName("StalhrimChest");
+	public static final Item gauntletsStalhrim = new BaseArmor(11099, STALHRIM, 1, 2, "Heavy", "StalhrimArmor.png", stalhrim).setUnlocalizedName("StalhrimGauntlets");
+	public static final Item bootsStalhrim = new BaseArmor(11100, STALHRIM, 1, 3, "Heavy", "StalhrimArmor.png", stalhrim).setUnlocalizedName("StalhrimBoots");
 
-	public static final Item daggerStalhrim = new BaseSword(11101, 10, 1).setUnlocalizedName("StalhrimDagger");
-	public static final Item warhammerStalhrim = new BaseSword(11102, 22, -3).setUnlocalizedName("StalhrimWarhammer");
-	public static final Item warAxeStalhrim = new BaseSword(11103, 15, -1).setUnlocalizedName("StalhrimWarAxe");
-	public static final Item swordStalhrim = new BaseSword(11104, 13, 0).setUnlocalizedName("StalhrimSword");
-	public static final Item greatSwordStalhrim = new BaseSword(11105, 23, -2).setUnlocalizedName("StalhrimGreatsword");
-	public static final Item maceStalhrim = new BaseSword(11106, 16, -1).setUnlocalizedName("StalhrimMace");
-	public static final Item battleAxeStalhrim = new BaseSword(11107, 26, -3).setUnlocalizedName("StalhrimBattleaxe");
+	public static final Item daggerStalhrim = new BaseSword(11101, 10, 1, stalhrim).setUnlocalizedName("StalhrimDagger");
+	public static final Item warhammerStalhrim = new BaseSword(11102, 22, -3, stalhrim).setUnlocalizedName("StalhrimWarhammer");
+	public static final Item warAxeStalhrim = new BaseSword(11103, 15, -1, stalhrim).setUnlocalizedName("StalhrimWarAxe");
+	public static final Item swordStalhrim = new BaseSword(11104, 13, 0, stalhrim).setUnlocalizedName("StalhrimSword");
+	public static final Item greatSwordStalhrim = new BaseSword(11105, 23, -2, stalhrim).setUnlocalizedName("StalhrimGreatsword");
+	public static final Item maceStalhrim = new BaseSword(11106, 16, -1, stalhrim).setUnlocalizedName("StalhrimMace");
+	public static final Item battleAxeStalhrim = new BaseSword(11107, 26, -3, stalhrim).setUnlocalizedName("StalhrimBattleaxe");
 
 	public static final Item ancientPick = new BasePick(11108, STALHRIMTOOL).setUnlocalizedName("AncientPick").setCreativeTab(TabSkyrimItems);
 
 	public static final BlockOre oreStalhrim = new BlockBase(202, 0, Material.rock, 7.0F, "StalhrimOre");
 
-	public static final Item stalhrim = new BaseItem(11109).setUnlocalizedName("Stalhrim").setCreativeTab(TabSkyrimItems);
+	public static final Item daggerNordic = new BaseSword(11110, 8, 1, ingotQuicksilver).setUnlocalizedName("NordicDagger");
+	public static final Item warhammerNordic = new BaseSword(11111, 23, -3, ingotQuicksilver).setUnlocalizedName("NordicWarhammer");
+	public static final Item warAxeNordic = new BaseSword(11112, 12, -1, ingotQuicksilver).setUnlocalizedName("NordicWarAxe");
+	public static final Item swordNordic = new BaseSword(11113, 11, 0, ingotQuicksilver).setUnlocalizedName("NordicSword");
+	public static final Item greatSwordNordic = new BaseSword(11114, 20, -2, ingotQuicksilver).setUnlocalizedName("NordicGreatsword");
+	public static final Item maceNordic = new BaseSword(11115, 13, -1, ingotQuicksilver).setUnlocalizedName("NordicMace");
+	public static final Item battleAxeNordic = new BaseSword(11116, 21, -3, ingotQuicksilver).setUnlocalizedName("NordicBattleaxe");
 
-	public static final Item daggerNordic = new BaseSword(11110, 8, 1).setUnlocalizedName("NordicDagger");
-	public static final Item warhammerNordic = new BaseSword(11111, 23, -3).setUnlocalizedName("NordicWarhammer");
-	public static final Item warAxeNordic = new BaseSword(11112, 12, -1).setUnlocalizedName("NordicWarAxe");
-	public static final Item swordNordic = new BaseSword(11113, 11, 0).setUnlocalizedName("NordicSword");
-	public static final Item greatSwordNordic = new BaseSword(11114, 20, -2).setUnlocalizedName("NordicGreatsword");
-	public static final Item maceNordic = new BaseSword(11115, 13, -1).setUnlocalizedName("NordicMace");
-	public static final Item battleAxeNordic = new BaseSword(11116, 21, -3).setUnlocalizedName("NordicBattleaxe");
+	public static final Item helmNordic = new BaseArmor(11117, EBONY, 1, 0, "Heavy", "NordicArmor.png", ingotQuicksilver).setUnlocalizedName("NordicHelm");
+	public static final Item chestNordic = new BaseArmor(11118, EBONY, 1, 1, "Heavy", "NordicArmor.png", ingotQuicksilver).setUnlocalizedName("NordicChest");
+	public static final Item gauntletsNordic = new BaseArmor(11119, EBONY, 1, 2, "Heavy", "NordicArmor.png", ingotQuicksilver).setUnlocalizedName("NordicGauntlets");
+	public static final Item bootsNordic = new BaseArmor(11120, EBONY, 1, 3, "Heavy", "NordicArmor.png", ingotQuicksilver).setUnlocalizedName("NordicBoots");
 
-	public static final Item helmNordic = new BaseArmor(11117, EBONY, 1, 0, "Heavy", "NordicArmor.png").setUnlocalizedName("NordicHelm");
-	public static final Item chestNordic = new BaseArmor(11118, EBONY, 1, 1, "Heavy", "NordicArmor.png").setUnlocalizedName("NordicChest");
-	public static final Item gauntletsNordic = new BaseArmor(11119, EBONY, 1, 2, "Heavy", "NordicArmor.png").setUnlocalizedName("NordicGauntlets");
-	public static final Item bootsNordic = new BaseArmor(11120, EBONY, 1, 3, "Heavy", "NordicArmor.png").setUnlocalizedName("NordicBoots");
-
-	public static final Item helmElven = new BaseArmor(11121, ELVEN, 1, 0, "Light", "ElvenArmor.png").setUnlocalizedName("ElvenHelm");
-	public static final Item chestElven = new BaseArmor(11122, ELVEN, 1, 1, "Light", "ElvenArmor.png").setUnlocalizedName("ElvenChest");
-	public static final Item gauntletsElven = new BaseArmor(11123, ELVEN, 1, 2, "Light", "ElvenArmor.png").setUnlocalizedName("ElvenGauntlets");
-	public static final Item bootsElven = new BaseArmor(11124, ELVEN, 1, 3, "Light", "ElvenArmor.png").setUnlocalizedName("ElvenBoots");
-	public static final Item chestElvenGilded = new BaseArmor(11125, ELVENGILDED, 1, 1, "Light", "ElvenArmor.png").setUnlocalizedName("ElvenChestGilded");
+	public static final Item helmElven = new BaseArmor(11121, ELVEN, 1, 0, "Light", "ElvenArmor.png", ingotMoonstone).setUnlocalizedName("ElvenHelm");
+	public static final Item chestElven = new BaseArmor(11122, ELVEN, 1, 1, "Light", "ElvenArmor.png", ingotMoonstone).setUnlocalizedName("ElvenChest");
+	public static final Item gauntletsElven = new BaseArmor(11123, ELVEN, 1, 2, "Light", "ElvenArmor.png", ingotMoonstone).setUnlocalizedName("ElvenGauntlets");
+	public static final Item bootsElven = new BaseArmor(11124, ELVEN, 1, 3, "Light", "ElvenArmor.png", ingotMoonstone).setUnlocalizedName("ElvenBoots");
+	public static final Item chestElvenGilded = new BaseArmor(11125, ELVENGILDED, 1, 1, "Light", "ElvenArmor.png", ingotMoonstone).setUnlocalizedName("ElvenChestGilded");
 
 	//TODO Ancient Nord armor creds
 	//http://www.planetminecraft.com/skin/ancient-nordic-armor-from-skyrim3d-horns/
-	public static final Item helmAncientNord = new BaseArmor(11126, ANCIENTNORD, 1, 0, "Heavy", "AncientNordArmor.png").setUnlocalizedName("AncientNordHelm");
-	public static final Item chestAncientNord = new BaseArmor(11127, ANCIENTNORD, 1, 1, "Heavy", "AncientNordArmor.png").setUnlocalizedName("AncientNordChest");
-	public static final Item gauntletsAncientNord = new BaseArmor(11128, ANCIENTNORD, 1, 2, "Heavy", "AncientNordArmor.png").setUnlocalizedName("AncientNordGauntlets");
-	public static final Item bootsAncientNord = new BaseArmor(11129, ANCIENTNORD, 1, 3, "Heavy", "AncientNordArmor.png").setUnlocalizedName("AncientNordBoots");
+	public static final Item helmAncientNord = new BaseArmor(11126, ANCIENTNORD, 1, 0, "Heavy", "AncientNordArmor.png", Item.ingotIron).setUnlocalizedName("AncientNordHelm");
+	public static final Item chestAncientNord = new BaseArmor(11127, ANCIENTNORD, 1, 1, "Heavy", "AncientNordArmor.png", Item.ingotIron).setUnlocalizedName("AncientNordChest");
+	public static final Item gauntletsAncientNord = new BaseArmor(11128, ANCIENTNORD, 1, 2, "Heavy", "AncientNordArmor.png", Item.ingotIron).setUnlocalizedName("AncientNordGauntlets");
+	public static final Item bootsAncientNord = new BaseArmor(11129, ANCIENTNORD, 1, 3, "Heavy", "AncientNordArmor.png", Item.ingotIron).setUnlocalizedName("AncientNordBoots");
 
-	public static final Item helmStalhrimLight = new BaseArmor(11130, STALHRIM, 1, 0, "Heavy", "StalhrimArmor.png").setUnlocalizedName("StalhrimHelm");
-	public static final Item chestStalhrimLight = new BaseArmor(11131, STALHRIM, 1, 1, "Heavy", "StalhrimArmor.png").setUnlocalizedName("StalhrimChest");
-	public static final Item gauntletsStalhrimLight = new BaseArmor(11132, STALHRIM, 1, 2, "Heavy", "StalhrimArmor.png").setUnlocalizedName("StalhrimGauntlets");
-	public static final Item bootsStalhrimLight = new BaseArmor(11133, STALHRIM, 1, 3, "Heavy", "StalhrimArmor.png").setUnlocalizedName("StalhrimBoots");
+	public static final Item helmStalhrimLight = new BaseArmor(11130, STALHRIM, 1, 0, "Light", "StalhrimArmor.png", stalhrim).setUnlocalizedName("StalhrimHelm");
+	public static final Item chestStalhrimLight = new BaseArmor(11131, STALHRIM, 1, 1, "Light", "StalhrimArmor.png", stalhrim).setUnlocalizedName("StalhrimChest");
+	public static final Item gauntletsStalhrimLight = new BaseArmor(11132, STALHRIM, 1, 2, "Light", "StalhrimArmor.png", stalhrim).setUnlocalizedName("StalhrimGauntlets");
+	public static final Item bootsStalhrimLight = new BaseArmor(11133, STALHRIM, 1, 3, "Light", "StalhrimArmor.png", stalhrim).setUnlocalizedName("StalhrimBoots");
 
-	public static final Item helmSteelI = new BaseArmor(11134, ANCIENTNORD, 1, 0, "Heavy", "SteelArmor.png").setUnlocalizedName("SteelImperialHelm");
-	public static final Item gauntletsSteelI = new BaseArmor(11135, ANCIENTNORD, 1, 2, "Heavy", "SteelArmor.png").setUnlocalizedName("SteelImperialGauntlets");
-	public static final Item bootsSteelI = new BaseArmor(11136, ANCIENTNORD, 1, 3, "Heavy", "SteelArmor.png").setUnlocalizedName("SteelImperialBoots");
+	public static final Item helmSteelI = new BaseArmor(11134, ANCIENTNORD, 1, 0, "Heavy", "SteelArmor.png", ingotSteel).setUnlocalizedName("SteelImperialHelm");
+	public static final Item gauntletsSteelI = new BaseArmor(11135, ANCIENTNORD, 1, 2, "Heavy", "SteelArmor.png", ingotSteel).setUnlocalizedName("SteelImperialGauntlets");
+	public static final Item bootsSteelI = new BaseArmor(11136, ANCIENTNORD, 1, 3, "Heavy", "SteelArmor.png", ingotSteel).setUnlocalizedName("SteelImperialBoots");
 
 	public static final Block forge = new BlockForge(203).setHardness(4.5F).setStepSound(Block.soundAnvilFootstep).setUnlocalizedName("Forge");
+	public static final Block levelUp = new BlockLevelUp(204, Material.rock).setHardness(2.5F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("lol");
 
-	public static final Item dragonKiller = new BaseSword(11200, 9999, -3).setUnlocalizedName("DragonKiller");
+	public static final Item ruby = new BaseItem(11137).setUnlocalizedName("Ruby").setCreativeTab(TabSkyrimItems);
+	public static final Item amethyst = new BaseItem(11138).setUnlocalizedName("Amethyst").setCreativeTab(TabSkyrimItems);
+	public static final Item sapphire = new BaseItem(11139).setUnlocalizedName("Sapphire").setCreativeTab(TabSkyrimItems);
+	public static final Item garnet = new BaseItem(11140).setUnlocalizedName("Garnet").setCreativeTab(TabSkyrimItems);
+	public static final Item goldCoin = new BaseItem(11141).setUnlocalizedName("Coin").setCreativeTab(TabSkyrimItems);
+	public static final Item rubyFlawless = new BaseItem(11141).setUnlocalizedName("FlawlessRuby").setCreativeTab(TabSkyrimItems);
+	public static final Item amethystFlawless = new BaseItem(11141).setUnlocalizedName("FlawlessAmethyst").setCreativeTab(TabSkyrimItems);
+	public static final Item sapphireFlawless = new BaseItem(11141).setUnlocalizedName("FlawlessSapphire").setCreativeTab(TabSkyrimItems);
+	public static final Item garnetFlawless = new BaseItem(11141).setUnlocalizedName("FlawlessGarnet").setCreativeTab(TabSkyrimItems);
+
+	public static final Item dragonKiller = new BaseSword(11200, 9999, -3, Item.diamond).setUnlocalizedName("DragonKiller");
 
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event)
@@ -301,11 +309,11 @@ public class Skyrim
 		var2.modId = "skyrim";
 		var2.name = "The Skyrim Mod";
 		var2.description = "Created a while back, but another one was already out. " +
-				"Now that the other has gone down, I've decided to release mine as a mediocre replacement. " +
+				"Now that the other has unfortunately gone down, I've decided to release mine as a replacement. " +
 				"I could never match the fan base/epicness of the old one, and this is dedicated to its creator.";
-		var2.version = "1.0.5";
+		var2.version = "1.0.8";
 		var2.credits = "Mojang, MinecraftForge and everyone that uses this mod :)";
-		var2.logoFile = "blflogo.png";
+		var2.logoFile = "/mods/skyrim/art/blflogo.png";
 		var2.url = "http://www.minecraftforum.net/topic/1812302-";
 		System.out.println("Blfngl's Skyrim Mod Loaded. BY AKATOSH YES.");
 	}
@@ -318,9 +326,6 @@ public class Skyrim
 		Blocks.init();
 		WorldHandler.init();
 		EntityHandler.init();
-
-		LanguageRegistry.instance().addStringLocalization("entity.Alduin.name", "en_US", "Alduin");
-		ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ancientPick), 1, 1, 10));
 
 		proxy.registerTileEntities();
 		proxy.registerServerTickHandler();

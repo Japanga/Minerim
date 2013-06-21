@@ -23,8 +23,9 @@ public class BaseSword extends Item
 	public String name;
 	public double speed;
 	Random rand = new Random();
+	public Item repairMaterial;
 
-	public BaseSword(int var1, int var2, int var3)
+	public BaseSword(int var1, int var2, int var3, Item var4)
 	{
 		super(var1);
 		this.setMaxDamage(-1);
@@ -33,6 +34,7 @@ public class BaseSword extends Item
 		speed = var3;
 		setCreativeTab(Skyrim.TabSkyrimCombat);
 		setMaxStackSize(1);
+		repairMaterial = var4;
 	}
 
 	public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
@@ -65,7 +67,10 @@ public class BaseSword extends Item
 		if (var1.stackTagCompound.getString("Reforged") == "exquisite"){var3.add("Exquisite");}
 		if (var1.stackTagCompound.getString("Reforged") == "flawless"){var3.add("Flawless");}
 		if (var1.stackTagCompound.getString("Reforged") == "epic"){var3.add("Epic");}
-		if (var1.stackTagCompound.getString("Reforged") == "legendary"){var3.add("Legendary");}var3.add("Damage: " + (double)damage/2 + " Heart(s)");
+		if (var1.stackTagCompound.getString("Reforged") == "legendary"){var3.add("Legendary");}
+
+		var3.add("Damage: " + (double)damage/2 + " Heart(s)");
+		var3.add("Improved By: " + repairMaterial.getItemDisplayName(new ItemStack(repairMaterial)));
 		if(name !=null){var3.add("Crafted By: " + name);}
 		else{var3.add("No Owner");}
 	}

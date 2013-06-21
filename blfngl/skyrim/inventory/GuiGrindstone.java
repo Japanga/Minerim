@@ -33,7 +33,7 @@ public class GuiGrindstone extends GuiContainer
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float f, int i, int j) {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		mc.renderEngine.bindTexture("/blfngl/skyrim/textures/SmelterGui.png");
+		mc.renderEngine.bindTexture("/mods/skyrim/art/GuiSmelter.png");
 		int xStart = (width - xSize) / 2;
 		int yStart = (height - ySize) / 2;
 		this.drawTexturedModalRect(xStart, yStart, 0, 0, xSize, ySize);

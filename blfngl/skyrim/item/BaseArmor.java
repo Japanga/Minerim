@@ -15,13 +15,17 @@ public class BaseArmor extends ItemArmor implements IArmorTextureProvider
 {
 	public String type;
 	public String textureFile;
+	public Item repairMaterial;
 
-	public BaseArmor(int par1, EnumArmorMaterial par2EnumArmorMaterial, int par3, int par4, String par5, String par6)
+	public BaseArmor(int par1, EnumArmorMaterial par2EnumArmorMaterial, int par3, int par4, String par5, String par6, Item par7)
 	{
 		super(par1, par2EnumArmorMaterial, par3, par4);
 		setCreativeTab(Skyrim.TabSkyrimArmor);
+		//setMaxDamage(-1);
 		type = par5;
 		textureFile = par6;
+		canRepair = true;
+		repairMaterial = par7;
 	}
 
 	public void func_94581_a(IconRegister iconRegister)
@@ -37,5 +41,12 @@ public class BaseArmor extends ItemArmor implements IArmorTextureProvider
 	public void addInformation(ItemStack var1, EntityPlayer var2, List var3, boolean var4)
 	{
 		var3.add(type + " Armor");
+		var3.add("Repair Material: " + repairMaterial.getItemDisplayName(new ItemStack(repairMaterial)));
+		var3.add("Total Damage Reduction " + (getArmorMaterial().getEnchantability() + 50) + "%");
+	}
+
+	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack)
+	{
+		return repairMaterial.itemID == par2ItemStack.itemID ? true : super.getIsRepairable(par1ItemStack, par2ItemStack);
 	}
 }

@@ -11,6 +11,7 @@ import blfngl.skyrim.inventory.ContainerGrindstone;
 import blfngl.skyrim.inventory.ContainerSmelter;
 import blfngl.skyrim.inventory.GuiForge;
 import blfngl.skyrim.inventory.GuiGrindstone;
+import blfngl.skyrim.inventory.GuiLevelUp;
 import blfngl.skyrim.inventory.GuiSmelter;
 import blfngl.skyrim.tileentity.TileEntityGrindstone;
 import blfngl.skyrim.tileentity.TileEntitySmelter;
@@ -34,10 +35,7 @@ public class GuiHandler implements IGuiHandler
 			}
 		}
 		
-		if (ID == 3)
-		{
-			return new ContainerForge(player.inventory, world, x, y, z);
-		}
+		if (ID == 3){return new ContainerForge(player.inventory, world, x, y, z);}
 
 		return null;
 	}
@@ -57,11 +55,9 @@ public class GuiHandler implements IGuiHandler
 			}
 		}
 		
-		if (ID == 3)
-		{
-			return new GuiForge(player.inventory, world, x, y, z);
-		}
-
+		if (ID == 3){return new GuiForge(player.inventory, world, x, y, z);}
+		if (ID == 4){return new GuiLevelUp(player);}
+		
 		return null;
 	}
 }

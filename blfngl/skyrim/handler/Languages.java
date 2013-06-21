@@ -182,6 +182,7 @@ public class Languages extends Skyrim
 		LanguageRegistry.addName(chestElvenGilded, "Elven Gilded Chestplate");
 		
 		LanguageRegistry.addName(forge, "Forge");
+		LanguageRegistry.addName(goldCoin, "Septim");
 		//LanguageRegistry.addName(wabbajack, "Wabbajack");
 	}
 }

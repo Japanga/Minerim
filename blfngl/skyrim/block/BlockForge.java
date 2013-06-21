@@ -12,7 +12,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockForge extends Block
 {
-
 	@SideOnly(Side.CLIENT)
 	private Icon forgeTop;
 	@SideOnly(Side.CLIENT)

@@ -1,17 +1,16 @@
 package blfngl.skyrim.handler;
 
-import net.minecraft.client.renderer.entity.RenderArrow;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
 import blfngl.skyrim.Skyrim;
 import blfngl.skyrim.entity.EntityDaedricArrow;
 import blfngl.skyrim.entity.EntityDremora;
+import blfngl.skyrim.entity.EntityMerchant;
 import blfngl.skyrim.entity.EntityShout;
 import blfngl.skyrim.entity.dragon.EntityAlduin;
 import blfngl.skyrim.entity.dragon.EntityFireDragon;
 import blfngl.skyrim.entity.dragon.EntityFrostDragon;
 import blfngl.skyrim.entity.dragon.EntityOdahviing;
-import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -19,8 +18,6 @@ public class EntityHandler extends Skyrim
 {
 	public static void init()
 	{
-		EntityRegistry.registerGlobalEntityID(EntityDaedricArrow.class, "DaedraArrow", EntityRegistry.findGlobalUniqueEntityId());
-
 		EntityRegistry.registerGlobalEntityID(EntityShout.class, "EntityShout", EntityRegistry.findGlobalUniqueEntityId());
 
 		EntityRegistry.registerGlobalEntityID(EntityDremora.class, "Dremora", EntityRegistry.findGlobalUniqueEntityId(), 230, 78);
@@ -45,9 +42,13 @@ public class EntityHandler extends Skyrim
 		EntityRegistry.addSpawn(EntityFrostDragon.class, 1, 1, 1, EnumCreatureType.ambient, BiomeGenBase.frozenRiver);
 
 		EntityRegistry.registerGlobalEntityID(EntityAlduin.class, "Alduin", EntityRegistry.findGlobalUniqueEntityId(), 230, 78);
-		
+		LanguageRegistry.instance().addStringLocalization("entity.Alduin.name", "en_US", "Alduin");
+
 		EntityRegistry.registerGlobalEntityID(EntityDaedricArrow.class, "DaedricArrow", EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityDaedricArrow.class, "DaedricArrow", 0, Skyrim.instance, 128, 1, true);
 		LanguageRegistry.instance().addStringLocalization("entity.DaedricArrow.name", "Daedric Arrow");
+		
+		EntityRegistry.registerGlobalEntityID(EntityMerchant.class, "Merchant", EntityRegistry.findGlobalUniqueEntityId(), 230, 78);
+		LanguageRegistry.instance().addStringLocalization("entity.Merchant.name", "en_US", "Merchant");
 	}
 }

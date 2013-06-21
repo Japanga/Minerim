@@ -7,6 +7,8 @@ import java.util.List;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import blfngl.skyrim.Skyrim;
+import blfngl.skyrim.block.BlockGrindstone;
+import blfngl.skyrim.tileentity.TileEntityGrindstone;
 
 public class RecipesGrindstone
 {
@@ -71,24 +73,26 @@ public class RecipesGrindstone
 		{
 			item3.stackTagCompound.setString("Reforged", "legendary");
 			return item3;
-		}
-
-		item3.stackTagCompound.setString("Reforged", "fine");
-		return item3;**/
+		}**/
 
 		if (item1.itemID == Skyrim.swordSteel.itemID && item2.itemID == Skyrim.ingotSteel.itemID && item1.stackTagCompound.getString("Reforged") == "fine")
 		{
-			item1.stackTagCompound.setString("Reforged", "superior");
+			ItemStack item3 = item1;
+			item3.stackTagCompound.setString("Reforged", "superior");
+			return item3;
+		}
+
+		else if (item1.itemID == Skyrim.swordSteel.itemID && item2.itemID == Skyrim.ingotSteel.itemID && item1.stackTagCompound.getString("Reforged") != "superior")
+		{
+			item1.stackTagCompound.setString("Reforged", "exquisite");
 			return item1;
 		}
 
-		if (item1.itemID == Skyrim.swordSteel.itemID && item2.itemID == Skyrim.ingotSteel.itemID && item1.stackTagCompound.getString("Reforged") != "superior")
+		else
 		{
 			item1.stackTagCompound.setString("Reforged", "fine");
 			return item1;
 		}
-
-		return null;
 	}
 
 	public ItemStack getSlot1ReduceAmount(ItemStack input)

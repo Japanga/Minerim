@@ -22,7 +22,7 @@ import net.minecraft.world.World;
 public class EntityDremora extends EntityMob
 {
 	World world = null;
-	//private static final ItemStack defaultHeldItem = new ItemStack(Skyrim.swordDaedric, 1);
+	private static final ItemStack defaultHeldItem = new ItemStack(Skyrim.swordDaedric, 1);
 
 	public EntityDremora(World var1)
 	{
@@ -70,55 +70,10 @@ public class EntityDremora extends EntityMob
 		super.setCurrentItemOrArmor(par1, par2ItemStack);
 	}
 
-	public ItemStack getHeldItem()
-    {
-            return defaultHeldItem;
-    }
-            
-            static
-    {
-            defaultHeldItem = new ItemStack(Skyrim.swordDaedric, 1);
-    }
-            
-    private static final ItemStack defaultHeldItem;
-
 	protected int getDropItemId()
 	{
 		return Skyrim.daedraHeart.itemID;
 	}
-
-	//	protected void dropFewItems(boolean var1, int var2)
-	//	{
-	//		byte var3 = 0;
-	//		int var4;
-	//		int var5;
-	//
-	//		if (var3 > 0)
-	//		{
-	//			var5 = this.rand.nextInt(3 + var2) - 1;
-	//
-	//			for (var4 = 0; var4 < var5; ++var4)
-	//			{
-	//				this.dropItem(Skyrim.ingotEbony.itemID, 1);
-	//			}
-	//		}
-	//		else
-	//		{
-	//			var5 = this.rand.nextInt(3 + var2);
-	//
-	//			for (var4 = 0; var4 < var5; ++var4)
-	//			{
-	//				this.dropItem(Skyrim.daedraHeart.itemID, 1);
-	//			}
-	//		}
-	//
-	//		var5 = this.rand.nextInt(3 + var2);
-	//
-	//		for (var4 = 0; var4 < var5; ++var4)
-	//		{
-	//			this.dropItem(Skyrim.swordEbony.itemID, 1);
-	//		}
-	//	}
 
 	/**
 	 * Returns the sound this mob makes while it's alive.
@@ -185,5 +140,10 @@ public class EntityDremora extends EntityMob
 	public boolean canAttackClass(Class par1Class)
 	{
 		return EntityCreeper.class != par1Class && EntityGhast.class != par1Class;
+	}
+
+	public ItemStack getHeldItem()
+	{
+		return defaultHeldItem;
 	}
 }
