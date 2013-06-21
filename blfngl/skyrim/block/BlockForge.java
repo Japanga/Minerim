@@ -35,9 +35,9 @@ public class BlockForge extends Block
 
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon("MTJT:smithsBenchSide2");
-		this.field_94385_a = par1IconRegister.registerIcon("MTJT:smithsBenchTop");
-		this.field_94384_b = par1IconRegister.registerIcon("MTJT:smithsBenchSide1");
+		this.blockIcon = par1IconRegister.registerIcon("blfngl:smithsBenchSide2");
+		this.field_94385_a = par1IconRegister.registerIcon("blfngl:smithsBenchTop");
+		this.field_94384_b = par1IconRegister.registerIcon("blfngl:smithsBenchSide1");
 	}
 
 	public boolean onBlockActivated(World var1, int var2, int var3, int var4, EntityPlayer player, int var6, float var7, float var8, float var9)

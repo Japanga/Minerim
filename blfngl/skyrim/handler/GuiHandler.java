@@ -31,7 +31,6 @@ public class GuiHandler implements IGuiHandler
 			case 0: return new ContainerSmelter(player.inventory, (TileEntitySmelter)tileEntity);
 			case 1: return new ContainerChest(player.inventory, (TileEntityChest)tileEntity);
 			case 2: return new ContainerGrindstone(player.inventory, (TileEntityGrindstone)tileEntity);
-			//case 3: return new ContainerForge(player.inventory, world, x, y, z);
 			}
 		}
 		
@@ -39,6 +38,7 @@ public class GuiHandler implements IGuiHandler
 		{
 			return new ContainerForge(player.inventory, world, x, y, z);
 		}
+
 		return null;
 	}
 
@@ -61,6 +61,7 @@ public class GuiHandler implements IGuiHandler
 		{
 			return new GuiForge(player.inventory, world, x, y, z);
 		}
+
 		return null;
 	}
 }

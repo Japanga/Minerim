@@ -1,4 +1,4 @@
-package blfngl.skyrim.render;
+package blfngl.skyrim.entity.render;
 
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;

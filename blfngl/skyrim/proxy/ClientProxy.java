@@ -2,8 +2,8 @@ package blfngl.skyrim.proxy;
 
 import net.minecraftforge.common.MinecraftForge;
 import blfngl.skyrim.entity.EntityDaedricArrow;
+import blfngl.skyrim.entity.render.RenderDaedricArrow;
 import blfngl.skyrim.handler.SoundHandler;
-import blfngl.skyrim.render.RenderDaedricArrow;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

@@ -180,6 +180,8 @@ public class Languages extends Skyrim
 		LanguageRegistry.addName(gauntletsAncientNord, "Ancient Nord Gauntlets");
 		LanguageRegistry.addName(bootsAncientNord, "Ancient Nord Boots");
 		LanguageRegistry.addName(chestElvenGilded, "Elven Gilded Chestplate");
+		
+		LanguageRegistry.addName(forge, "Forge");
 		//LanguageRegistry.addName(wabbajack, "Wabbajack");
 	}
 }
