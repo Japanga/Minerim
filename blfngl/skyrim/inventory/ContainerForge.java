@@ -1,7 +1,7 @@
 package blfngl.skyrim.inventory;
 
 import blfngl.skyrim.Skyrim;
-import blfngl.skyrim.handler.RecipesForge;
+import blfngl.skyrim.inventory.recipe.RecipesForge;
 import blfngl.skyrim.tileentity.SlotForge;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;

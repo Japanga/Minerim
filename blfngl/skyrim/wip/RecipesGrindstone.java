@@ -9,7 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import blfngl.skyrim.handler.InventoryGrindstone;
-import blfngl.skyrim.handler.ShapelessRecipesGrindstone;
+import blfngl.skyrim.inventory.recipe.ShapelessRecipesGrindstone;
 
 public class RecipesGrindstone
 {

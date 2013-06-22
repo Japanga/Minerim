@@ -11,7 +11,7 @@ import net.minecraft.inventory.SlotCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import blfngl.skyrim.Skyrim;
-import blfngl.skyrim.handler.RecipesArcaneEnchanter;
+import blfngl.skyrim.inventory.recipe.RecipesArcaneEnchanter;
 
 public class ContainerArcaneEnchanter extends Container
 {

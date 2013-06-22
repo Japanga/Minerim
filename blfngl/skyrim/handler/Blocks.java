@@ -35,11 +35,13 @@ public class Blocks extends Skyrim
 		
 		MinecraftForge.setBlockHarvestLevel(oreStalhrim, "pickaxe", 4);
 		GameRegistry.registerBlock(oreStalhrim, "Stalhrim Ore");
-		MinecraftForge.setBlockHarvestLevel(forge, "pickaxe", 2);
+		MinecraftForge.setBlockHarvestLevel(forge, "pickaxe", 3);
 		GameRegistry.registerBlock(forge, "Forge");
 		
 		MinecraftForge.setBlockHarvestLevel(levelUp, "pickaxe", 1);
 		GameRegistry.registerBlock(levelUp, "LevelUp");
+		MinecraftForge.setBlockHarvestLevel(arcaneEnchanter, "pickaxe", 2);
+		GameRegistry.registerBlock(arcaneEnchanter, "ArcaneEnchanter");
 		//GameRegistry.registerBlock(chestSkyrim, "ChestSkyrim");
 		//MinecraftForge.setBlockHarvestLevel(chestSkyrim, "axe", 2);
 	}

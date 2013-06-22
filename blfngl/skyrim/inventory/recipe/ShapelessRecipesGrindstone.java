@@ -1,9 +1,10 @@
-package blfngl.skyrim.handler;
+package blfngl.skyrim.inventory.recipe;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import blfngl.skyrim.handler.InventoryGrindstone;
 import blfngl.skyrim.wip.IRecipeGrindstone;
 import blfngl.skyrim.wip.InventoryGrindstoneRecipe;
 

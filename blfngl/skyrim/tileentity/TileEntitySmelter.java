@@ -1,7 +1,7 @@
 package blfngl.skyrim.tileentity;
 
 import blfngl.skyrim.block.BlockSmelter;
-import blfngl.skyrim.handler.RecipesSmelter;
+import blfngl.skyrim.inventory.recipe.RecipesSmelter;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;

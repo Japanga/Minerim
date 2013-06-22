@@ -1,4 +1,4 @@
-package blfngl.skyrim.handler;
+package blfngl.skyrim.inventory.recipe;
 
 import java.util.ArrayList;
 import java.util.Iterator;
