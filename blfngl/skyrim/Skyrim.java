@@ -30,7 +30,7 @@ import blfngl.skyrim.item.BaseFood;
 import blfngl.skyrim.item.BaseItem;
 import blfngl.skyrim.item.BasePick;
 import blfngl.skyrim.item.BaseSword;
-import blfngl.skyrim.item.ItemRing;
+import blfngl.skyrim.item.ItemEnchantedJewelry;
 import blfngl.skyrim.item.ItemSkyrimBow;
 import blfngl.skyrim.proxy.CommonProxy;
 import blfngl.skyrim.tab.TabSkyrimArmor;
@@ -299,7 +299,7 @@ public class Skyrim
 	public static final Item soulGemGreater = new BaseItem(11151).setUnlocalizedName("GreaterSoulGem").setCreativeTab(TabSkyrimItems);
 	public static final Item soulGemGrand = new BaseItem(11152).setUnlocalizedName("GrandSoulGem").setCreativeTab(TabSkyrimItems);
 	
-	public static final Item ringSilver = new ItemRing(11153, Potion.resistance, 0).setUnlocalizedName("SilverRing");
+	public static final Item ringSilver = new ItemEnchantedJewelry(11153).setUnlocalizedName("SilverRing");
 
 	public static final Item dragonKiller = new BaseSword(11400, 9999, -3, Item.diamond).setUnlocalizedName("DragonKiller");
 

@@ -1,6 +1,7 @@
 package blfngl.skyrim.item;
 
 import java.util.List;
+import java.util.Random;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -12,17 +13,14 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import blfngl.skyrim.Skyrim;
 
-public class ItemRing extends BaseItem
+public class ItemEnchantedJewelry extends BaseItem
 {
 	public boolean isEquipped;
-	public Potion boost;
-	public int modifier;
+	Random rand = new Random();
 
-	public ItemRing(int par1, Potion par2, int par3)
+	public ItemEnchantedJewelry(int par1)
 	{
 		super(par1);
-		boost = par2;
-		modifier = par3;
 	}
 
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
@@ -46,6 +44,7 @@ public class ItemRing extends BaseItem
 	{
 		if (var1.stackTagCompound == null){var1.setTagCompound(new NBTTagCompound());}
 		if (var1.stackTagCompound.getBoolean("Equipped") == true){var3.add("Currently Equipped");}
+		if (var1.stackTagCompound.getBoolean("FortifyBlock") == true){var3.add("Fortify Block");}
 		var3.add("Rings Equipped: " + Skyrim.getRings);
 	}
 
@@ -53,15 +52,22 @@ public class ItemRing extends BaseItem
 	{
 		if (par1ItemStack.stackTagCompound == null){par1ItemStack.setTagCompound(new NBTTagCompound());}
 		par1ItemStack.stackTagCompound.setBoolean("Equipped", false);
+		par1ItemStack.stackTagCompound.setBoolean("FortifyBlock", false);
+
+		if (rand.nextInt(4) == 0)
+		{
+			par1ItemStack.stackTagCompound.setBoolean("FortifyBlock", true);
+		}
 	}
 
 	public void onUpdate(ItemStack par1ItemStack, World var2, Entity par3Entity, int par4, boolean par5) 
 	{
 		if (par1ItemStack.stackTagCompound == null){par1ItemStack.setTagCompound(new NBTTagCompound());}
 		isEquipped = par1ItemStack.stackTagCompound.getBoolean("Equipped");
-		if (par1ItemStack.stackTagCompound.getBoolean("Equipped"))
+
+		if (par1ItemStack.stackTagCompound.getBoolean("FortifyBlock") && isEquipped)
 		{
-			((EntityLiving) par3Entity).addPotionEffect(new PotionEffect(boost.id, 20, modifier));
+			((EntityLiving) par3Entity).addPotionEffect(new PotionEffect(Potion.resistance.id, 20));
 		}
 	}
 }
