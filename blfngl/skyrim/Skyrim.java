@@ -10,7 +10,6 @@ import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
-import net.minecraft.potion.Potion;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
 import blfngl.skyrim.block.BlockBase;
@@ -299,7 +298,23 @@ public class Skyrim
 	public static final Item soulGemGreater = new BaseItem(11151).setUnlocalizedName("GreaterSoulGem").setCreativeTab(TabSkyrimItems);
 	public static final Item soulGemGrand = new BaseItem(11152).setUnlocalizedName("GrandSoulGem").setCreativeTab(TabSkyrimItems);
 	
-	public static final Item ringSilver = new ItemEnchantedJewelry(11153).setUnlocalizedName("SilverRing");
+	public static final Item ringGold = new BaseItem(11153).setUnlocalizedName("GoldRing").setCreativeTab(TabSkyrimItems);
+	public static final Item ringGoldDiamond = new BaseItem(11154).setUnlocalizedName("GoldDiamondRing").setCreativeTab(TabSkyrimItems);
+	public static final Item ringGoldEmerald = new BaseItem(11155).setUnlocalizedName("GoldEmeraldRing").setCreativeTab(TabSkyrimItems);
+	public static final Item ringGoldSapphire = new BaseItem(11156).setUnlocalizedName("GoldSapphireRing").setCreativeTab(TabSkyrimItems);
+	public static final Item ringSilver = new BaseItem(11157).setUnlocalizedName("SilverRing").setCreativeTab(TabSkyrimItems);
+	public static final Item ringSilverAmethyst = new BaseItem(11158).setUnlocalizedName("SilverAmethystRing").setCreativeTab(TabSkyrimItems);
+	public static final Item ringSilverGarnet = new BaseItem(11159).setUnlocalizedName("SilverGarnetRing").setCreativeTab(TabSkyrimItems);
+	public static final Item ringSilverRuby = new BaseItem(11160).setUnlocalizedName("SilverRubyRing").setCreativeTab(TabSkyrimItems);
+
+	public static final Item ringGoldE = new ItemEnchantedJewelry(11161).setUnlocalizedName("GoldRing");
+	public static final Item ringGoldDiamondE = new ItemEnchantedJewelry(11162).setUnlocalizedName("GoldDiamondRing");
+	public static final Item ringGoldEmeraldE = new ItemEnchantedJewelry(11163).setUnlocalizedName("GoldEmeraldRing");
+	public static final Item ringGoldSapphireE = new ItemEnchantedJewelry(11164).setUnlocalizedName("GoldSapphireRing");
+	public static final Item ringSilverE = new ItemEnchantedJewelry(11165).setUnlocalizedName("SilverRing");
+	public static final Item ringSilverAmethystE = new ItemEnchantedJewelry(11166).setUnlocalizedName("SilverAmethystRing");
+	public static final Item ringSilverGarnetE = new ItemEnchantedJewelry(11167).setUnlocalizedName("SilverGarnetRing");
+	public static final Item ringSilverRubyE = new ItemEnchantedJewelry(11168).setUnlocalizedName("SilverRubyRing");
 
 	public static final Item dragonKiller = new BaseSword(11400, 9999, -3, Item.diamond).setUnlocalizedName("DragonKiller");
 
