@@ -5,11 +5,11 @@ import java.util.Comparator;
 import blfngl.skyrim.wip.IRecipeGrindstone;
 import blfngl.skyrim.wip.RecipesGrindstone;
 
-class RecipeSorterForge implements Comparator
+class RecipeGrindstoneSorter implements Comparator
 {
     final RecipesGrindstone craftingManager;
 
-    RecipeSorterForge(RecipesGrindstone var1)
+    RecipeGrindstoneSorter(RecipesGrindstone var1)
     {
         this.craftingManager = var1;
     }

@@ -3,9 +3,11 @@ package blfngl.skyrim.item;
 import java.util.List;
 import java.util.Random;
 
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
@@ -13,11 +15,11 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import blfngl.skyrim.Skyrim;
 
-public class ItemEnchantedJewelry extends BaseItem
+public class ItemEnchantedRing extends Item
 {
 	Random rand = new Random();
 
-	public ItemEnchantedJewelry(int par1)
+	public ItemEnchantedRing(int par1)
 	{
 		super(par1);
 		setMaxStackSize(1);
@@ -26,7 +28,7 @@ public class ItemEnchantedJewelry extends BaseItem
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
 	{
 		if (par1ItemStack.stackTagCompound == null){par1ItemStack.setTagCompound(new NBTTagCompound());}
-		if (par1ItemStack.stackTagCompound.getBoolean("Equipped") == false && Skyrim.getRings < 10)
+		if (par1ItemStack.stackTagCompound.getBoolean("Equipped") == false && Skyrim.getRings < 20)
 		{
 			par1ItemStack.stackTagCompound.setBoolean("Equipped", true);
 			Skyrim.getRings += 1;
@@ -46,7 +48,7 @@ public class ItemEnchantedJewelry extends BaseItem
 		if (var1.stackTagCompound == null){var1.setTagCompound(new NBTTagCompound());}
 		if (var1.stackTagCompound.getBoolean("Equipped") == true){var3.add("Currently Equipped");}
 		if (var1.stackTagCompound.getBoolean("FortifyBlock") == true){var3.add("Fortify Block");}
-		var3.add("Rings Equipped: " + Skyrim.getRings);
+		var3.add("Rings Equipped: " + Skyrim.getRings / 2);
 	}
 
 	public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
@@ -70,5 +72,10 @@ public class ItemEnchantedJewelry extends BaseItem
 		{
 			((EntityLiving) par3Entity).addPotionEffect(new PotionEffect(Potion.resistance.id, 20));
 		}
+	}
+
+	public void registerIcons(IconRegister iconRegister)
+	{
+		itemIcon = iconRegister.registerIcon("blfngl" + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
 	}
 }

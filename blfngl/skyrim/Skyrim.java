@@ -30,7 +30,7 @@ import blfngl.skyrim.item.BaseFood;
 import blfngl.skyrim.item.BaseItem;
 import blfngl.skyrim.item.BasePick;
 import blfngl.skyrim.item.BaseSword;
-import blfngl.skyrim.item.ItemEnchantedJewelry;
+import blfngl.skyrim.item.ItemEnchantedRing;
 import blfngl.skyrim.item.ItemSkyrimBow;
 import blfngl.skyrim.proxy.CommonProxy;
 import blfngl.skyrim.tab.TabSkyrimArmor;
@@ -308,14 +308,14 @@ public class Skyrim
 	public static final Item ringSilverGarnet = new BaseItem(11159).setUnlocalizedName("SilverGarnetRing").setCreativeTab(TabSkyrimItems);
 	public static final Item ringSilverRuby = new BaseItem(11160).setUnlocalizedName("SilverRubyRing").setCreativeTab(TabSkyrimItems);
 
-	public static final Item ringGoldE = new ItemEnchantedJewelry(11161).setUnlocalizedName("GoldRing");
-	public static final Item ringGoldDiamondE = new ItemEnchantedJewelry(11162).setUnlocalizedName("GoldDiamondRing");
-	public static final Item ringGoldEmeraldE = new ItemEnchantedJewelry(11163).setUnlocalizedName("GoldEmeraldRing");
-	public static final Item ringGoldSapphireE = new ItemEnchantedJewelry(11164).setUnlocalizedName("GoldSapphireRing");
-	public static final Item ringSilverE = new ItemEnchantedJewelry(11165).setUnlocalizedName("SilverRing");
-	public static final Item ringSilverAmethystE = new ItemEnchantedJewelry(11166).setUnlocalizedName("SilverAmethystRing");
-	public static final Item ringSilverGarnetE = new ItemEnchantedJewelry(11167).setUnlocalizedName("SilverGarnetRing");
-	public static final Item ringSilverRubyE = new ItemEnchantedJewelry(11168).setUnlocalizedName("SilverRubyRing");
+	public static final Item ringGoldE = new ItemEnchantedRing(11161).setUnlocalizedName("GoldRing");
+	public static final Item ringGoldDiamondE = new ItemEnchantedRing(11162).setUnlocalizedName("GoldDiamondRing");
+	public static final Item ringGoldEmeraldE = new ItemEnchantedRing(11163).setUnlocalizedName("GoldEmeraldRing");
+	public static final Item ringGoldSapphireE = new ItemEnchantedRing(11164).setUnlocalizedName("GoldSapphireRing");
+	public static final Item ringSilverE = new ItemEnchantedRing(11165).setUnlocalizedName("SilverRing");
+	public static final Item ringSilverAmethystE = new ItemEnchantedRing(11166).setUnlocalizedName("SilverAmethystRing");
+	public static final Item ringSilverGarnetE = new ItemEnchantedRing(11167).setUnlocalizedName("SilverGarnetRing");
+	public static final Item ringSilverRubyE = new ItemEnchantedRing(11168).setUnlocalizedName("SilverRubyRing");
 
 	public static final Block arcaneEnchanter = new BlockArcaneEnchanter(205).setHardness(4.5F).setStepSound(Block.soundAnvilFootstep).setUnlocalizedName("ArcaneEnchanter");
 

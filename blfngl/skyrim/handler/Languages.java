@@ -3,7 +3,7 @@ package blfngl.skyrim.handler;
 import net.minecraft.item.Item;
 import blfngl.skyrim.Skyrim;
 import blfngl.skyrim.item.BaseItem;
-import blfngl.skyrim.item.ItemEnchantedJewelry;
+import blfngl.skyrim.item.ItemEnchantedRing;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class Languages extends Skyrim

@@ -132,7 +132,7 @@ public class RecipesForge extends Skyrim
 		addShapelessRecipe(new ItemStack(bootsElven), new Object [] {ingotMoonstone, ingotMoonstone, Item.ingotIron, Item.leather, leatherStrips, leatherStrips});
 		addShapelessRecipe(new ItemStack(chestElvenGilded), new Object [] {ingotMoonstone, ingotMoonstone, ingotMoonstone, ingotMoonstone, Item.ingotIron, ingotQuicksilver, leatherStrips, leatherStrips, leatherStrips});
 
-		addShapelessRecipe(new ItemStack(ringGold), new Object [] {Item.ingotGold});
+		addShapelessRecipe(new ItemStack(ringGold, 2), new Object [] {Item.ingotGold});
 		addShapelessRecipe(new ItemStack(ringGoldDiamond), new Object [] {Item.ingotGold, Item.diamond});
 		addShapelessRecipe(new ItemStack(ringGoldEmerald), new Object [] {Item.ingotGold, Item.emerald});
 		addShapelessRecipe(new ItemStack(ringGoldSapphire), new Object [] {Item.ingotGold, sapphire});

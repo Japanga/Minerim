@@ -14,15 +14,9 @@ import blfngl.skyrim.Skyrim;
 
 public class RecipesArcaneEnchanter extends Skyrim
 {
-	/** The static instance of this class */
 	private static final RecipesArcaneEnchanter instance = new RecipesArcaneEnchanter();
-
-	/** A list of all the recipes added */
 	private List recipes = new ArrayList();
 
-	/**
-	 * Returns the static instance of this class
-	 */
 	public static final RecipesArcaneEnchanter getInstance()
 	{
 		return instance;
@@ -33,7 +27,14 @@ public class RecipesArcaneEnchanter extends Skyrim
 		recipes = new ArrayList();
 
 		addShapeless(new ItemStack(ringGoldE), new Object [] {ringGold, soulGemPetty});
-		
+		addShapeless(new ItemStack(ringGoldDiamondE), new Object [] {ringGoldDiamond, soulGemPetty});
+		addShapeless(new ItemStack(ringGoldEmeraldE), new Object [] {ringGoldEmerald, soulGemPetty});
+		addShapeless(new ItemStack(ringGoldSapphireE), new Object [] {ringGoldSapphire, soulGemPetty});
+		addShapeless(new ItemStack(ringSilverE), new Object [] {ringSilver, soulGemPetty});
+		addShapeless(new ItemStack(ringSilverAmethystE), new Object [] {ringSilverAmethyst});
+		addShapeless(new ItemStack(ringSilverGarnetE), new Object [] {ringSilverGarnet});
+		addShapeless(new ItemStack(ringSilverRubyE), new Object [] {ringSilverRuby, soulGemPetty});
+
 		Collections.sort(this.recipes, new RecipesArcaneEnchanterSorter(this));
 		System.out.println(this.recipes.size() + " recipes");
 	}
