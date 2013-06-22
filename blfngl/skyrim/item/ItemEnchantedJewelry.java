@@ -15,22 +15,23 @@ import blfngl.skyrim.Skyrim;
 
 public class ItemEnchantedJewelry extends BaseItem
 {
-	public boolean isEquipped;
 	Random rand = new Random();
 
 	public ItemEnchantedJewelry(int par1)
 	{
 		super(par1);
+		setMaxStackSize(1);
 	}
 
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
 	{
 		if (par1ItemStack.stackTagCompound == null){par1ItemStack.setTagCompound(new NBTTagCompound());}
-		if (!isEquipped && Skyrim.getRings < 10)
+		if (par1ItemStack.stackTagCompound.getBoolean("Equipped") == false && Skyrim.getRings < 10)
 		{
 			par1ItemStack.stackTagCompound.setBoolean("Equipped", true);
 			Skyrim.getRings += 1;
 		}
+
 		else
 		{
 			par1ItemStack.stackTagCompound.setBoolean("Equipped", false);
@@ -63,9 +64,9 @@ public class ItemEnchantedJewelry extends BaseItem
 	public void onUpdate(ItemStack par1ItemStack, World var2, Entity par3Entity, int par4, boolean par5) 
 	{
 		if (par1ItemStack.stackTagCompound == null){par1ItemStack.setTagCompound(new NBTTagCompound());}
-		isEquipped = par1ItemStack.stackTagCompound.getBoolean("Equipped");
+		//isEquipped = par1ItemStack.stackTagCompound.getBoolean("Equipped");
 
-		if (par1ItemStack.stackTagCompound.getBoolean("FortifyBlock") && isEquipped)
+		if (par1ItemStack.stackTagCompound.getBoolean("FortifyBlock") && par1ItemStack.stackTagCompound.getBoolean("Equipped"))
 		{
 			((EntityLiving) par3Entity).addPotionEffect(new PotionEffect(Potion.resistance.id, 20));
 		}
