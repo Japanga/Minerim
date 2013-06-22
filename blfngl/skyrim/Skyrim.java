@@ -12,6 +12,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
+import blfngl.skyrim.block.BlockArcaneEnchanter;
 import blfngl.skyrim.block.BlockBase;
 import blfngl.skyrim.block.BlockForge;
 import blfngl.skyrim.block.BlockLevelUp;
@@ -315,6 +316,8 @@ public class Skyrim
 	public static final Item ringSilverAmethystE = new ItemEnchantedJewelry(11166).setUnlocalizedName("SilverAmethystRing");
 	public static final Item ringSilverGarnetE = new ItemEnchantedJewelry(11167).setUnlocalizedName("SilverGarnetRing");
 	public static final Item ringSilverRubyE = new ItemEnchantedJewelry(11168).setUnlocalizedName("SilverRubyRing");
+
+	public static final Block arcaneEnchanter = new BlockArcaneEnchanter(205).setHardness(4.5F).setStepSound(Block.soundAnvilFootstep).setUnlocalizedName("ArcaneEnchanter");
 
 	public static final Item dragonKiller = new BaseSword(11400, 9999, -3, Item.diamond).setUnlocalizedName("DragonKiller");
 
