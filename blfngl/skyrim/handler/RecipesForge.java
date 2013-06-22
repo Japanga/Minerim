@@ -132,7 +132,14 @@ public class RecipesForge extends Skyrim
 		addShapelessRecipe(new ItemStack(bootsElven), new Object [] {ingotMoonstone, ingotMoonstone, Item.ingotIron, Item.leather, leatherStrips, leatherStrips});
 		addShapelessRecipe(new ItemStack(chestElvenGilded), new Object [] {ingotMoonstone, ingotMoonstone, ingotMoonstone, ingotMoonstone, Item.ingotIron, ingotQuicksilver, leatherStrips, leatherStrips, leatherStrips});
 
+		addShapelessRecipe(new ItemStack(ringGold), new Object [] {Item.ingotGold});
+		addShapelessRecipe(new ItemStack(ringGoldDiamond), new Object [] {Item.ingotGold, Item.diamond});
+		addShapelessRecipe(new ItemStack(ringGoldEmerald), new Object [] {Item.ingotGold, Item.emerald});
+		addShapelessRecipe(new ItemStack(ringGoldSapphire), new Object [] {Item.ingotGold, sapphire});
 		addShapelessRecipe(new ItemStack(ringSilver), new Object [] {ingotSilver});
+		addShapelessRecipe(new ItemStack(ringSilverAmethyst), new Object [] {ingotSilver, amethyst});
+		addShapelessRecipe(new ItemStack(ringSilverGarnet), new Object [] {ingotSilver, garnet});
+		addShapelessRecipe(new ItemStack(ringSilverRuby), new Object [] {ingotSilver, ruby});
 
 		Collections.sort(this.recipes, new RecipesForgeSorter(this));
 		System.out.println(this.recipes.size() + " recipes");

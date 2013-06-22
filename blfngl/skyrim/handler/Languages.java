@@ -1,6 +1,9 @@
 package blfngl.skyrim.handler;
 
+import net.minecraft.item.Item;
 import blfngl.skyrim.Skyrim;
+import blfngl.skyrim.item.BaseItem;
+import blfngl.skyrim.item.ItemEnchantedJewelry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class Languages extends Skyrim
@@ -155,12 +158,12 @@ public class Languages extends Skyrim
 		LanguageRegistry.addName(greatSwordNordic, "Nordic Greatsword");
 		LanguageRegistry.addName(maceNordic, "Nordic Mace");
 		LanguageRegistry.addName(battleAxeNordic, "Nordic Battleaxe");
-		
+
 		LanguageRegistry.addName(helmNordic, "Nordic Carved Helmet");
 		LanguageRegistry.addName(chestNordic, "Nordic Carved Chestplate");
 		LanguageRegistry.addName(gauntletsNordic, "Nordic Carved Gauntlets");
 		LanguageRegistry.addName(bootsNordic, "Nordic Carved Boots");
-		
+
 		LanguageRegistry.addName(helmElven, "Elven Helmet");
 		LanguageRegistry.addName(chestElven, "Elven Cuirass");
 		LanguageRegistry.addName(gauntletsElven, "Elven Gauntlets");
@@ -169,7 +172,7 @@ public class Languages extends Skyrim
 		LanguageRegistry.addName(helmSteelI, "Steel Helmet");
 		LanguageRegistry.addName(gauntletsSteelI, "Imperial Bracers");
 		LanguageRegistry.addName(bootsSteelI, "Imperial Boots");
-		
+
 		LanguageRegistry.addName(ancientPick, "Ancient Nord Pickaxe");
 		LanguageRegistry.addName(oreStalhrim, "Stalhrim Ore");
 		LanguageRegistry.addName(stalhrim, "Stalhrim");
@@ -180,7 +183,7 @@ public class Languages extends Skyrim
 		LanguageRegistry.addName(gauntletsAncientNord, "Ancient Nord Gauntlets");
 		LanguageRegistry.addName(bootsAncientNord, "Ancient Nord Boots");
 		LanguageRegistry.addName(chestElvenGilded, "Elven Gilded Chestplate");
-		
+
 		LanguageRegistry.addName(forge, "Forge");
 		LanguageRegistry.addName(goldCoin, "Septim");
 		LanguageRegistry.addName(ruby, "Ruby");
@@ -189,8 +192,15 @@ public class Languages extends Skyrim
 		LanguageRegistry.addName(garnet, "Garnet");
 		LanguageRegistry.addName(rubyFlawless, "Flawless Ruby");
 		LanguageRegistry.addName(amethystFlawless, "Flawless Amethyst");
-		
+
+		LanguageRegistry.addName(ringGold, "Gold Ring");
+		LanguageRegistry.addName(ringGoldDiamond, "Gold Diamond Ring");
+		LanguageRegistry.addName(ringGoldEmerald, "Gold Emerald Ring");
+		LanguageRegistry.addName(ringGoldSapphire, "Gold Sapphire Ring");
 		LanguageRegistry.addName(ringSilver, "Silver Ring");
+		LanguageRegistry.addName(ringSilverAmethyst, "Silver Amethyst Ring");
+		LanguageRegistry.addName(ringSilverGarnet, "Silver Garnet Ring");
+		LanguageRegistry.addName(ringSilverRuby, "Silver Ruby Ring");
 		//LanguageRegistry.addName(wabbajack, "Wabbajack");
 	}
 }
