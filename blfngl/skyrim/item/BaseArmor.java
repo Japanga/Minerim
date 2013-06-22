@@ -2,12 +2,7 @@ package blfngl.skyrim.item;
 
 import java.util.List;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
-import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.Item;
@@ -53,11 +48,5 @@ public class BaseArmor extends ItemArmor implements IArmorTextureProvider
 	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack)
 	{
 		return repairMaterial.itemID == par2ItemStack.itemID ? true : super.getIsRepairable(par1ItemStack, par2ItemStack);
-	}
-
-	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel(EntityLiving entityLiving, ItemStack itemStack, int armorSlot)
-	{
-		return null;
 	}
 }

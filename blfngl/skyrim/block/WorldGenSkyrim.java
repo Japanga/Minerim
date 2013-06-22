@@ -86,5 +86,14 @@ public class WorldGenSkyrim implements IWorldGenerator
 
 			(new WorldGenMinable(Skyrim.oreEbony.blockID, 4)).generate(world, rand, randPosX, randPosY, randPosZ);
 		}
+
+		for (int i = 0; i < 16; i++) 
+		{
+			int randPosX = chunkX + rand.nextInt(16);
+			int randPosY = rand.nextInt(32);
+			int randPosZ = chunkZ + rand.nextInt(16);
+
+			(new WorldGenMinable(Skyrim.oreStalhrim.blockID, 3)).generate(world, rand, randPosX, randPosY, randPosZ);
+		}
 	}
 }

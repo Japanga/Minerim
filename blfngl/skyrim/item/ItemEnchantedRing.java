@@ -74,6 +74,15 @@ public class ItemEnchantedRing extends Item
 		}
 	}
 
+	@Override
+	public boolean onDroppedByPlayer(ItemStack item, EntityPlayer player)
+    {
+		if (item.stackTagCompound == null){item.setTagCompound(new NBTTagCompound());}
+		item.stackTagCompound.setBoolean("Equipped", false);
+		Skyrim.getRings -= 2;
+		return true;
+    }
+
 	public void registerIcons(IconRegister iconRegister)
 	{
 		itemIcon = iconRegister.registerIcon("blfngl" + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));

@@ -7,7 +7,6 @@ import blfngl.skyrim.entity.EntityShout;
 
 public class ItemShout extends BaseItem
 {
-
 	public ItemShout(int par1)
 	{
 		super(par1);

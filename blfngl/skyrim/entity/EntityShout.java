@@ -5,7 +5,11 @@ import net.minecraft.client.particle.EntityReddustFX;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.src.ModLoader;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class EntityShout extends Entity
 {
@@ -16,17 +20,16 @@ public class EntityShout extends Entity
 	{
 		super(world);
 		game = ModLoader.getMinecraftInstance();
-		radius = 0.20000000000000001D;
-		setSize(0.0F, 0.0F);
+		radius = 0.2D;
+		setSize(1.0F, 1.0F);
 		setLocationAndAngles(entity.posX, entity.posY, entity.posZ, entity.rotationYaw, entity.rotationPitch);
 	}
 
-	/**
-	 * Called to update the entity's position/logic.
-	 */
+	@Override
+	@SideOnly(Side.CLIENT)
 	public void onUpdate()
 	{
-		super.onUpdate();
+		//super.onUpdate();
 
 		for (int i = 0; i < 360; i += 10)
 		{
@@ -34,12 +37,9 @@ public class EntityShout extends Entity
 		}
 
 		this.moveEntity(-Math.sin(Math.toRadians(rotationYaw)) * Math.cos(Math.toRadians(rotationPitch)), -Math.sin(Math.toRadians(rotationPitch)), Math.cos(Math.toRadians(rotationYaw)) * Math.cos(Math.toRadians(rotationPitch)));
-		radius += 0.14999999999999999D;
+		radius += 0.15D;
 
-		if (radius > 5D)
-		{
-			this.setDead();
-		}
+		if (radius > 5D){setDead();}
 	}
 
 	protected void entityInit()
@@ -47,19 +47,42 @@ public class EntityShout extends Entity
 
 	}
 
-	/**
-	 * (abstract) Protected helper method to read subclass entity data from NBT.
-	 */
-	protected void readEntityFromNBT(NBTTagCompound nbttagcompound)
-	{
+//	@Override
+//	protected void onImpact(MovingObjectPosition movingobjectposition)
+//	{
+//		if (movingobjectposition.entityHit != null)
+//		{
+//			byte b0 = 10;
+//
+//			movingobjectposition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), b0);
+//		}
+//
+//		for (int i = 0; i < 8; ++i)
+//		{
+//			this.worldObj.spawnParticle("snowballpoof", this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
+//		}
+//
+//		if (!this.worldObj.isRemote)
+//		{
+//			this.setDead();
+//		}		
+//	}
+//
+//	@Override
+//	protected float getGravityVelocity()
+//	{
+//		return 0;
+//	}
 
+	@Override
+	protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
+		// TODO Auto-generated method stub
+		
 	}
 
-	/**
-	 * (abstract) Protected helper method to write subclass entity data to NBT.
-	 */
-	protected void writeEntityToNBT(NBTTagCompound nbttagcompound)
-	{
-
+	@Override
+	protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
+		// TODO Auto-generated method stub
+		
 	}
 }

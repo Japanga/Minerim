@@ -31,6 +31,7 @@ import blfngl.skyrim.item.BaseItem;
 import blfngl.skyrim.item.BasePick;
 import blfngl.skyrim.item.BaseSword;
 import blfngl.skyrim.item.ItemEnchantedRing;
+import blfngl.skyrim.item.ItemShout;
 import blfngl.skyrim.item.ItemSkyrimBow;
 import blfngl.skyrim.proxy.CommonProxy;
 import blfngl.skyrim.tab.TabSkyrimArmor;
@@ -298,7 +299,7 @@ public class Skyrim
 	public static final Item soulGemCommon = new BaseItem(11150).setUnlocalizedName("CommonSoulGem").setCreativeTab(TabSkyrimItems);
 	public static final Item soulGemGreater = new BaseItem(11151).setUnlocalizedName("GreaterSoulGem").setCreativeTab(TabSkyrimItems);
 	public static final Item soulGemGrand = new BaseItem(11152).setUnlocalizedName("GrandSoulGem").setCreativeTab(TabSkyrimItems);
-	
+
 	public static final Item ringGold = new BaseItem(11153).setUnlocalizedName("GoldRing").setCreativeTab(TabSkyrimItems);
 	public static final Item ringGoldDiamond = new BaseItem(11154).setUnlocalizedName("GoldDiamondRing").setCreativeTab(TabSkyrimItems);
 	public static final Item ringGoldEmerald = new BaseItem(11155).setUnlocalizedName("GoldEmeraldRing").setCreativeTab(TabSkyrimItems);
@@ -318,7 +319,7 @@ public class Skyrim
 	public static final Item ringSilverRubyE = new ItemEnchantedRing(11168).setUnlocalizedName("SilverRubyRing");
 
 	public static final Block arcaneEnchanter = new BlockArcaneEnchanter(205).setHardness(4.5F).setStepSound(Block.soundAnvilFootstep).setUnlocalizedName("ArcaneEnchanter");
-
+	public static final Item shout = new ItemShout(11169).setCreativeTab(TabSkyrimCombat);
 	public static final Item dragonKiller = new BaseSword(11400, 9999, -3, Item.diamond).setUnlocalizedName("DragonKiller");
 
 	@PreInit
