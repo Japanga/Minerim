@@ -1,6 +1,5 @@
 package blfngl.skyrim.proxy;
 
-import blfngl.skyrim.tileentity.TileEntityGrindstone;
 import blfngl.skyrim.tileentity.TileEntitySmelter;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
@@ -13,8 +12,8 @@ public class CommonProxy
 
 	public void registerTileEntities()
 	{
-		GameRegistry.registerTileEntity(TileEntitySmelter.class, "furnaceDoubleGui");
-		GameRegistry.registerTileEntity(TileEntityGrindstone.class, "GrindstoneTile");
+		GameRegistry.registerTileEntity(TileEntitySmelter.class, "Smelter");
+		//GameRegistry.registerTileEntity(TileEntityGrindstone.class, "GrindstoneTile");
 	}
 
 	public void registerServerTickHandler()

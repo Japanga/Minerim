@@ -18,7 +18,6 @@ public class ClientProxy extends CommonProxy
 	public void registerRenderers()
 	{
 		RenderingRegistry.registerEntityRenderingHandler(EntityDaedricArrow.class, new RenderDaedricArrow());
-		//RenderingRegistry.registerEntityRenderingHandler(EntityMerchant.class, new RenderBiped(new ModelBiped, 0.5F));
 		super.registerTileEntities();
 	}
 

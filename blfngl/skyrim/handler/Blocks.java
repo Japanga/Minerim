@@ -28,10 +28,10 @@ public class Blocks extends Skyrim
 		GameRegistry.registerBlock(smelterIdle, "Smelter");
 		MinecraftForge.setBlockHarvestLevel(smelterActive, "pickaxe", 3);
 		GameRegistry.registerBlock(smelterActive, "SmelterActive");
-		MinecraftForge.setBlockHarvestLevel(grindstoneIdle, "pickaxe", 3);
-		GameRegistry.registerBlock(grindstoneIdle, "GrindstoneIdle");
-		MinecraftForge.setBlockHarvestLevel(grindstoneActive, "pickaxe", 3);
-		GameRegistry.registerBlock(grindstoneActive, "GrindstoneActive");
+		MinecraftForge.setBlockHarvestLevel(grindstone, "pickaxe", 3);
+		GameRegistry.registerBlock(grindstone, "GrindstoneIdle");
+		//MinecraftForge.setBlockHarvestLevel(grindstoneActive, "pickaxe", 3);
+		//GameRegistry.registerBlock(grindstoneActive, "GrindstoneActive");
 		
 		MinecraftForge.setBlockHarvestLevel(oreStalhrim, "pickaxe", 4);
 		GameRegistry.registerBlock(oreStalhrim, "Stalhrim Ore");

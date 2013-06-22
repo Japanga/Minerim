@@ -1,4 +1,4 @@
-package blfngl.skyrim.inventory;
+package blfngl.skyrim.wip;
 
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;

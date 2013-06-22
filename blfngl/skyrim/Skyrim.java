@@ -10,11 +10,11 @@ import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
+import net.minecraft.potion.Potion;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
 import blfngl.skyrim.block.BlockBase;
 import blfngl.skyrim.block.BlockForge;
-import blfngl.skyrim.block.BlockGrindstone;
 import blfngl.skyrim.block.BlockLevelUp;
 import blfngl.skyrim.block.BlockSkyrimChest;
 import blfngl.skyrim.block.BlockSmelter;
@@ -30,6 +30,7 @@ import blfngl.skyrim.item.BaseFood;
 import blfngl.skyrim.item.BaseItem;
 import blfngl.skyrim.item.BasePick;
 import blfngl.skyrim.item.BaseSword;
+import blfngl.skyrim.item.ItemRing;
 import blfngl.skyrim.item.ItemSkyrimBow;
 import blfngl.skyrim.proxy.CommonProxy;
 import blfngl.skyrim.tab.TabSkyrimArmor;
@@ -37,8 +38,7 @@ import blfngl.skyrim.tab.TabSkyrimBlocks;
 import blfngl.skyrim.tab.TabSkyrimCombat;
 import blfngl.skyrim.tab.TabSkyrimFood;
 import blfngl.skyrim.tab.TabSkyrimItems;
-import blfngl.skyrim.tileentity.TileEntityGrindstone;
-import blfngl.skyrim.tileentity.TileEntitySmelter;
+import blfngl.skyrim.wip.BlockGrindstone;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -51,7 +51,6 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 /**
  * The Skyrim Mod
@@ -71,6 +70,7 @@ public class Skyrim
 
 	@SidedProxy(clientSide="blfngl.skyrim.proxy.ClientProxy", serverSide="blfngl.skyrim.proxy.CommonProxy")
 	public static CommonProxy proxy;
+	public static int getRings;
 
 	public GuiHandler guiHandler = new GuiHandler();
 
@@ -118,8 +118,8 @@ public class Skyrim
 	public static final Block smelterIdle = new BlockSmelter(197, false).setUnlocalizedName("SmelterIdle").setCreativeTab(TabSkyrimBlocks);
 	public static final Block smelterActive = new BlockSmelter(198, true).setUnlocalizedName("SmelterActive");
 	public static final Block chestSkyrim = new BlockSkyrimChest(199, Material.wood).setUnlocalizedName("SkyrimChest").setCreativeTab(TabSkyrimBlocks);
-	public static final Block grindstoneIdle = new BlockGrindstone(200, false).setUnlocalizedName("GrindstoneIdle").setCreativeTab(TabSkyrimBlocks);
-	public static final Block grindstoneActive = new BlockGrindstone(201, true).setUnlocalizedName("GrindstoneActive");
+	public static final Block grindstone = new BlockGrindstone(200).setUnlocalizedName("GrindstoneIdle").setCreativeTab(TabSkyrimBlocks);
+	//public static final Block grindstoneActive = new BlockGrindstone(201).setUnlocalizedName("GrindstoneActive");
 
 	public static final Item daggerEbony = new BaseSword(11012, 10, 1, ingotEbony).setUnlocalizedName("EbonyDagger");
 	public static final Item warhammerEbony = new BaseSword(11013, 25, -3, ingotEbony).setUnlocalizedName("EbonyWarhammer");
@@ -287,22 +287,25 @@ public class Skyrim
 	public static final Item sapphire = new BaseItem(11139).setUnlocalizedName("Sapphire").setCreativeTab(TabSkyrimItems);
 	public static final Item garnet = new BaseItem(11140).setUnlocalizedName("Garnet").setCreativeTab(TabSkyrimItems);
 	public static final Item goldCoin = new BaseItem(11141).setUnlocalizedName("Coin").setCreativeTab(TabSkyrimItems);
-	public static final Item rubyFlawless = new BaseItem(11141).setUnlocalizedName("FlawlessRuby").setCreativeTab(TabSkyrimItems);
-	public static final Item amethystFlawless = new BaseItem(11141).setUnlocalizedName("FlawlessAmethyst").setCreativeTab(TabSkyrimItems);
-	public static final Item sapphireFlawless = new BaseItem(11141).setUnlocalizedName("FlawlessSapphire").setCreativeTab(TabSkyrimItems);
-	public static final Item garnetFlawless = new BaseItem(11141).setUnlocalizedName("FlawlessGarnet").setCreativeTab(TabSkyrimItems);
+	public static final Item rubyFlawless = new BaseItem(11142).setUnlocalizedName("FlawlessRuby").setCreativeTab(TabSkyrimItems);
+	public static final Item amethystFlawless = new BaseItem(11143).setUnlocalizedName("FlawlessAmethyst").setCreativeTab(TabSkyrimItems);
+	public static final Item sapphireFlawless = new BaseItem(11144).setUnlocalizedName("FlawlessSapphire").setCreativeTab(TabSkyrimItems);
+	public static final Item garnetFlawless = new BaseItem(11145).setUnlocalizedName("FlawlessGarnet").setCreativeTab(TabSkyrimItems);
+	public static final Item emeraldFlawless = new BaseItem(11146).setUnlocalizedName("FlawlessEmerald").setCreativeTab(TabSkyrimItems);
+	public static final Item diamondFlawless = new BaseItem(11147).setUnlocalizedName("FlawlessDiamond").setCreativeTab(TabSkyrimItems);
+	public static final Item soulGemPetty = new BaseItem(11148).setUnlocalizedName("PettySoulGem").setCreativeTab(TabSkyrimItems);
+	public static final Item soulGemLesser = new BaseItem(11149).setUnlocalizedName("LesserSoulGem").setCreativeTab(TabSkyrimItems);
+	public static final Item soulGemCommon = new BaseItem(11150).setUnlocalizedName("CommonSoulGem").setCreativeTab(TabSkyrimItems);
+	public static final Item soulGemGreater = new BaseItem(11151).setUnlocalizedName("GreaterSoulGem").setCreativeTab(TabSkyrimItems);
+	public static final Item soulGemGrand = new BaseItem(11152).setUnlocalizedName("GrandSoulGem").setCreativeTab(TabSkyrimItems);
+	
+	public static final Item ringSilver = new ItemRing(11153, Potion.resistance, 0).setUnlocalizedName("SilverRing");
 
-	public static final Item dragonKiller = new BaseSword(11200, 9999, -3, Item.diamond).setUnlocalizedName("DragonKiller");
+	public static final Item dragonKiller = new BaseSword(11400, 9999, -3, Item.diamond).setUnlocalizedName("DragonKiller");
 
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		NetworkRegistry.instance().registerGuiHandler(this, this.guiHandler);
-		instance = this;
-
-		proxy.registerSoundHandler();
-		MinecraftForge.EVENT_BUS.register(new SkryrimVanillaDrops());
-
 		ModMetadata var2 = event.getModMetadata();
 		var2.authorList = Arrays.asList(new String[] {"Blfngl"});
 		var2.autogenerated = false;
@@ -327,12 +330,12 @@ public class Skyrim
 		WorldHandler.init();
 		EntityHandler.init();
 
+		proxy.registerSoundHandler();
+		MinecraftForge.EVENT_BUS.register(new SkryrimVanillaDrops());
+
 		proxy.registerTileEntities();
 		proxy.registerServerTickHandler();
 		NetworkRegistry.instance().registerGuiHandler(instance, guiHandler);
-
-		GameRegistry.registerTileEntity(TileEntitySmelter.class, "Smelter");
-		GameRegistry.registerTileEntity(TileEntityGrindstone.class, "Grindstone");
 	}
 
 	@PostInit
