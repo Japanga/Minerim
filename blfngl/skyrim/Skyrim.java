@@ -122,7 +122,7 @@ public class Skyrim
 	//public static final Block grindstoneActive = new BlockGrindstone(201).setUnlocalizedName("GrindstoneActive");
 
 	public static final Item daggerEbony = new BaseSword(11012, 10, 1, ingotEbony).setUnlocalizedName("EbonyDagger");
-	public static final Item warhammerEbony = new BaseSword(11013, 25, -3, ingotEbony).setUnlocalizedName("EbonyWarhammer");
+	public static final Item warhammerEbony = new BaseSword(11013, 25, -5, ingotEbony).setUnlocalizedName("EbonyWarhammer");
 	public static final Item warAxeEbony = new BaseSword(11014, 17, -1, ingotEbony).setUnlocalizedName("EbonyWarAxe");
 	public static final Item swordEbony = new BaseSword(11015, 13, 0, ingotEbony).setUnlocalizedName("EbonySword");
 	public static final Item greatSwordEbony = new BaseSword(11016, 22, -2, ingotEbony).setUnlocalizedName("EbonyGreatsword");
@@ -130,7 +130,7 @@ public class Skyrim
 	public static final Item battleAxeEbony = new BaseSword(11018, 26, -3, ingotEbony).setUnlocalizedName("EbonyBattleaxe");
 
 	public static final Item daggerGlass = new BaseSword(11019, 9, 1, ingotMalachite).setUnlocalizedName("GlassDagger");
-	public static final Item warhammerGlass = new BaseSword(11020, 27, -3, ingotMalachite).setUnlocalizedName("GlassWarhammer");
+	public static final Item warhammerGlass = new BaseSword(11020, 27, -5, ingotMalachite).setUnlocalizedName("GlassWarhammer");
 	public static final Item warAxeGlass = new BaseSword(11021, 17, -1, ingotMalachite).setUnlocalizedName("GlassWarAxe");
 	public static final Item swordGlass = new BaseSword(11022, 12, 0, ingotMalachite).setUnlocalizedName("GlassSword");
 	public static final Item greatSwordGlass = new BaseSword(11023, 24, -2, ingotMalachite).setUnlocalizedName("GlassGreatsword");
@@ -138,7 +138,7 @@ public class Skyrim
 	public static final Item battleAxeGlass = new BaseSword(11025, 25, -3, ingotMalachite).setUnlocalizedName("GlassBattleaxe");
 
 	public static final Item daggerDaedric = new BaseSword(11026, 11, 1, ingotEbony).setUnlocalizedName("DaedricDagger");
-	public static final Item warhammerDaedric = new BaseSword(11027, 27, -3, ingotEbony).setUnlocalizedName("DaedricWarhammer");
+	public static final Item warhammerDaedric = new BaseSword(11027, 27, -5, ingotEbony).setUnlocalizedName("DaedricWarhammer");
 	public static final Item warAxeDaedric = new BaseSword(11028, 15, -1, ingotEbony).setUnlocalizedName("DaedricWarAxe");
 	public static final Item swordDaedric = new BaseSword(11029, 14, 0, ingotEbony).setUnlocalizedName("DaedricSword");
 	public static final Item greatSwordDaedric = new BaseSword(11030, 24, -2, ingotEbony).setUnlocalizedName("DaedricGreatsword");
@@ -195,7 +195,7 @@ public class Skyrim
 	public static final ItemFood foodCabbagePotatoSoup = (ItemFood) new BaseFood(11072, 7, 0.5F, false).setUnlocalizedName("CabbagePotatoSoup");
 
 	public static final Item daggerOrc = new BaseSword(11073, 7, 1, ingotOrichalcum).setUnlocalizedName("OrcishDagger");
-	public static final Item warhammerOrc = new BaseSword(11074, 21, -3, ingotOrichalcum).setUnlocalizedName("OrcishWarhammer");
+	public static final Item warhammerOrc = new BaseSword(11074, 21, -5, ingotOrichalcum).setUnlocalizedName("OrcishWarhammer");
 	public static final Item warAxeOrc = new BaseSword(11075, 11, -1, ingotOrichalcum).setUnlocalizedName("OrcishWarAxe");
 	public static final Item swordOrc = new BaseSword(11076, 10, 0, ingotOrichalcum).setUnlocalizedName("OrcishSword");
 	public static final Item greatSwordOrc = new BaseSword(11077, 18, -2, ingotOrichalcum).setUnlocalizedName("OrcishGreatsword");
@@ -216,7 +216,7 @@ public class Skyrim
 	public static final Item bootsSteel = new BaseArmor(11089, STEEL, 1, 3, "Heavy", "SteelArmor.png", ingotSteel).setUnlocalizedName("SteelBoots");
 
 	public static final Item daggerSteel = new BaseSword(11090, 5, 1, ingotSteel).setUnlocalizedName("SteelDagger");
-	public static final Item warhammerSteel = new BaseSword(11091, 22, -3, ingotSteel).setUnlocalizedName("SteelWarhammer");
+	public static final Item warhammerSteel = new BaseSword(11091, 22, -5, ingotSteel).setUnlocalizedName("SteelWarhammer");
 	public static final Item warAxeSteel = new BaseSword(11092, 9, -1, ingotSteel).setUnlocalizedName("SteelWarAxe");
 	public static final Item swordSteel = new BaseSword(11093, 9, 0, ingotSteel).setUnlocalizedName("SteelSword");
 	public static final Item greatSwordSteel = new BaseSword(11094, 17, -2, ingotSteel).setUnlocalizedName("SteelGreatsword");
@@ -233,7 +233,7 @@ public class Skyrim
 	public static final Item bootsStalhrim = new BaseArmor(11100, STALHRIM, 1, 3, "Heavy", "StalhrimArmor.png", stalhrim).setUnlocalizedName("StalhrimBoots");
 
 	public static final Item daggerStalhrim = new BaseSword(11101, 10, 1, stalhrim).setUnlocalizedName("StalhrimDagger");
-	public static final Item warhammerStalhrim = new BaseSword(11102, 22, -3, stalhrim).setUnlocalizedName("StalhrimWarhammer");
+	public static final Item warhammerStalhrim = new BaseSword(11102, 22, -5, stalhrim).setUnlocalizedName("StalhrimWarhammer");
 	public static final Item warAxeStalhrim = new BaseSword(11103, 15, -1, stalhrim).setUnlocalizedName("StalhrimWarAxe");
 	public static final Item swordStalhrim = new BaseSword(11104, 13, 0, stalhrim).setUnlocalizedName("StalhrimSword");
 	public static final Item greatSwordStalhrim = new BaseSword(11105, 23, -2, stalhrim).setUnlocalizedName("StalhrimGreatsword");
@@ -245,7 +245,7 @@ public class Skyrim
 	public static final BlockOre oreStalhrim = new BlockBase(202, 0, Material.rock, 7.0F, "StalhrimOre");
 
 	public static final Item daggerNordic = new BaseSword(11110, 8, 1, ingotQuicksilver).setUnlocalizedName("NordicDagger");
-	public static final Item warhammerNordic = new BaseSword(11111, 23, -3, ingotQuicksilver).setUnlocalizedName("NordicWarhammer");
+	public static final Item warhammerNordic = new BaseSword(11111, 23, -5, ingotQuicksilver).setUnlocalizedName("NordicWarhammer");
 	public static final Item warAxeNordic = new BaseSword(11112, 12, -1, ingotQuicksilver).setUnlocalizedName("NordicWarAxe");
 	public static final Item swordNordic = new BaseSword(11113, 11, 0, ingotQuicksilver).setUnlocalizedName("NordicSword");
 	public static final Item greatSwordNordic = new BaseSword(11114, 20, -2, ingotQuicksilver).setUnlocalizedName("NordicGreatsword");

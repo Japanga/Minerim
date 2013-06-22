@@ -91,6 +91,7 @@ public class BaseSword extends Item
 			if(speed == -1){player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 20, 0));}
 			if(speed == -2){player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 20, 1));}
 			if(speed == -3){player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 20, 2));}
+			if(speed <= -4){player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 20, 4));}
 		}
 	}
 

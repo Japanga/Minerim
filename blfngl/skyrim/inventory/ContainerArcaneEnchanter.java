@@ -37,7 +37,7 @@ public class ContainerArcaneEnchanter extends Container
 		{
 			for (var7 = 0; var7 < 2; ++var7)
 			{
-				this.addSlotToContainer(new Slot(this.craftMatrix, var7 + var6 * 2, 88 + var7 * 18, 26 + var6 * 18));
+				this.addSlotToContainer(new Slot(this.craftMatrix, var7 + var6 * 2, 43 + var7 * 18, 26 + var6 * 18));
 			}
 		}
 
