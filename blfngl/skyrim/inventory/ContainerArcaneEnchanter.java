@@ -29,7 +29,7 @@ public class ContainerArcaneEnchanter extends Container
 		this.posY = par4;
 		this.posZ = par5;
 
-		this.addSlotToContainer(new SlotCrafting(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, 0, 144, 36));
+		this.addSlotToContainer(new SlotCrafting(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, 0, 124, 35));
 		int var6;
 		int var7;
 
@@ -37,7 +37,7 @@ public class ContainerArcaneEnchanter extends Container
 		{
 			for (var7 = 0; var7 < 2; ++var7)
 			{
-				this.addSlotToContainer(new Slot(this.craftMatrix, var7 + var6 * 2, 43 + var7 * 18, 26 + var6 * 18));
+				this.addSlotToContainer(new Slot(this.craftMatrix, var7 + var6 * 2, 37 + var7 * 18, 25 + var6 * 18));
 			}
 		}
 
