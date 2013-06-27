@@ -201,6 +201,8 @@ public class Languages extends Skyrim
 		LanguageRegistry.addName(ringSilverAmethyst, "Silver Amethyst Ring");
 		LanguageRegistry.addName(ringSilverGarnet, "Silver Garnet Ring");
 		LanguageRegistry.addName(ringSilverRuby, "Silver Ruby Ring");
+		
+		LanguageRegistry.addName(arcaneEnchanter, "Arcane Enchanter");
 		//LanguageRegistry.addName(wabbajack, "Wabbajack");
 	}
 }

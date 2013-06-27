@@ -35,6 +35,7 @@ public class Recipes extends Skyrim
 
 		GameRegistry.addRecipe(new ItemStack(smelterIdle), new Object [] {" X ", "*&*", "%%%", 'X', Block.stone, '*', Block.fenceIron, '%', Item.ingotIron, '&', Block.furnaceIdle});
 		GameRegistry.addRecipe(new ItemStack(forge), new Object [] {"XXX", " * ", "%$%", 'X', Block.stone, '*', Block.anvil, '%', Item.ingotIron, '$', Block.workbench});
+		GameRegistry.addRecipe(new ItemStack(arcaneEnchanter), new Object [] {" * ", "X X", "&^&", '*', Block.enchantmentTable, 'X', Item.eyeOfEnder, '&', ingotMalachite, '^', Block.obsidian});
 
 		//GameRegistry.addShapelessRecipe(new ItemStack(helmAncientNord), new Object [] {});
 		//GameRegistry.addShapelessRecipe(new ItemStack(chestAncientNord), new Object [] {});

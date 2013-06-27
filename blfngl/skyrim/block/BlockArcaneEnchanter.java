@@ -35,10 +35,10 @@ public class BlockArcaneEnchanter extends Block
 
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		blockIcon = par1IconRegister.registerIcon("skyrim:forgeSide");
-		forgeTop = par1IconRegister.registerIcon("skyrim:forgeTop");
-		forgeSide = par1IconRegister.registerIcon("skyrim:forgeSide");
-		forgeFront = par1IconRegister.registerIcon("skyrim:forgeSide");
+		blockIcon = par1IconRegister.registerIcon("skyrim:enchantSide");
+		forgeTop = par1IconRegister.registerIcon("skyrim:enchantTop");
+		forgeSide = par1IconRegister.registerIcon("skyrim:enchantSide");
+		forgeFront = par1IconRegister.registerIcon("skyrim:enchantSide");
 	}
 
 	public boolean onBlockActivated(World var1, int var2, int var3, int var4, EntityPlayer player, int var6, float var7, float var8, float var9)

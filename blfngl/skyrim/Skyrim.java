@@ -322,7 +322,7 @@ public class Skyrim
 
 	public static final Block arcaneEnchanter = new BlockArcaneEnchanter(205).setHardness(4.5F).setStepSound(Block.soundAnvilFootstep).setUnlocalizedName("ArcaneEnchanter");
 	//public static final Item shout = new ItemShout(11169).setCreativeTab(TabSkyrimCombat);
-	public static final Item dragonKiller = new BaseSword(11400, 9999, -3, Item.diamond).setUnlocalizedName("DragonKiller");
+	public static final Item dragonKiller = new BaseSword(11400, 9999, 0, Item.diamond).setUnlocalizedName("DragonKiller");
 
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event)
