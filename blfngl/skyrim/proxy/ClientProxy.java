@@ -3,7 +3,7 @@ package blfngl.skyrim.proxy;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraftforge.common.MinecraftForge;
-import blfngl.skyrim.entity.EntityDaedricArrow;
+import blfngl.skyrim.entity.EntitySkyrimArrow;
 import blfngl.skyrim.entity.EntityMerchant;
 import blfngl.skyrim.entity.render.RenderDaedricArrow;
 import blfngl.skyrim.handler.SoundHandler;
@@ -17,7 +17,7 @@ public class ClientProxy extends CommonProxy
 	@SideOnly(Side.CLIENT)
 	public void registerRenderers()
 	{
-		RenderingRegistry.registerEntityRenderingHandler(EntityDaedricArrow.class, new RenderDaedricArrow());
+		RenderingRegistry.registerEntityRenderingHandler(EntitySkyrimArrow.class, new RenderDaedricArrow());
 		super.registerTileEntities();
 	}
 

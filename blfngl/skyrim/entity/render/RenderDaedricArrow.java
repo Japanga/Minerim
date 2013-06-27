@@ -9,7 +9,7 @@ import net.minecraft.util.MathHelper;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import blfngl.skyrim.entity.EntityDaedricArrow;
+import blfngl.skyrim.entity.EntitySkyrimArrow;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -17,7 +17,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderDaedricArrow extends Render
 {
-    public void renderArrow(EntityDaedricArrow par1EntityArrow, double par2, double par4, double par6, float par8, float par9)
+    public void renderArrow(EntitySkyrimArrow par1EntityArrow, double par2, double par4, double par6, float par8, float par9)
     {
         this.loadTexture("/mods/blfngl/textures/items/DaedricArrow.png");
         GL11.glPushMatrix();
@@ -86,6 +86,6 @@ public class RenderDaedricArrow extends Render
      */
     public void doRender(Entity par1Entity, double par2, double par4, double par6, float par8, float par9)
     {
-        this.renderArrow((EntityDaedricArrow)par1Entity, par2, par4, par6, par8, par9);
+        this.renderArrow((EntitySkyrimArrow)par1Entity, par2, par4, par6, par8, par9);
     }
 }

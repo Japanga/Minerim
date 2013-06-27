@@ -3,7 +3,7 @@ package blfngl.skyrim.handler;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
 import blfngl.skyrim.Skyrim;
-import blfngl.skyrim.entity.EntityDaedricArrow;
+import blfngl.skyrim.entity.EntitySkyrimArrow;
 import blfngl.skyrim.entity.EntityDremora;
 import blfngl.skyrim.entity.EntityMerchant;
 import blfngl.skyrim.entity.EntityShout;
@@ -44,8 +44,8 @@ public class EntityHandler extends Skyrim
 		EntityRegistry.registerGlobalEntityID(EntityAlduin.class, "Alduin", EntityRegistry.findGlobalUniqueEntityId(), 230, 78);
 		LanguageRegistry.instance().addStringLocalization("entity.Alduin.name", "en_US", "Alduin");
 
-		EntityRegistry.registerGlobalEntityID(EntityDaedricArrow.class, "DaedricArrow", EntityRegistry.findGlobalUniqueEntityId());
-		EntityRegistry.registerModEntity(EntityDaedricArrow.class, "DaedricArrow", 0, Skyrim.instance, 128, 1, true);
+		EntityRegistry.registerGlobalEntityID(EntitySkyrimArrow.class, "DaedricArrow", EntityRegistry.findGlobalUniqueEntityId());
+		EntityRegistry.registerModEntity(EntitySkyrimArrow.class, "DaedricArrow", 0, Skyrim.instance, 128, 1, true);
 		LanguageRegistry.instance().addStringLocalization("entity.DaedricArrow.name", "Daedric Arrow");
 
 		EntityRegistry.registerGlobalEntityID(EntityMerchant.class, "Merchant", EntityRegistry.findGlobalUniqueEntityId(), 230, 78);

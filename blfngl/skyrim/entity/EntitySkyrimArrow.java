@@ -23,7 +23,7 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
-public class EntityDaedricArrow extends Entity implements IProjectile
+public class EntitySkyrimArrow extends Entity implements IProjectile
 {
     private int xTile = -1;
     private int yTile = -1;
@@ -44,14 +44,14 @@ public class EntityDaedricArrow extends Entity implements IProjectile
     
     public static Item arrowType;
 
-    public EntityDaedricArrow(World par1World)
+    public EntitySkyrimArrow(World par1World)
     {
         super(par1World);
         this.renderDistanceWeight = 10.0D;
         this.setSize(0.5F, 0.5F);
     }
 
-    public EntityDaedricArrow(World par1World, double par2, double par4, double par6)
+    public EntitySkyrimArrow(World par1World, double par2, double par4, double par6)
     {
         super(par1World);
         this.renderDistanceWeight = 10.0D;
@@ -60,7 +60,7 @@ public class EntityDaedricArrow extends Entity implements IProjectile
         this.yOffset = 0.0F;
     }
 
-    public EntityDaedricArrow(World par1World, EntityLiving par2EntityLiving, EntityLiving par3EntityLiving, float par4, float par5)
+    public EntitySkyrimArrow(World par1World, EntityLiving par2EntityLiving, EntityLiving par3EntityLiving, float par4, float par5)
     {
         super(par1World);
         this.renderDistanceWeight = 10.0D;
@@ -90,7 +90,7 @@ public class EntityDaedricArrow extends Entity implements IProjectile
         }
     }
 
-    public EntityDaedricArrow(World par1World, EntityLiving par2EntityLiving, float par3)
+    public EntitySkyrimArrow(World par1World, EntityLiving par2EntityLiving, float par3)
     {
         super(par1World);
         this.renderDistanceWeight = 10.0D;

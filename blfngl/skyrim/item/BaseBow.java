@@ -14,7 +14,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
 import blfngl.skyrim.Skyrim;
-import blfngl.skyrim.entity.EntityDaedricArrow;
+import blfngl.skyrim.entity.EntitySkyrimArrow;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -57,7 +57,7 @@ public class BaseBow extends Item
 
 		if (flag || par3EntityPlayer.inventory.hasItem(arrowType.itemID))
 		{
-			EntityDaedricArrow.arrowType = this.arrowType;
+			EntitySkyrimArrow.arrowType = this.arrowType;
 					
 			float f = (float)j / 20.0F;
 			f = (f * f + f * 2.0F) / 3.0F;
@@ -72,7 +72,7 @@ public class BaseBow extends Item
 				f = 1.0F;
 			}
 
-			EntityDaedricArrow entityarrow = new EntityDaedricArrow(par2World, par3EntityPlayer, f * 2.0F);
+			EntitySkyrimArrow entityarrow = new EntitySkyrimArrow(par2World, par3EntityPlayer, f * 2.0F);
 			if (arrowType == Skyrim.arrowDaedric){entityarrow.damage = 24.0D;}
 			if (arrowType == Skyrim.arrowDwarven){entityarrow.damage = 14.0D;}
 			if (arrowType == Skyrim.arrowGlass){entityarrow.damage = 18.0D;}
