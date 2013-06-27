@@ -4,6 +4,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -22,6 +23,7 @@ public class BaseBow extends Item
 	public static final String[] bowPullIconNameArray = new String[] {"bow_pull_0", "bow_pull_1", "bow_pull_2"};
 	@SideOnly(Side.CLIENT)
 	private Icon[] iconArray;
+	public static Item arrowType;
 
 	public BaseBow(int par1)
 	{
@@ -53,8 +55,10 @@ public class BaseBow extends Item
 
 		boolean flag = par3EntityPlayer.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, par1ItemStack) > 0;
 
-		if (flag || par3EntityPlayer.inventory.hasItem(Skyrim.arrowDaedric.itemID))
+		if (flag || par3EntityPlayer.inventory.hasItem(arrowType.itemID))
 		{
+			EntityDaedricArrow.arrowType = this.arrowType;
+					
 			float f = (float)j / 20.0F;
 			f = (f * f + f * 2.0F) / 3.0F;
 
@@ -69,6 +73,12 @@ public class BaseBow extends Item
 			}
 
 			EntityDaedricArrow entityarrow = new EntityDaedricArrow(par2World, par3EntityPlayer, f * 2.0F);
+			if (arrowType == Skyrim.arrowDaedric){entityarrow.damage = 24.0D;}
+			if (arrowType == Skyrim.arrowDwarven){entityarrow.damage = 14.0D;}
+			if (arrowType == Skyrim.arrowGlass){entityarrow.damage = 18.0D;}
+			if (arrowType == Skyrim.arrowIron){entityarrow.damage = 8.0D;}
+			if (arrowType == Skyrim.arrowDragonbone){entityarrow.damage = 25.0D;}
+			if (arrowType == Item.arrow){entityarrow.damage = 2.0D;}
 
 			if (f == 1.0F)
 			{
@@ -103,7 +113,7 @@ public class BaseBow extends Item
 			}
 			else
 			{
-				par3EntityPlayer.inventory.consumeInventoryItem(Item.arrow.itemID);
+				par3EntityPlayer.inventory.consumeInventoryItem(arrowType.itemID);
 			}
 
 			if (!par2World.isRemote)
@@ -148,31 +158,38 @@ public class BaseBow extends Item
 
 		if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItem(Skyrim.arrowDaedric.itemID))
 		{
+			arrowType = Skyrim.arrowDaedric;
 			par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
 		}
 
 		if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItem(Skyrim.arrowDragonbone.itemID))
 		{
+			arrowType = Skyrim.arrowDragonbone;
 			par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
 		}
 
 		if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItem(Skyrim.arrowDwarven.itemID))
 		{
+			arrowType = Skyrim.arrowDwarven;
 			par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
 		}
 
 		if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItem(Skyrim.arrowGlass.itemID))
 		{
+			arrowType = Skyrim.arrowGlass;
 			par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
 		}
 
 		if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItem(Skyrim.arrowIron.itemID))
 		{
+
+			arrowType = Skyrim.arrowIron;
 			par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
 		}
 
 		if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItem(Item.arrow.itemID))
 		{
+			arrowType = Item.arrow;
 			par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
 		}
 

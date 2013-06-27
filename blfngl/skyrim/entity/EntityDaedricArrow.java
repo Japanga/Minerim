@@ -38,9 +38,11 @@ public class EntityDaedricArrow extends Entity implements IProjectile
     public Entity shootingEntity;
     private int ticksInGround;
     private int ticksInAir = 0;
-    private double damage = 2.0D;
+    public double damage = 2.0D;
 
     private int knockbackStrength;
+    
+    public static Item arrowType;
 
     public EntityDaedricArrow(World par1World)
     {
@@ -508,7 +510,7 @@ public class EntityDaedricArrow extends Entity implements IProjectile
         {
             boolean flag = this.canBePickedUp == 1 || this.canBePickedUp == 2 && par1EntityPlayer.capabilities.isCreativeMode;
 
-            if (this.canBePickedUp == 1 && !par1EntityPlayer.inventory.addItemStackToInventory(new ItemStack(Skyrim.arrowDaedric, 1)))
+            if (this.canBePickedUp == 1 && !par1EntityPlayer.inventory.addItemStackToInventory(new ItemStack(arrowType, 1)))
             {
                 flag = false;
             }
