@@ -61,7 +61,7 @@ public class RecipesArcaneEnchanter extends Skyrim
 			{
 				if (!(var7 instanceof Block))
 				{
-					throw new RuntimeException("Invalid shapeless recipy!");
+					throw new RuntimeException("Invalid shapeless recipe!");
 				}
 
 				var3.add(new ItemStack((Block)var7));

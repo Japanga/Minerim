@@ -50,6 +50,8 @@ public class ItemEnchantedRing extends Item
 		if (var1.stackTagCompound == null){var1.setTagCompound(new NBTTagCompound());}
 		if (var1.stackTagCompound.getBoolean("Equipped") == true){var3.add("Currently Equipped");}
 		if (var1.stackTagCompound.getBoolean("FortifyBlock") == true){var3.add("Fortify Block");}
+		if (var1.stackTagCompound.getBoolean("FortifyRegen") == true){var3.add("Fortify Health Regeneration");}
+		if (var1.stackTagCompound.getBoolean("Waterbreath") == true){var3.add("Waterbreathing");}
 	}
 
 	public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
@@ -57,22 +59,42 @@ public class ItemEnchantedRing extends Item
 		if (par1ItemStack.stackTagCompound == null){par1ItemStack.setTagCompound(new NBTTagCompound());}
 		par1ItemStack.stackTagCompound.setBoolean("Equipped", false);
 		par1ItemStack.stackTagCompound.setBoolean("FortifyBlock", false);
+		par1ItemStack.stackTagCompound.setBoolean("FortifyRegen", false);
+		par1ItemStack.stackTagCompound.setBoolean("Waterbreath", false);
 
-		if (rand.nextInt(4) == 0)
+		if (rand.nextInt(3) == 0)
 		{
 			par1ItemStack.stackTagCompound.setBoolean("FortifyBlock", true);
+		}
+
+		if (rand.nextInt(3) == 1)
+		{
+			par1ItemStack.stackTagCompound.setBoolean("FortifyRegen", true);
+		}
+
+		if (rand.nextInt(3) == 2)
+		{
+			par1ItemStack.stackTagCompound.setBoolean("Waterbreath", true);
 		}
 	}
 
 	public void onUpdate(ItemStack par1ItemStack, World var2, Entity par3Entity, int par4, boolean par5) 
 	{
 		if (par1ItemStack.stackTagCompound == null){par1ItemStack.setTagCompound(new NBTTagCompound());}
-		//isEquipped = par1ItemStack.stackTagCompound.getBoolean("Equipped");
 
-		if (par1ItemStack.stackTagCompound.getBoolean("FortifyBlock") && par1ItemStack.stackTagCompound.getBoolean("Equipped")
-				&& par3Entity.isSneaking())
+		if (par1ItemStack.stackTagCompound.getBoolean("FortifyBlock") && par1ItemStack.stackTagCompound.getBoolean("Equipped"))
 		{
 			((EntityLiving) par3Entity).addPotionEffect(new PotionEffect(Potion.resistance.id, 20));
+		}
+
+		if (par1ItemStack.stackTagCompound.getBoolean("FortifyRegen") && par1ItemStack.stackTagCompound.getBoolean("Equipped"))
+		{
+			((EntityLiving) par3Entity).addPotionEffect(new PotionEffect(Potion.regeneration.id, 20));
+		}
+
+		if (par1ItemStack.stackTagCompound.getBoolean("Waterbreath") && par1ItemStack.stackTagCompound.getBoolean("Equipped"))
+		{
+			((EntityLiving) par3Entity).addPotionEffect(new PotionEffect(Potion.waterBreathing.id, 20));
 		}
 	}
 
