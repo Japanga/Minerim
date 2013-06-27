@@ -28,16 +28,18 @@ public class ItemEnchantedRing extends Item
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
 	{
 		if (par1ItemStack.stackTagCompound == null){par1ItemStack.setTagCompound(new NBTTagCompound());}
-		if (par1ItemStack.stackTagCompound.getBoolean("Equipped") == false && Skyrim.getRings < 20)
+		if (par1ItemStack.stackTagCompound.getBoolean("Equipped") == false && Skyrim.ringCheck == false)
 		{
 			par1ItemStack.stackTagCompound.setBoolean("Equipped", true);
-			Skyrim.getRings += 1;
+			Skyrim.ringCheck = true;
 		}
+
+		if (Skyrim.ringCheck = true){par3EntityPlayer.addChatMessage("You already have a ring equipped!");}
 
 		else
 		{
 			par1ItemStack.stackTagCompound.setBoolean("Equipped", false);
-			Skyrim.getRings -= 1;
+			Skyrim.ringCheck = false;
 		}
 
 		return par1ItemStack;
@@ -48,7 +50,6 @@ public class ItemEnchantedRing extends Item
 		if (var1.stackTagCompound == null){var1.setTagCompound(new NBTTagCompound());}
 		if (var1.stackTagCompound.getBoolean("Equipped") == true){var3.add("Currently Equipped");}
 		if (var1.stackTagCompound.getBoolean("FortifyBlock") == true){var3.add("Fortify Block");}
-		var3.add("Rings Equipped: " + Skyrim.getRings / 2);
 	}
 
 	public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
@@ -68,7 +69,8 @@ public class ItemEnchantedRing extends Item
 		if (par1ItemStack.stackTagCompound == null){par1ItemStack.setTagCompound(new NBTTagCompound());}
 		//isEquipped = par1ItemStack.stackTagCompound.getBoolean("Equipped");
 
-		if (par1ItemStack.stackTagCompound.getBoolean("FortifyBlock") && par1ItemStack.stackTagCompound.getBoolean("Equipped"))
+		if (par1ItemStack.stackTagCompound.getBoolean("FortifyBlock") && par1ItemStack.stackTagCompound.getBoolean("Equipped")
+				&& par3Entity.isSneaking())
 		{
 			((EntityLiving) par3Entity).addPotionEffect(new PotionEffect(Potion.resistance.id, 20));
 		}
@@ -76,12 +78,15 @@ public class ItemEnchantedRing extends Item
 
 	@Override
 	public boolean onDroppedByPlayer(ItemStack item, EntityPlayer player)
-    {
+	{
 		if (item.stackTagCompound == null){item.setTagCompound(new NBTTagCompound());}
-		item.stackTagCompound.setBoolean("Equipped", false);
-		Skyrim.getRings -= 2;
+		if (item.stackTagCompound.getBoolean("Equipped") == true)
+		{
+			item.stackTagCompound.setBoolean("Equipped", false);
+			Skyrim.ringCheck = false;
+		}
 		return true;
-    }
+	}
 
 	public void registerIcons(IconRegister iconRegister)
 	{

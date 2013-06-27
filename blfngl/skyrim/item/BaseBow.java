@@ -17,17 +17,17 @@ import blfngl.skyrim.entity.EntityDaedricArrow;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemSkyrimBow extends Item
+public class BaseBow extends Item
 {
 	public static final String[] bowPullIconNameArray = new String[] {"bow_pull_0", "bow_pull_1", "bow_pull_2"};
 	@SideOnly(Side.CLIENT)
 	private Icon[] iconArray;
 
-	public ItemSkyrimBow(int par1)
+	public BaseBow(int par1)
 	{
 		super(par1);
 		maxStackSize = 1;
-		setMaxDamage(384);
+		setMaxDamage(-1);
 		setCreativeTab(Skyrim.TabSkyrimCombat);
 	}
 
@@ -144,6 +144,31 @@ public class ItemSkyrimBow extends Item
 		if (event.isCanceled())
 		{
 			return event.result;
+		}
+
+		if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItem(Skyrim.arrowDaedric.itemID))
+		{
+			par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
+		}
+
+		if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItem(Skyrim.arrowDragonbone.itemID))
+		{
+			par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
+		}
+
+		if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItem(Skyrim.arrowDwarven.itemID))
+		{
+			par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
+		}
+
+		if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItem(Skyrim.arrowGlass.itemID))
+		{
+			par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
+		}
+
+		if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItem(Skyrim.arrowIron.itemID))
+		{
+			par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
 		}
 
 		if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItem(Item.arrow.itemID))

@@ -32,7 +32,7 @@ import blfngl.skyrim.item.BasePick;
 import blfngl.skyrim.item.BaseSword;
 import blfngl.skyrim.item.ItemEnchantedRing;
 import blfngl.skyrim.item.ItemShout;
-import blfngl.skyrim.item.ItemSkyrimBow;
+import blfngl.skyrim.item.BaseBow;
 import blfngl.skyrim.proxy.CommonProxy;
 import blfngl.skyrim.tab.TabSkyrimArmor;
 import blfngl.skyrim.tab.TabSkyrimBlocks;
@@ -71,8 +71,9 @@ public class Skyrim
 
 	@SidedProxy(clientSide="blfngl.skyrim.proxy.ClientProxy", serverSide="blfngl.skyrim.proxy.CommonProxy")
 	public static CommonProxy proxy;
-	public static int getRings;
-
+	public static boolean ringCheck;
+	public static boolean necklaceCheck;
+	public static boolean circletCheck;
 	public GuiHandler guiHandler = new GuiHandler();
 
 	public static CreativeTabs TabSkyrimBlocks = new TabSkyrimBlocks(CreativeTabs.getNextID(), "TabSkyrimBlocks");
@@ -90,8 +91,9 @@ public class Skyrim
 	public static EnumArmorMaterial STALHRIM = EnumHelper.addArmorMaterial("STALHRIM", 46, new int[]{4, 8, 6, 2}, 46);
 	public static EnumArmorMaterial ELVEN = EnumHelper.addArmorMaterial("ELVEN", 29, new int[]{3, 6, 5, 2}, 29);
 	public static EnumArmorMaterial ELVENGILDED = EnumHelper.addArmorMaterial("ELVENGILDED", 35, new int[]{3, 6, 5, 2}, 35);
-	public static EnumArmorMaterial ANCIENTNORD = EnumHelper.addArmorMaterial("ANCIENTNORD", 25, new int[]{4, 8, 6, 2}, 25);
+	public static EnumArmorMaterial ANCIENTNORD = EnumHelper.addArmorMaterial("ANCIENTNORD", 25, new int[]{3, 6, 5, 2}, 25);
 	public static EnumArmorMaterial STALHRIMLIGHT = EnumHelper.addArmorMaterial("STALHRIMLIGHT", 39, new int[]{3, 6, 5, 2}, 39);
+	public static EnumArmorMaterial IMPERIAL = EnumHelper.addArmorMaterial("IMPERIAL", 25, new int[]{4, 8, 6, 2}, 25);
 
 	public static EnumToolMaterial STALHRIMTOOL = EnumHelper.addToolMaterial("STALHRIMTOOL", 4, -1, 6.0F, 3, 40);
 
@@ -175,7 +177,7 @@ public class Skyrim
 	public static final Item dwemmerMetal = new BaseItem(11054).setUnlocalizedName("DwemmerMetal");
 	public static final Item dwemmerStrut = new BaseItem(11055).setUnlocalizedName("DwemmerStrut");
 
-	public static final Item bowDaedric = new ItemSkyrimBow(11056).setUnlocalizedName("DaedricBow");
+	public static final Item bowDaedric = new BaseBow(11056).setUnlocalizedName("DaedricBow");
 	public static final Item arrowDaedric = new BaseItem(11057).setUnlocalizedName("DaedricArrow");
 	public static final Item arrowGlass = new BaseItem(11058).setUnlocalizedName("GlassArrow");
 	public static final Item arrowIron = new BaseItem(11059).setUnlocalizedName("IronArrow");
@@ -276,9 +278,9 @@ public class Skyrim
 	public static final Item gauntletsStalhrimLight = new BaseArmor(11132, STALHRIM, 1, 2, "Light", "StalhrimArmor.png", stalhrim).setUnlocalizedName("StalhrimGauntlets");
 	public static final Item bootsStalhrimLight = new BaseArmor(11133, STALHRIM, 1, 3, "Light", "StalhrimArmor.png", stalhrim).setUnlocalizedName("StalhrimBoots");
 
-	public static final Item helmSteelI = new BaseArmor(11134, ANCIENTNORD, 1, 0, "Heavy", "SteelArmor.png", ingotSteel).setUnlocalizedName("SteelImperialHelm");
-	public static final Item gauntletsSteelI = new BaseArmor(11135, ANCIENTNORD, 1, 2, "Heavy", "SteelArmor.png", ingotSteel).setUnlocalizedName("SteelImperialGauntlets");
-	public static final Item bootsSteelI = new BaseArmor(11136, ANCIENTNORD, 1, 3, "Heavy", "SteelArmor.png", ingotSteel).setUnlocalizedName("SteelImperialBoots");
+	public static final Item helmSteelI = new BaseArmor(11134, IMPERIAL, 1, 0, "Heavy", "SteelArmor.png", ingotSteel).setUnlocalizedName("SteelImperialHelm");
+	public static final Item gauntletsSteelI = new BaseArmor(11135, IMPERIAL, 1, 2, "Heavy", "SteelArmor.png", ingotSteel).setUnlocalizedName("SteelImperialGauntlets");
+	public static final Item bootsSteelI = new BaseArmor(11136, IMPERIAL, 1, 3, "Heavy", "SteelArmor.png", ingotSteel).setUnlocalizedName("SteelImperialBoots");
 
 	public static final Block forge = new BlockForge(203).setHardness(4.5F).setStepSound(Block.soundAnvilFootstep).setUnlocalizedName("Forge");
 	public static final Block levelUp = new BlockLevelUp(204, Material.rock).setHardness(2.5F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("lol");
@@ -319,7 +321,7 @@ public class Skyrim
 	public static final Item ringSilverRubyE = new ItemEnchantedRing(11168).setUnlocalizedName("SilverRubyRing");
 
 	public static final Block arcaneEnchanter = new BlockArcaneEnchanter(205).setHardness(4.5F).setStepSound(Block.soundAnvilFootstep).setUnlocalizedName("ArcaneEnchanter");
-	public static final Item shout = new ItemShout(11169).setCreativeTab(TabSkyrimCombat);
+	//public static final Item shout = new ItemShout(11169).setCreativeTab(TabSkyrimCombat);
 	public static final Item dragonKiller = new BaseSword(11400, 9999, -3, Item.diamond).setUnlocalizedName("DragonKiller");
 
 	@PreInit

@@ -47,8 +47,12 @@ public class EntityHandler extends Skyrim
 		EntityRegistry.registerGlobalEntityID(EntityDaedricArrow.class, "DaedricArrow", EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityDaedricArrow.class, "DaedricArrow", 0, Skyrim.instance, 128, 1, true);
 		LanguageRegistry.instance().addStringLocalization("entity.DaedricArrow.name", "Daedric Arrow");
-		
+
 		EntityRegistry.registerGlobalEntityID(EntityMerchant.class, "Merchant", EntityRegistry.findGlobalUniqueEntityId(), 230, 78);
 		LanguageRegistry.instance().addStringLocalization("entity.Merchant.name", "en_US", "Merchant");
+
+		EntityRegistry.registerGlobalEntityID(EntityShout.class, "Shout", EntityRegistry.findGlobalUniqueEntityId());
+		EntityRegistry.registerModEntity(EntityShout.class, "Shout", 0, Skyrim.instance, 128, 1, true);
+		LanguageRegistry.instance().addStringLocalization("entity.Shout.name", "Shout");
 	}
 }

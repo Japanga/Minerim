@@ -1,12 +1,10 @@
 package blfngl.skyrim.entity;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.particle.EntityReddustFX;
+import net.minecraft.client.particle.EntityNoteFX;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.src.ModLoader;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -33,7 +31,7 @@ public class EntityShout extends Entity
 
 		for (int i = 0; i < 360; i += 10)
 		{
-			game.effectRenderer.addEffect(new EntityReddustFX(worldObj, posX + radius * Math.cos(Math.toRadians(rotationYaw)) * Math.cos(Math.toRadians(rotationPitch)) * Math.cos(Math.toRadians(i)), posY + radius * Math.sin(Math.toRadians(i)), posZ + radius * Math.sin(Math.toRadians(rotationYaw)) * Math.cos(Math.toRadians(rotationPitch)) * Math.cos(Math.toRadians(i)), 1.0F, 0.0F, 191F, 255F));
+			game.effectRenderer.addEffect(new EntityNoteFX(worldObj, posX + radius * Math.cos(Math.toRadians(rotationYaw)) * Math.cos(Math.toRadians(rotationPitch)) * Math.cos(Math.toRadians(i)), posY + radius * Math.sin(Math.toRadians(i)), posZ + radius * Math.sin(Math.toRadians(rotationYaw)) * Math.cos(Math.toRadians(rotationPitch)) * Math.cos(Math.toRadians(i)), 1.0F, 0.0F, 191F, 255F));
 		}
 
 		this.moveEntity(-Math.sin(Math.toRadians(rotationYaw)) * Math.cos(Math.toRadians(rotationPitch)), -Math.sin(Math.toRadians(rotationPitch)), Math.cos(Math.toRadians(rotationYaw)) * Math.cos(Math.toRadians(rotationPitch)));
