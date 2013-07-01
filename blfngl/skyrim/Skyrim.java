@@ -31,6 +31,7 @@ import blfngl.skyrim.item.BaseFood;
 import blfngl.skyrim.item.BaseItem;
 import blfngl.skyrim.item.BasePick;
 import blfngl.skyrim.item.BaseSword;
+import blfngl.skyrim.item.ItemDawnbreaker;
 import blfngl.skyrim.item.ItemEnchantedRing;
 import blfngl.skyrim.proxy.CommonProxy;
 import blfngl.skyrim.tab.TabSkyrimArmor;
@@ -322,6 +323,8 @@ public class Skyrim
 	public static final Block arcaneEnchanter = new BlockArcaneEnchanter(205).setHardness(4.5F).setStepSound(Block.soundAnvilFootstep).setUnlocalizedName("ArcaneEnchanter");
 	//public static final Item shout = new ItemShout(11169).setCreativeTab(TabSkyrimCombat);
 	public static final Block oreGeode = new BlockGeodeOre(206).setUnlocalizedName("GeodeOre");
+
+	public static final Item daedricDawnbreaker = new ItemDawnbreaker(11169, 12, -1, ingotEbony).setUnlocalizedName("Dawnbreaker");
 	public static final Item dragonKiller = new BaseSword(11400, 9999, 0, Item.diamond).setUnlocalizedName("DragonKiller");
 
 	@PreInit

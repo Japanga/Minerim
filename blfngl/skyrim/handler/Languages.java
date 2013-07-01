@@ -204,6 +204,8 @@ public class Languages extends Skyrim
 		
 		LanguageRegistry.addName(arcaneEnchanter, "Arcane Enchanter (Texture WIP)");
 		LanguageRegistry.addName(oreGeode, "Geode Ore");
+		
+		LanguageRegistry.addName(daedricDawnbreaker, "Dawnbreaker");
 		//LanguageRegistry.addName(wabbajack, "Wabbajack");
 	}
 }
