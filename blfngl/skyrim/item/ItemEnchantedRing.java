@@ -34,8 +34,6 @@ public class ItemEnchantedRing extends Item
 			Skyrim.ringCheck = true;
 		}
 
-		if (Skyrim.ringCheck = true){par3EntityPlayer.addChatMessage("You already have a ring equipped!");}
-
 		else
 		{
 			par1ItemStack.stackTagCompound.setBoolean("Equipped", false);

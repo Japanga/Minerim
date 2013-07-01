@@ -15,7 +15,7 @@ import net.minecraftforge.common.MinecraftForge;
 import blfngl.skyrim.block.BlockArcaneEnchanter;
 import blfngl.skyrim.block.BlockBase;
 import blfngl.skyrim.block.BlockForge;
-import blfngl.skyrim.block.BlockLevelUp;
+import blfngl.skyrim.block.BlockGeodeOre;
 import blfngl.skyrim.block.BlockSkyrimChest;
 import blfngl.skyrim.block.BlockSmelter;
 import blfngl.skyrim.handler.Blocks;
@@ -26,13 +26,12 @@ import blfngl.skyrim.handler.Recipes;
 import blfngl.skyrim.handler.SkryrimVanillaDrops;
 import blfngl.skyrim.handler.WorldHandler;
 import blfngl.skyrim.item.BaseArmor;
+import blfngl.skyrim.item.BaseBow;
 import blfngl.skyrim.item.BaseFood;
 import blfngl.skyrim.item.BaseItem;
 import blfngl.skyrim.item.BasePick;
 import blfngl.skyrim.item.BaseSword;
 import blfngl.skyrim.item.ItemEnchantedRing;
-import blfngl.skyrim.item.ItemShout;
-import blfngl.skyrim.item.BaseBow;
 import blfngl.skyrim.proxy.CommonProxy;
 import blfngl.skyrim.tab.TabSkyrimArmor;
 import blfngl.skyrim.tab.TabSkyrimBlocks;
@@ -283,7 +282,7 @@ public class Skyrim
 	public static final Item bootsSteelI = new BaseArmor(11136, IMPERIAL, 1, 3, "Heavy", "SteelArmor.png", ingotSteel).setUnlocalizedName("SteelImperialBoots");
 
 	public static final Block forge = new BlockForge(203).setHardness(4.5F).setStepSound(Block.soundAnvilFootstep).setUnlocalizedName("Forge");
-	public static final Block levelUp = new BlockLevelUp(204, Material.rock).setHardness(2.5F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("lol");
+	//public static final Block levelUp = new BlockLevelUp(204, Material.rock).setHardness(2.5F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("lol");
 
 	public static final Item ruby = new BaseItem(11137).setUnlocalizedName("Ruby").setCreativeTab(TabSkyrimItems);
 	public static final Item amethyst = new BaseItem(11138).setUnlocalizedName("Amethyst").setCreativeTab(TabSkyrimItems);
@@ -322,6 +321,7 @@ public class Skyrim
 
 	public static final Block arcaneEnchanter = new BlockArcaneEnchanter(205).setHardness(4.5F).setStepSound(Block.soundAnvilFootstep).setUnlocalizedName("ArcaneEnchanter");
 	//public static final Item shout = new ItemShout(11169).setCreativeTab(TabSkyrimCombat);
+	public static final Block oreGeode = new BlockGeodeOre(206).setUnlocalizedName("GeodeOre");
 	public static final Item dragonKiller = new BaseSword(11400, 9999, 0, Item.diamond).setUnlocalizedName("DragonKiller");
 
 	@PreInit
