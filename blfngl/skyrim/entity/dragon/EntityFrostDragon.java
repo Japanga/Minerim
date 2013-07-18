@@ -13,7 +13,6 @@ public class EntityFrostDragon extends EntityDragon
 	public EntityFrostDragon(World par1World)
 	{
 		super(par1World);
-		texture = "/blfngl/skyrim/textures/FrostDragon.png";
 	}
 
 	public int getMaxHealth()

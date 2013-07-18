@@ -2,25 +2,19 @@ package blfngl.skyrim.inventory;
 
 import java.util.Random;
 
-import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.model.ModelBook;
-import net.minecraft.client.renderer.RenderHelper;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.MathHelper;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-import org.lwjgl.util.glu.GLU;
 
 public class GuiArcaneEnchanter extends GuiContainer
 {
 	private Random rand = new Random();
-
+	private static final ResourceLocation resourceLocation = new ResourceLocation("skyrim:Enchanter");
 	private ContainerArcaneEnchanter containerSpiritTable;
 
 	public int field_74214_o;
@@ -51,7 +45,7 @@ public class GuiArcaneEnchanter extends GuiContainer
 	protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3)
 	{
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		this.mc.renderEngine.bindTexture("/mods/skyrim/art/GuiEnchanter.png");
+		this.mc.renderEngine.func_110577_a(resourceLocation); //("/mods/skyrim/art/GuiEnchanter.png");
 		int var5 = (this.width - this.xSize) / 2;
 		int var6 = (this.height - this.ySize) / 2;
 		this.drawTexturedModalRect(var5, var6, 0, 0, this.xSize, this.ySize);

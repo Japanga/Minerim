@@ -14,10 +14,10 @@ public class SoundHandler
 	{
 		try 
 		{
-			event.manager.soundPoolSounds.addSound("blfngl/Alduin1.ogg", Skyrim.class.getResource("/blfngl/skyrim/sounds/Alduin1.ogg"));
-			event.manager.soundPoolSounds.addSound("blfngl/Alduin2.ogg", Skyrim.class.getResource("/blfngl/skyrim/sounds/Alduin2.ogg"));
-			event.manager.soundPoolSounds.addSound("blfngl/Alduin3.ogg", Skyrim.class.getResource("/blfngl/skyrim/sounds/Alduin3.ogg"));
-			event.manager.soundPoolSounds.addSound("blfngl/Dragon.ogg", Skyrim.class.getResource("/blfngl/skyrim/sounds/Dragon.ogg"));
+			event.manager.soundPoolSounds.addSound("skyrim:Alduin1.ogg");
+			event.manager.soundPoolSounds.addSound("skyrim:Alduin2.ogg");
+			event.manager.soundPoolSounds.addSound("skyrim:Alduin3.ogg");
+			event.manager.soundPoolSounds.addSound("skyrim:Dragon.ogg");
 		}
 
 		catch (Exception e)

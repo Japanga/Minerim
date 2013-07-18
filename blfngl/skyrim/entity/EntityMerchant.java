@@ -6,20 +6,14 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
 
-import blfngl.skyrim.Skyrim;
-
-import net.minecraft.block.Block;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentData;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.INpc;
 import net.minecraft.entity.ai.EntityAIAvoidEntity;
 import net.minecraft.entity.ai.EntityAIMoveIndoors;
-import net.minecraft.entity.ai.EntityAIMoveTwardsRestriction;
 import net.minecraft.entity.ai.EntityAIOpenDoor;
 import net.minecraft.entity.ai.EntityAIRestrictOpenDoor;
 import net.minecraft.entity.ai.EntityAISwimming;
@@ -42,7 +36,7 @@ import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.village.Village;
 import net.minecraft.world.World;
-import cpw.mods.fml.common.registry.VillagerRegistry;
+import blfngl.skyrim.Skyrim;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -63,6 +57,7 @@ public class EntityMerchant extends EntityAgeable implements INpc, IMerchant
 	public static final Map villagerStockList = new HashMap();
 	public static final Map blacksmithSellingList = new HashMap();
 	//private static final ItemStack defaultHeldItem;
+	public static float moveSpeed;
 
 	public EntityMerchant(World var1)
 	{
@@ -77,7 +72,6 @@ public class EntityMerchant extends EntityAgeable implements INpc, IMerchant
 		this.isPlaying = false;
 		this.villageObj = null;
 		this.setProfession(var2);
-		this.texture = "/mods/skyrim/art/Merchant.png";
 		this.moveSpeed = 0.5F;
 		this.setSize(0.6F, 1.8F);
 		this.getNavigator().setBreakDoors(true);
@@ -87,10 +81,9 @@ public class EntityMerchant extends EntityAgeable implements INpc, IMerchant
 		this.tasks.addTask(2, new EntityAIMoveIndoors(this));
 		this.tasks.addTask(3, new EntityAIRestrictOpenDoor(this));
 		this.tasks.addTask(4, new EntityAIOpenDoor(this, true));
-		this.tasks.addTask(5, new EntityAIMoveTwardsRestriction(this, 0.3F));
 		this.tasks.addTask(9, new EntityAIWatchClosest2(this, EntityPlayer.class, 3.0F, 1.0F));
 		this.tasks.addTask(9, new EntityAIWander(this, 0.3F));
-		this.tasks.addTask(10, new EntityAIWatchClosest(this, EntityLiving.class, 8.0F));
+		this.tasks.addTask(10, new EntityAIWatchClosest(this, EntityLivingBase.class, 8.0F));
 	}
 
 	/**
@@ -114,12 +107,12 @@ public class EntityMerchant extends EntityAgeable implements INpc, IMerchant
 
 			if (this.villageObj == null)
 			{
-				this.detachHome();
+				this.func_110177_bN();
 			}
 			else
 			{
 				ChunkCoordinates var1 = this.villageObj.getCenter();
-				this.setHomeArea(var1.posX, var1.posY, var1.posZ, (int)((float)this.villageObj.getVillageRadius() * 0.6F));
+				this.func_110171_b(var1.posX, var1.posY, var1.posZ, (int)((float)this.villageObj.getVillageRadius() * 0.6F));
 
 				if (this.field_82190_bM)
 				{
@@ -182,7 +175,7 @@ public class EntityMerchant extends EntityAgeable implements INpc, IMerchant
 			if (!this.worldObj.isRemote)
 			{
 				this.setCustomer(var1);
-				var1.displayGUIMerchant(this, this.func_94057_bL());
+				var1.displayGUIMerchant(this, this.getCustomNameTag());
 			}
 
 			return true;
@@ -232,35 +225,6 @@ public class EntityMerchant extends EntityAgeable implements INpc, IMerchant
 		{
 			NBTTagCompound var2 = var1.getCompoundTag("Offers");
 			this.buyingList = new MerchantRecipeList(var2);
-		}
-	}
-
-	@SideOnly(Side.CLIENT)
-
-	/**
-	 * Returns the texture's file path as a String.
-	 */
-	public String getTexture()
-	{
-		switch (this.getProfession())
-		{
-		case 0:
-			return "/JapangaCraft/SkyrimCraft/mob/skyrimvillager.png";
-
-		case 1:
-			return "/JapangaCraft/SkyrimCraft/mob/skyrimvillager.png";
-
-		case 2:
-			return "/JapangaCraft/SkyrimCraft/mob/skyrimvillager.png";
-
-		case 3:
-			return "/JapangaCraft/SkyrimCraft/mob/skyrimvillager.png";
-
-		case 4:
-			return "/JapangaCraft/SkyrimCraft/mob/skyrimvillager.png";
-
-		default:
-			return VillagerRegistry.getVillagerSkin(this.getProfession(), super.getTexture());
 		}
 	}
 
@@ -326,7 +290,7 @@ public class EntityMerchant extends EntityAgeable implements INpc, IMerchant
 		return this.isPlaying;
 	}
 
-	public void setRevengeTarget(EntityLiving var1)
+	public void setRevengeTarget(EntityLivingBase var1)
 	{
 		super.setRevengeTarget(var1);
 
@@ -483,15 +447,6 @@ public class EntityMerchant extends EntityAgeable implements INpc, IMerchant
 				addMerchantItem(var2, Item.ingotIron.itemID, this.rand, this.sellItems(0.3F));
 				addMerchantItem(var2, Skyrim.amethyst.itemID, this.rand, this.sellItems(0.3F));
 				addBlacksmithItem(var2, Skyrim.ingotSteel.itemID, this.rand, this.sellItems(0.2F));
-
-				if (this.rand.nextFloat() < this.sellItems(0.07F))
-				{
-					Enchantment var8 = Enchantment.field_92090_c[this.rand.nextInt(Enchantment.field_92090_c.length)];
-					int var10 = MathHelper.getRandomIntegerInRange(this.rand, var8.getMinLevel(), var8.getMaxLevel());
-					ItemStack var11 = Item.enchantedBook.func_92111_a(new EnchantmentData(var8, var10));
-					var3 = 2 + this.rand.nextInt(5 + var10 * 10) + 3 * var10;
-					var2.add(new MerchantRecipe(new ItemStack(Item.book), new ItemStack(Item.emerald, var3), var11));
-				}
 
 				break;
 
@@ -683,5 +638,11 @@ public class EntityMerchant extends EntityAgeable implements INpc, IMerchant
 	static
 	{
 		villagerStockList.put(Integer.valueOf(Item.coal.itemID), new Tuple(Integer.valueOf(16), Integer.valueOf(24)));
+	}
+
+	@Override
+	public void func_110297_a_(ItemStack itemstack)
+	{
+		// TODO Auto-generated method stub
 	}
 }

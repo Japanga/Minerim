@@ -122,7 +122,7 @@ public class Languages extends Skyrim
 
 		//LanguageRegistry.addName(shoutFus, "Fus");
 
-		LanguageRegistry.addName(grindstone, "Grindstone (WIP)");
+		//LanguageRegistry.addName(grindstone, "Grindstone (WIP)");
 		//LanguageRegistry.addName(grindstoneActive, "Grindstone (WIP)");
 
 		LanguageRegistry.addName(daggerSteel, "Steel Dagger");
@@ -201,10 +201,16 @@ public class Languages extends Skyrim
 		LanguageRegistry.addName(ringSilverAmethyst, "Silver Amethyst Ring");
 		LanguageRegistry.addName(ringSilverGarnet, "Silver Garnet Ring");
 		LanguageRegistry.addName(ringSilverRuby, "Silver Ruby Ring");
-		
+
 		LanguageRegistry.addName(arcaneEnchanter, "Arcane Enchanter (Texture WIP)");
 		LanguageRegistry.addName(oreGeode, "Geode Ore");
-		
+
+		LanguageRegistry.addName(soulGemPetty, "Petty Soul Gem");
+		LanguageRegistry.addName(soulGemLesser, "Lesser Soul Gem");
+		LanguageRegistry.addName(soulGemCommon, "Common Soul Gem");
+		LanguageRegistry.addName(soulGemGreater, "Greater Soul Gem");
+		LanguageRegistry.addName(soulGemGrand, "Grand Soul Gem");
+
 		LanguageRegistry.addName(daedricDawnbreaker, "Dawnbreaker");
 		//LanguageRegistry.addName(wabbajack, "Wabbajack");
 	}

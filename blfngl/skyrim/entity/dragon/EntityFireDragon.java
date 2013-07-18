@@ -14,7 +14,6 @@ public class EntityFireDragon extends EntityDragon
 		//texture = "/blfngl/skyrim/textures/BloodDragon.png";
 	}
 
-	@Override
 	public int getMaxHealth()
 	{
 		return 905;

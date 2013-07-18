@@ -13,8 +13,9 @@ public class BaseFood extends ItemFood
 		setCreativeTab(Skyrim.TabSkyrimFood);
 	}
 
-	public void func_94581_a(IconRegister iconRegister)
+	@Override
+	public void registerIcons(IconRegister iconRegister)
 	{
-		itemIcon = iconRegister.registerIcon("blfngl" + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
+		itemIcon = iconRegister.registerIcon("skyrim:" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
 	}
 }

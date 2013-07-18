@@ -5,12 +5,12 @@ import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
 import blfngl.skyrim.entity.EntitySkyrimArrow;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -19,7 +19,6 @@ public class RenderDaedricArrow extends Render
 {
     public void renderArrow(EntitySkyrimArrow par1EntityArrow, double par2, double par4, double par6, float par8, float par9)
     {
-        this.loadTexture("/mods/blfngl/textures/items/DaedricArrow.png");
         GL11.glPushMatrix();
         GL11.glTranslatef((float)par2, (float)par4, (float)par6);
         GL11.glRotatef(par1EntityArrow.prevRotationYaw + (par1EntityArrow.rotationYaw - par1EntityArrow.prevRotationYaw) * par9 - 90.0F, 0.0F, 1.0F, 0.0F);
@@ -88,4 +87,10 @@ public class RenderDaedricArrow extends Render
     {
         this.renderArrow((EntitySkyrimArrow)par1Entity, par2, par4, par6, par8, par9);
     }
+
+	@Override
+	protected ResourceLocation func_110775_a(Entity entity)
+	{
+		return null;
+	}
 }

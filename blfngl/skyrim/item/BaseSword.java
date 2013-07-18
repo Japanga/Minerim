@@ -16,7 +16,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import blfngl.skyrim.Skyrim;
 
-public class BaseSword extends Item
+public class BaseSword extends BaseItem
 {
 	public int damage;
 	public int baseDamage;
@@ -52,11 +52,6 @@ public class BaseSword extends Item
 	public int getDamageVsEntity(Entity par1Entity)
 	{
 		return damage;
-	}
-
-	public void func_94581_a(IconRegister iconRegister)
-	{
-		itemIcon = iconRegister.registerIcon("blfngl" + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
 	}
 
 	public void addInformation(ItemStack var1, EntityPlayer var2, List var3, boolean var4)

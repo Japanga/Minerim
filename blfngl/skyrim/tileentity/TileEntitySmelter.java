@@ -343,7 +343,19 @@ public class TileEntitySmelter extends TileEntity implements IInventory
 	}
 
 	@Override
-	public boolean isStackValidForSlot(int i, ItemStack itemstack)
+	public void openChest()
+	{
+
+	}
+
+	@Override
+	public void closeChest()
+	{
+
+	}
+
+	@Override
+	public boolean isItemValidForSlot(int i, ItemStack itemstack)
 	{
 		if (i == 3)
 		{
@@ -354,17 +366,5 @@ public class TileEntitySmelter extends TileEntity implements IInventory
 		{
 			return true;
 		}
-	}
-
-	@Override
-	public void openChest()
-	{
-
-	}
-
-	@Override
-	public void closeChest()
-	{
-
 	}
 }

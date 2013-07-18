@@ -39,7 +39,6 @@ import blfngl.skyrim.tab.TabSkyrimBlocks;
 import blfngl.skyrim.tab.TabSkyrimCombat;
 import blfngl.skyrim.tab.TabSkyrimFood;
 import blfngl.skyrim.tab.TabSkyrimItems;
-import blfngl.skyrim.wip.BlockGrindstone;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -121,7 +120,7 @@ public class Skyrim
 	public static final Block smelterIdle = new BlockSmelter(197, false).setUnlocalizedName("SmelterIdle").setCreativeTab(TabSkyrimBlocks);
 	public static final Block smelterActive = new BlockSmelter(198, true).setUnlocalizedName("SmelterActive");
 	public static final Block chestSkyrim = new BlockSkyrimChest(199, Material.wood).setUnlocalizedName("SkyrimChest").setCreativeTab(TabSkyrimBlocks);
-	public static final Block grindstone = new BlockGrindstone(200).setUnlocalizedName("GrindstoneIdle").setCreativeTab(TabSkyrimBlocks);
+	//public static final Block grindstone = new BlockGrindstone(200).setUnlocalizedName("GrindstoneIdle").setCreativeTab(TabSkyrimBlocks);
 	//public static final Block grindstoneActive = new BlockGrindstone(201).setUnlocalizedName("GrindstoneActive");
 
 	public static final Item daggerEbony = new BaseSword(11012, 10, 1, ingotEbony).setUnlocalizedName("EbonyDagger");

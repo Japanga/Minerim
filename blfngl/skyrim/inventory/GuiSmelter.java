@@ -2,12 +2,12 @@ package blfngl.skyrim.inventory;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 
 import org.lwjgl.opengl.GL11;
 
 import blfngl.skyrim.tileentity.TileEntitySmelter;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -15,6 +15,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class GuiSmelter extends GuiContainer
 {
 	private TileEntitySmelter inventoryFurnace;
+	private static final ResourceLocation resourceLocation = new ResourceLocation("skyrim:GuiSmelter");
 
 	public GuiSmelter(InventoryPlayer inventoryPlayer, TileEntitySmelter tileFurnace)
 	{
@@ -25,7 +26,8 @@ public class GuiSmelter extends GuiContainer
 	}
 
 	@Override
-	protected void drawGuiContainerForegroundLayer(int x, int y) {
+	protected void drawGuiContainerForegroundLayer(int x, int y)
+	{
 		String containerName = inventoryFurnace.isInvNameLocalized() ? inventoryFurnace.getInvName() : StatCollector.translateToLocal(inventoryFurnace.getInvName());
 		fontRenderer.drawString(containerName, xSize / 2 - fontRenderer.getStringWidth(containerName) / 2, 5, 4210752);
 		fontRenderer.drawString("Inventory", 8, ySize - 93, 4210752);
@@ -34,7 +36,7 @@ public class GuiSmelter extends GuiContainer
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float f, int i, int j) {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		mc.renderEngine.bindTexture("/mods/skyrim/art/GuiSmelter.png");
+		mc.renderEngine.func_110577_a(resourceLocation);//("/mods/skyrim/art/GuiSmelter.png");
 		int xStart = (width - xSize) / 2;
 		int yStart = (height - ySize) / 2;
 		this.drawTexturedModalRect(xStart, yStart, 0, 0, xSize, ySize);

@@ -8,10 +8,9 @@ import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.IArmorTextureProvider;
 import blfngl.skyrim.Skyrim;
 
-public class BaseArmor extends ItemArmor implements IArmorTextureProvider
+public class BaseArmor extends ItemArmor
 {
 	public String type;
 	public String textureFile;
@@ -28,9 +27,10 @@ public class BaseArmor extends ItemArmor implements IArmorTextureProvider
 		repairMaterial = par7;
 	}
 
-	public void func_94581_a(IconRegister iconRegister)
+	@Override
+	public void registerIcons(IconRegister iconRegister)
 	{
-		itemIcon = iconRegister.registerIcon("skyrim" + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
+		itemIcon = iconRegister.registerIcon("skyrim:" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
 	}
 
 	public String getArmorTextureFile(ItemStack par1)

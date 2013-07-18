@@ -1,13 +1,11 @@
 package blfngl.skyrim.entity;
 
-import blfngl.skyrim.Skyrim;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.EnchantmentThorns;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.player.EntityPlayer;
@@ -22,6 +20,8 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class EntitySkyrimArrow extends Entity implements IProjectile
 {
@@ -60,21 +60,21 @@ public class EntitySkyrimArrow extends Entity implements IProjectile
         this.yOffset = 0.0F;
     }
 
-    public EntitySkyrimArrow(World par1World, EntityLiving par2EntityLiving, EntityLiving par3EntityLiving, float par4, float par5)
+    public EntitySkyrimArrow(World par1World, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase, float par4, float par5)
     {
         super(par1World);
         this.renderDistanceWeight = 10.0D;
-        this.shootingEntity = par2EntityLiving;
+        this.shootingEntity = par2EntityLivingBase;
 
-        if (par2EntityLiving instanceof EntityPlayer)
+        if (par2EntityLivingBase instanceof EntityPlayer)
         {
             this.canBePickedUp = 1;
         }
 
-        this.posY = par2EntityLiving.posY + (double)par2EntityLiving.getEyeHeight() - 0.10000000149011612D;
-        double d0 = par3EntityLiving.posX - par2EntityLiving.posX;
-        double d1 = par3EntityLiving.boundingBox.minY + (double)(par3EntityLiving.height / 3.0F) - this.posY;
-        double d2 = par3EntityLiving.posZ - par2EntityLiving.posZ;
+        this.posY = par2EntityLivingBase.posY + (double)par2EntityLivingBase.getEyeHeight() - 0.10000000149011612D;
+        double d0 = par3EntityLivingBase.posX - par2EntityLivingBase.posX;
+        double d1 = par3EntityLivingBase.boundingBox.minY + (double)(par3EntityLivingBase.height / 3.0F) - this.posY;
+        double d2 = par3EntityLivingBase.posZ - par2EntityLivingBase.posZ;
         double d3 = (double)MathHelper.sqrt_double(d0 * d0 + d2 * d2);
 
         if (d3 >= 1.0E-7D)
@@ -83,26 +83,26 @@ public class EntitySkyrimArrow extends Entity implements IProjectile
             float f3 = (float)(-(Math.atan2(d1, d3) * 180.0D / Math.PI));
             double d4 = d0 / d3;
             double d5 = d2 / d3;
-            this.setLocationAndAngles(par2EntityLiving.posX + d4, this.posY, par2EntityLiving.posZ + d5, f2, f3);
+            this.setLocationAndAngles(par2EntityLivingBase.posX + d4, this.posY, par2EntityLivingBase.posZ + d5, f2, f3);
             this.yOffset = 0.0F;
             float f4 = (float)d3 * 0.2F;
             this.setThrowableHeading(d0, d1 + (double)f4, d2, par4, par5);
         }
     }
 
-    public EntitySkyrimArrow(World par1World, EntityLiving par2EntityLiving, float par3)
+    public EntitySkyrimArrow(World par1World, EntityLivingBase par2EntityLivingBase, float par3)
     {
         super(par1World);
         this.renderDistanceWeight = 10.0D;
-        this.shootingEntity = par2EntityLiving;
+        this.shootingEntity = par2EntityLivingBase;
 
-        if (par2EntityLiving instanceof EntityPlayer)
+        if (par2EntityLivingBase instanceof EntityPlayer)
         {
             this.canBePickedUp = 1;
         }
 
         this.setSize(0.5F, 0.5F);
-        this.setLocationAndAngles(par2EntityLiving.posX, par2EntityLiving.posY + (double)par2EntityLiving.getEyeHeight(), par2EntityLiving.posZ, par2EntityLiving.rotationYaw, par2EntityLiving.rotationPitch);
+        this.setLocationAndAngles(par2EntityLivingBase.posX, par2EntityLivingBase.posY + (double)par2EntityLivingBase.getEyeHeight(), par2EntityLivingBase.posZ, par2EntityLivingBase.rotationYaw, par2EntityLivingBase.rotationPitch);
         this.posX -= (double)(MathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
         this.posY -= 0.10000000149011612D;
         this.posZ -= (double)(MathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
@@ -325,13 +325,13 @@ public class EntitySkyrimArrow extends Entity implements IProjectile
 
                     if (movingobjectposition.entityHit.attackEntityFrom(damagesource, i1))
                     {
-                        if (movingobjectposition.entityHit instanceof EntityLiving)
+                        if (movingobjectposition.entityHit instanceof EntityLivingBase)
                         {
-                            EntityLiving entityliving = (EntityLiving)movingobjectposition.entityHit;
+                            EntityLivingBase EntityLivingBase = (EntityLivingBase)movingobjectposition.entityHit;
 
                             if (!this.worldObj.isRemote)
                             {
-                                entityliving.setArrowCountInEntity(entityliving.getArrowCountInEntity() + 1);
+                                EntityLivingBase.setArrowCountInEntity(EntityLivingBase.getArrowCountInEntity() + 1);
                             }
 
                             if (this.knockbackStrength > 0)
@@ -346,7 +346,7 @@ public class EntitySkyrimArrow extends Entity implements IProjectile
 
                             if (this.shootingEntity != null)
                             {
-                                EnchantmentThorns.func_92096_a(this.shootingEntity, entityliving, this.rand);
+                                EnchantmentThorns.func_92096_a(this.shootingEntity, EntityLivingBase, this.rand);
                             }
 
                             if (this.shootingEntity != null && movingobjectposition.entityHit != this.shootingEntity && movingobjectposition.entityHit instanceof EntityPlayer && this.shootingEntity instanceof EntityPlayerMP)

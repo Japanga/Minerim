@@ -13,9 +13,6 @@ import blfngl.skyrim.inventory.GuiArcaneEnchanter;
 import blfngl.skyrim.inventory.GuiForge;
 import blfngl.skyrim.inventory.GuiSmelter;
 import blfngl.skyrim.tileentity.TileEntitySmelter;
-import blfngl.skyrim.wip.ContainerGrindstone;
-import blfngl.skyrim.wip.GuiGrindstone;
-import blfngl.skyrim.wip.GuiLevelUp;
 import cpw.mods.fml.common.network.IGuiHandler;
 
 public class GuiHandler implements IGuiHandler
@@ -35,7 +32,7 @@ public class GuiHandler implements IGuiHandler
 			}
 		}
 
-		if (ID == 2){return new ContainerGrindstone(player.inventory, world, x, y, z);}
+		//if (ID == 2){return new ContainerGrindstone(player.inventory, world, x, y, z);}
 		if (ID == 3){return new ContainerForge(player.inventory, world, x, y, z);}
 		if (ID == 5){return new ContainerArcaneEnchanter(player.inventory, world, x, y, z);}
 
@@ -57,9 +54,8 @@ public class GuiHandler implements IGuiHandler
 			}
 		}
 
-		if (ID == 2){return new GuiGrindstone(player.inventory, world, x, y, z);}
+		//if (ID == 2){return new GuiGrindstone(player.inventory, world, x, y, z);}
 		if (ID == 3){return new GuiForge(player.inventory, world, x, y, z);}
-		if (ID == 4){return new GuiLevelUp(player);}
 		if (ID == 5){return new GuiArcaneEnchanter(player.inventory, world, x, y, z);}
 		
 		return null;

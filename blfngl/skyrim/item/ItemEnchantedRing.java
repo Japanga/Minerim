@@ -65,12 +65,12 @@ public class ItemEnchantedRing extends Item
 			par1ItemStack.stackTagCompound.setBoolean("FortifyBlock", true);
 		}
 
-		if (rand.nextInt(3) == 1)
+		else if (rand.nextInt(3) == 1)
 		{
 			par1ItemStack.stackTagCompound.setBoolean("FortifyRegen", true);
 		}
 
-		if (rand.nextInt(3) == 2)
+		else if (rand.nextInt(3) == 2)
 		{
 			par1ItemStack.stackTagCompound.setBoolean("Waterbreath", true);
 		}
@@ -108,8 +108,9 @@ public class ItemEnchantedRing extends Item
 		return true;
 	}
 
+	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		itemIcon = iconRegister.registerIcon("blfngl" + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
+		itemIcon = iconRegister.registerIcon("skyrim:" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
 	}
 }

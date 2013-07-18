@@ -31,9 +31,9 @@ public class RecipesArcaneEnchanter extends Skyrim
 		addShapeless(new ItemStack(ringGoldEmeraldE), new Object [] {ringGoldEmerald, soulGemPetty});
 		addShapeless(new ItemStack(ringGoldSapphireE), new Object [] {ringGoldSapphire, soulGemPetty});
 		addShapeless(new ItemStack(ringSilverE), new Object [] {ringSilver, soulGemPetty});
-		addShapeless(new ItemStack(ringSilverAmethystE), new Object [] {ringSilverAmethyst});
-		addShapeless(new ItemStack(ringSilverGarnetE), new Object [] {ringSilverGarnet});
-		addShapeless(new ItemStack(ringSilverRubyE), new Object [] {ringSilverRuby, soulGemPetty});
+		addShapeless(new ItemStack(ringSilverAmethystE), new Object [] {ringSilverAmethyst, soulGemPetty});
+		addShapeless(new ItemStack(ringSilverGarnetE), new Object [] {ringSilverGarnet, soulGemPetty});
+		addShapeless(new ItemStack(ringSilverRubyE), new Object [] {ringSilverRuby, soulGemPetty, soulGemPetty});
 
 		Collections.sort(this.recipes, new RecipesArcaneEnchanterSorter(this));
 		System.out.println(this.recipes.size() + " recipes");
